@@ -1,0 +1,2678 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/tmryn-tbyqy---ldr-1.html">
+      
+      
+        <link rel="prev" href="lmlft-lny.html">
+      
+      
+        <link rel="next" href="mlyt-lstyrd.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>8. تمرين تطبيقي – الإصدار 1 - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. تمرين تطبيقي – الإصدار 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dd-byy-ltwyr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. إعداد بيئة التطوير
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slsl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1. المشكلة
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1. المشكلة">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.1. حساب الضريبة الإجمالية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.2. الحد الأقصى لنسبة الأسرة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.3. حساب التخفيض
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#814" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.4. حساب التخفيض الضريبي
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#815" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.5. حساب صافي الضريبة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#816" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6. حالات الدخل المرتفع
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1.6. حالات الدخل المرتفع">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8161-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6.1. الحد الأقصى للتخفيض بنسبة 10% على الدخل السنوي
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8162" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6.2. الحد الأقصى لمعدل الأسرة
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#817" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.7. الأرقام الرسمية
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2. الإصدار 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2. الإصدار 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.1. النص الرئيسي
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-impotsv01sharedimpots_module_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.2. وحدة [impots.v01.shared.impôts_module_01]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-get_taxpayers_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.3. الدالة [get_taxpayers_data]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#824-calcul_impot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.4. وظيفة [calcul_impôt]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#825-calcul_tax_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.5. دالة [calcul_tax_2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#826-get_discount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.6. دالة [get_discount]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#827-get_reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.7. دالة [get_reduction]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#828-get_taxable_income" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.8. دالة [get_taxable_income]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#829-record_results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.9. وظيفة [record_results]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.10. النتائج
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlyt-lstyrd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين عملي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين عملي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lbny-lbqy-wlbrmj-lqym-l-lwjh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. البنية الطبقية والبرمجة القائمة على الواجهة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام نظام إدارة قواعد البيانات MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام نظام إدارة قواعد البيانات PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-nm-dr-qwd-lbynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن أنظمة إدارة قواعد البيانات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sqlalchemy-orm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام SQLAlchemy ORM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين التطبيق: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-ml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار عمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tdryby-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تدريبي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين عملي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-ltbyq-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين التطبيق: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين التطبيق: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين التطبيق: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين عملي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-lldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات JSON و XML للإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين عملي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين التطبيق: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين عملي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين عملي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading382662423505"></a>
+<a id="toc48548962"></a></p>
+<h1 id="8-1">8. <span style="color: #365f91">تمرين تطبيقي – الإصدار 1</span></h1>
+<p><a id="toc48548963"></a>
+<a id="leprobleme"></a>
+<a id="refheadingtoc2333623032778139"></a></p>
+<h2 id="81">8.1. <span style="color: #4f81bd">المشكلة</span></h2>
+<p>يتيح لنا الجدول أعلاه حساب الضريبة في الحالة المبسطة للمكلف الذي لا يبلغ سوى عن راتبه. وكما هو موضح في الملاحظة (1)، فإن الضريبة المحسوبة بهذه الطريقة هي الضريبة قبل تطبيق الآليات الثلاث التالية:</p>
+<ul>
+  <li>سقف الحصة العائلية، الذي ينطبق على الدخل المرتفع؛
+  </li>
+  <li>الائتمان الضريبي والتخفيض الضريبي اللذان ينطبقان على الدخل المنخفض؛
+  </li>
+</ul>
+
+<p>وبالتالي، يتضمن حساب الضريبة الخطوات التالية <strong>[<bdi dir="ltr" class="odt-ltr-term">http://impotsurlerevenu.org/comprendre-le-calcul-de-l-impot/1217-calcul-de-l-impot-2019.php</bdi>]</strong>:</p>
+<p><img src="images/10000001000003180000010D0C81DCD5.png" width="497" height="169" style="width:13.139cm;height:4.463cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003180000010D0C81DCD5.png" /></p>
+<p>نقترح كتابة برنامج لحساب ضريبة دافع الضرائب في الحالة المبسطة لدافع الضرائب الذي لا يبلغ سوى عن راتبه:</p>
+<p><a id="toc48548964"></a>
+<a id="calculdelimpot"></a>
+<a id="refheadingtoc185625971629160"></a></p>
+<h3 id="811">8.1.1. <span style="color: #4f81bd">حساب الضريبة الإجمالية</span></h3>
+<p>يمكن حساب الضريبة الإجمالية على النحو التالي:</p>
+<p>أولاً، نحسب عدد الأسهم الخاصة بالمكلف:</p>
+<ul>
+  <li>يساهم كل من الوالدين بحصة واحدة؛
+  </li>
+  <li>يساهم كل من الطفلين الأولين بنصف سهم؛
+  </li>
+  <li>ويساهم كل طفل من الأطفال التاليين بحصة واحدة:
+  </li>
+</ul>
+
+<p>وبالتالي، يكون عدد الأسهم:</p>
+<ul>
+  <li><bdi dir="ltr" class="odt-ltr-term">nbParts</bdi>=1+<bdi dir="ltr" class="odt-ltr-term">nbChildren</bdi>*0.5+(<bdi dir="ltr" class="odt-ltr-term">nbChildren-2</bdi>)*0.5 إذا كان الموظف غير متزوج؛
+  </li>
+  <li><bdi dir="ltr" class="odt-ltr-term">nbParts</bdi>=2+<bdi dir="ltr" class="odt-ltr-term">nbChildren</bdi>*0.5+(<bdi dir="ltr" class="odt-ltr-term">nbChildren-2</bdi>)*0.5 إذا كان متزوجًا؛
+    <ul>
+      <li>حيث <i><bdi dir="ltr" class="odt-ltr-term">nbChildren</bdi> </i>هو عدد الأطفال؛
+      </li>
+    </ul>
+  </li>
+  <li>نحسب الدخل الخاضع للضريبة <b><bdi dir="ltr" class="odt-ltr-term">R</bdi> = 0.9 * <bdi dir="ltr" class="odt-ltr-term">S</bdi>، </b>حيث <i><bdi dir="ltr" class="odt-ltr-term">S</bdi> </i>هو الراتب السنوي؛
+  </li>
+  <li>يُحسب معامل الأسرة <b><bdi dir="ltr" class="odt-ltr-term">QF</bdi> على النحو التالي: <bdi dir="ltr" class="odt-ltr-term">QF</bdi> = <bdi dir="ltr" class="odt-ltr-term">R</bdi> / <bdi dir="ltr" class="odt-ltr-term">nbParts</bdi>؛</b>
+  </li>
+  <li>نحسب الضريبة الإجمالية <b><bdi dir="ltr" class="odt-ltr-term">I</bdi> </b>بناءً على البيانات التالية (2019):
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">9964</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">27,519</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0.14</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">1,394.96</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">73,779</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0.3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">5,798</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">156,244</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0.4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">13,913.69</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">0.45</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">20163.45</div></td></tr></table>
+
+<p>يحتوي كل صف على 3 حقول: <em>الحقل</em> 1، <em>الحقل</em> 2، <em>الحقل 3</em>. لحساب الضريبة <bdi dir="ltr" class="odt-ltr-term">I</bdi>، نبحث عن الصف الأول الذي يكون فيه <em><bdi dir="ltr" class="odt-ltr-term">QF</bdi> &lt;= الحقل 1</em> ونأخذ القيم من ذلك الصف. على سبيل المثال، بالنسبة لموظف متزوج ولديه طفلان وراتب سنوي <bdi dir="ltr" class="odt-ltr-term">S</bdi> قدره <strong>50,000</strong> يورو:</p>
+<p>الدخل الخاضع للضريبة: <bdi dir="ltr" class="odt-ltr-term">R</bdi>=0.9*<bdi dir="ltr" class="odt-ltr-term">S</bdi>=45,000</p>
+<p>عدد الحصص: <bdi dir="ltr" class="odt-ltr-term">nbParts</bdi>=2+2*0.5=3</p>
+<p>نسبة الأسرة: <bdi dir="ltr" class="odt-ltr-term">QF</bdi> = 45,000 / 3 = 15,000</p>
+<p>الصف الأول الذي يكون فيه <bdi dir="ltr" class="odt-ltr-term">QF</bdi> &lt;= <bdi dir="ltr" class="odt-ltr-term">field1</bdi> هو كما يلي:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    27519    0.14    1394.96
+</code></pre></div>
+<p>وبالتالي، فإن الضريبة <em><bdi dir="ltr" class="odt-ltr-term">I</bdi></em> تساوي <strong>0.14*<bdi dir="ltr" class="odt-ltr-term">R</bdi> – 1394.</strong>96*عدد_الأسهم=<strong>[0.14*45000-1394.96*3]=2115</strong>. يتم تقريب الضريبة لأسفل إلى أقرب يورو.</p>
+<p>إذا كان الشرط <em><bdi dir="ltr" class="odt-ltr-term">QF</bdi> &lt;= <bdi dir="ltr" class="odt-ltr-term">field1</bdi></em> صحيحًا في الصف الأول، فإن الضريبة تساوي صفرًا.</p>
+<p>إذا كان <bdi dir="ltr" class="odt-ltr-term">QF</bdi> بحيث لا تتحقق الشرط <em><bdi dir="ltr" class="odt-ltr-term">QF</bdi> &lt;= <bdi dir="ltr" class="odt-ltr-term">field1</bdi></em> أبدًا، يتم استخدام المعاملات من السطر الأخير. هنا:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    0    0.45    20163.45
+</code></pre></div>
+<p>مما يعطي الضريبة الإجمالية <strong><bdi dir="ltr" class="odt-ltr-term">I</bdi></strong> = <strong>0.45*<bdi dir="ltr" class="odt-ltr-term">R</bdi> – 20163.45*<bdi dir="ltr" class="odt-ltr-term">nbParts</bdi></strong>.</p>
+<p><a id="toc48548965"></a>
+<a id="plafonnementduquotient"></a>
+<a id="refheadingtoc1594583098701287"></a></p>
+<h3 id="812">8.1.2. <span style="color: #4f81bd">الحد الأقصى لنسبة الأسرة</span></h3>
+<p>لتحديد ما إذا كان الحد الأقصى لمعدل الأسرة (<bdi dir="ltr" class="odt-ltr-term">QF</bdi>) ينطبق، نعيد حساب الضريبة الإجمالية بدون الأطفال. مرة أخرى، بالنسبة للموظف المتزوج الذي لديه طفلان وراتب سنوي <bdi dir="ltr" class="odt-ltr-term">S</bdi> قدره <strong>50,000</strong> يورو:</p>
+<p>الدخل الخاضع للضريبة: <bdi dir="ltr" class="odt-ltr-term">R</bdi> = 0.9 * <bdi dir="ltr" class="odt-ltr-term">S</bdi> = 45,000</p>
+<p>عدد الحصص: <bdi dir="ltr" class="odt-ltr-term">nbParts</bdi>=2 (لم يعد يتم احتساب الأطفال)</p>
+<p>معدل الأسرة: <bdi dir="ltr" class="odt-ltr-term">QF</bdi> = 45,000 / 2 = 22,500</p>
+<p>السطر الأول حيث <bdi dir="ltr" class="odt-ltr-term">QF</bdi> &lt;= <bdi dir="ltr" class="odt-ltr-term">field1</bdi> هو كما يلي:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    27519    0.14    1394.96
+</code></pre></div>
+<p>وبالتالي، فإن الضريبة <em>الأولى</em> تساوي <strong>0.14*<bdi dir="ltr" class="odt-ltr-term">R</bdi> – 1394.</strong>96*عدد الأسهم <strong>= [0.14*45,000 – 1394.96*2] = 3,510</strong>.</p>
+<p>الحد الأقصى للإعانة المتعلقة بالأطفال: 1551 * 2 = 3102 يورو</p>
+<p>الضريبة الدنيا: 3,510 – 3,102 = 408 يورو</p>
+<p>الضريبة الإجمالية مع 3 شرائح ضريبية، التي تم حسابها بالفعل بمبلغ 2,115 يورو، أعلى من الحد الأدنى للضريبة البالغ 408 يورو، لذا لا ينطبق سقف الأسرة هنا.</p>
+<p>بشكل عام، يكون إجمالي الضريبة <strong>أكبر من (الضريبة 1، الضريبة 2)</strong> حيث:</p>
+<ul>
+  <li><b>[الضريبة 1]</b>: هي الضريبة الإجمالية المحسوبة بما في ذلك الأطفال؛
+  </li>
+  <li><b>[الضريبة 2]</b>: هي الضريبة الإجمالية المحسوبة بدون الأطفال ومخصومة منها الائتمان الأقصى (هنا 1,551 يورو لكل نصف حصة) المتعلق بالأطفال؛
+  </li>
+</ul>
+<p><a id="toc48548966"></a>
+<a id="calculdela"></a>
+<a id="refheadingtoc185627971629160"></a></p>
+<h3 id="813">8.1.3. <span style="color: #4f81bd">حساب التخفيض</span></h3>
+<p><img src="images/100000010000032A0000011298E98FA1.png" width="524" height="177" style="width:13.852cm;height:4.687cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032A0000011298E98FA1.png" /></p>
+<p>باستخدام المثال نفسه لموظف متزوج ولديه طفلان وراتب سنوي <bdi dir="ltr" class="odt-ltr-term">S</bdi> قدره <strong>50,000</strong> يورو:</p>
+<p>الضريبة الإجمالية (2,115) من الخطوة السابقة أقل من 2,627 يورو للزوجين (1,595 يورو للشخص العازب): وبالتالي ينطبق التخفيض. ويتم حسابه على النحو التالي:</p>
+<p>الخصم = الحد الأدنى (للزوجين = 1,970 / للأعزب = 1,196) - 0.75 * الضريبة الإجمالية</p>
+<p><strong>الخصم</strong> = 1,970 – 0.75 * 2,115 = 383.75، مقربًا إلى <strong>384</strong> يورو.</p>
+<p><strong>الضريبة</strong> الإجمالية <strong>الجديدة</strong> = 2,115 – 384 = <strong>1,731</strong> يورو</p>
+<p><a id="toc48548967"></a>
+<a id="calculdela1"></a>
+<a id="refheadingtoc185629971629160"></a></p>
+<h3 id="814">8.1.4. <span style="color: #4f81bd"><span style="color: #4f81bd">حساب التخفيض الضريبي</span></span></h3>
+<p><img src="images/100000010000032A0000011677A64931.png" width="523" height="179" style="width:13.831cm;height:4.747cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032A0000011677A64931.png" /></p>
+<p>تحت حد معين، يتم تطبيق تخفيض بنسبة 20% على الضريبة الإجمالية الناتجة عن الحسابات السابقة. في عام 2019، كانت الحدود كما يلي:</p>
+<ul>
+  <li>الأفراد: 21,037 يورو؛
+  </li>
+  <li>الأزواج: 42,074 يورو؛ (يبدو أن الرقم 37,968 المستخدم في المثال أعلاه غير صحيح)؛
+  </li>
+</ul>
+
+<p>يتم زيادة هذا الحد بقيمة: 3,797 * (عدد نصف الحصص التي يساهم بها الأبناء).</p>
+<p>مرة أخرى، بالنسبة للموظف المتزوج الذي لديه طفلان وراتب سنوي <bdi dir="ltr" class="odt-ltr-term">S</bdi> قدره <strong>50,000</strong> يورو:</p>
+<ul>
+  <li>دخله الخاضع للضريبة (45,000 يورو) أقل من الحد الأدنى (42,074 + 2 <bdi dir="ltr" class="odt-ltr-term">×</bdi> 3,797) = 49,668 يورو؛
+  </li>
+  <li>وبالتالي يحق له الحصول على تخفيض بنسبة 20% في ضريبته: 1,731 * 0.2 = 346.2 يورو، مقربًا إلى 347 يورو؛
+  </li>
+  <li>يصبح إجمالي الضريبة المستحقة على المكلف: 1,731 – 347 =<b> 1,384 </b>يورو؛
+  </li>
+</ul>
+<p><a id="toc48548968"></a>
+<a id="refheadingtoc185631971629160"></a></p>
+<h3 id="815">8.1.5. <span style="color: #4f81bd">حساب صافي الضريبة</span></h3>
+<p>وينتهي حسابنا هنا: سيكون صافي الضريبة المستحقة <strong>1,384</strong> يورو. وفي الواقع، قد يكون المكلف مؤهلاً للحصول على خصومات أخرى، لا سيما تلك المتعلقة بالتبرعات المقدمة إلى المنظمات العامة أو ذات المنفعة العامة.</p>
+<p><a id="toc48548969"></a>
+<a id="casdeshauts"></a>
+<a id="refheadingtoc185633971629160"></a></p>
+<h3 id="816">8.1.6. <span style="color: #4f81bd">حالات الدخل المرتفع</span></h3>
+<p>ينطبق المثال السابق على غالبية الموظفين. ومع ذلك، يختلف حساب الضريبة بالنسبة لأصحاب الدخل المرتفع.</p>
+<p><a id="refheadingtoc185635971629160"></a></p>
+<h4 id="8161-10">8.1.6.1. <span style="color: #4f81bd">الحد الأقصى للتخفيض بنسبة 10% على الدخل السنوي</span></h4>
+<p>في معظم الحالات، يُحسب الدخل الخاضع للضريبة باستخدام الصيغة: <bdi dir="ltr" class="odt-ltr-term">R</bdi> = <bdi dir="ltr" class="odt-ltr-term">0.9 × S</bdi>، حيث <bdi dir="ltr" class="odt-ltr-term">S</bdi> هو الراتب السنوي. يُعرف هذا باسم التخفيض بنسبة 10٪. هذا التخفيض محدد بسقف. في عام 2019:</p>
+<ul>
+  <li>لا يمكن أن يتجاوز 12,502 يورو؛
+  </li>
+  <li>لا يمكن أن يقل عن 437 يورو؛
+  </li>
+</ul>
+
+<p>لنأخذ مثالاً لموظف غير متزوج وليس لديه أطفال ويبلغ راتبه السنوي 200,000 يورو:</p>
+<ul>
+  <li>تبلغ نسبة التخفيض البالغة 10% 200,000 يورو &gt; 12,502 يورو. وبالتالي، فإن الحد الأقصى هو 12,502 يورو؛
+  </li>
+</ul>
+<p><a id="refheadingtoc185637971629160"></a></p>
+<h4 id="8162">8.1.6.2. <span style="color: #4f81bd"><span style="color: #4f81bd">الحد الأقصى لمعدل الأسرة</span></span></h4>
+<p>لنأخذ حالة ينطبق عليها الحد الأقصى للأسرة الموصوف في القسم |الحد الأقصى<a href="#plafonnementduquotient"><u><span style="color: #0563c1"> لمعدل</span></u></a> الأسرة|. لنأخذ حالة زوجين لديهما ثلاثة أطفال ودخل سنوي قدره 100,000 يورو. لنراجع خطوات الحساب مرة أخرى:</p>
+<ul>
+  <li>الخصم بنسبة 10% هو 10,000 يورو &lt; 12,502 يورو. وبالتالي، فإن الدخل الخاضع للضريبة <b><bdi dir="ltr" class="odt-ltr-term">R</bdi> </b>هو 100,000 - 10,000 = 90,000 يورو؛
+  </li>
+  <li>لدى الزوجين <b><bdi dir="ltr" class="odt-ltr-term">nbParts</bdi> </b>= 2 + 0.<b>5 </b><bdi dir="ltr" class="odt-ltr-term">×</bdi> 2 + 1 =<b> 4 </b>حصص؛
+  </li>
+  <li>وبالتالي، فإن حاصل الأسرة هو <bdi dir="ltr" class="odt-ltr-term">QF</bdi> = <bdi dir="ltr" class="odt-ltr-term">R</bdi> / <b><bdi dir="ltr" class="odt-ltr-term">nbParts</bdi> = 90,000 </b>/ 4 = 22,<b>500 </b>يورو؛
+  </li>
+  <li>ضريبتهم الإجمالية <b><bdi dir="ltr" class="odt-ltr-term">I1</bdi> مع </b>أطفال هي <bdi dir="ltr" class="odt-ltr-term">I1</bdi> = <bdi dir="ltr" class="odt-ltr-term">0.14 ×</bdi> 90,000 – 1,<bdi dir="ltr" class="odt-ltr-term">394.96 ×</bdi> 4 = 7,020 يورو؛
+  </li>
+  <li>ضريبة الإجمالي <b><bdi dir="ltr" class="odt-ltr-term">I2</bdi> بدون </b>أطفال:
+  </li>
+  <li><bdi dir="ltr" class="odt-ltr-term">QF</bdi> = 90,000 / 2 = 45,000 يورو؛
+  </li>
+  <li><bdi dir="ltr" class="odt-ltr-term">I2</bdi> = <bdi dir="ltr" class="odt-ltr-term">0.3 ×</bdi> 90,000 – 5,798 <bdi dir="ltr" class="odt-ltr-term">×</bdi> 2 = 15,404 يورو؛
+  </li>
+  <li>تنص قاعدة سقف الحصة العائلية على أن المزايا التي يوفرها الأطفال لا يمكن أن تتجاوز (1,551 <bdi dir="ltr" class="odt-ltr-term">×</bdi> 4 نصف حصص) = 6,204 يورو. ومع ذلك، في هذه الحالة، فإن <bdi dir="ltr" class="odt-ltr-term">I2</bdi> – <bdi dir="ltr" class="odt-ltr-term">I1</bdi> = 15,404 – 7,020 = 8,384 يورو، وهو مبلغ أكبر من 6,204 يورو؛
+  </li>
+  <li>وبالتالي، يُعاد حساب الضريبة الإجمالية على النحو التالي: <bdi dir="ltr" class="odt-ltr-term">I3</bdi> = <bdi dir="ltr" class="odt-ltr-term">I2</bdi> - 6,204 = 15,404 - 6,204 =<b> 9,200 </b>يورو؛
+  </li>
+</ul>
+
+<p>لن يحصل هذا الزوجان على أي خصم ضريبي أو تخفيض، وستكون ضريبتهم النهائية <strong>9,200</strong> يورو.</p>
+<p><a id="toc48548970"></a>
+<a id="chiffresofficiels"></a>
+<a id="refheadingtoc185639971629160"></a></p>
+<h3 id="817">8.1.7. <span style="color: #4f81bd">الأرقام الرسمية</span></h3>
+<p>يعد حساب الضرائب أمرًا معقدًا. في هذا المستند، ستستند الحسابات إلى الأمثلة التالية. النتائج مأخوذة من أداة المحاكاة الخاصة بالسلطة الضريبية |<a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/simplifie/index.htm"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">https://www3.impots.gouv.fr/simulateur/calcul</bdi>_impot/2019/<bdi dir="ltr" class="odt-ltr-term">simplifie/index.htm</bdi></span></u></a>|:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>المكلف</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>النتائج الرسمية</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>النتائج المستمدة من خوارزمية الوثيقة</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان لديهما طفلان ودخلهما السنوي 55,555 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 2,<b>815 </b>يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 2,<b>814 </b>يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان ولديهما طفلان ودخل سنوي يبلغ 50,000 يورو ( )</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 1,<b>385 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 720 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 1,<b>384 </b>يورو</div><div style="margin:0 0 0.5em 0">الخصم = 384 يورو</div><div style="margin:0 0 0.5em 0">الائتمان = 347 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان ولديهما 3 أطفال ودخلهما السنوي 50,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 0 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 384 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 346 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 0 </b>يورو</div><div style="margin:0 0 0.5em 0">الخصم = 720 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">أعزب ولديه طفلان ودخله السنوي 100,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 19,<b>884 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 19,<b>884 </b>يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 4,480 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">أعزب ولديه 3 أطفال ودخله السنوي 100,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 16,<b>782 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 16,<b>782 </b>يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 7,176 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان ولديهما 3 أطفال ودخلهما السنوي 100,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 9,200 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 30%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 9,200 </b>يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 2,180 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 30%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان لديهما 5 أطفال ودخل سنوي قدره 100,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 4,<b>230 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 4,<b>230 </b>يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 14%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">أعزب، بدون أطفال، ودخل سنوي قدره 100,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 22,<b>986 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 22,986 </b>يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان ولديهما طفلان ودخلهما السنوي 30,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 0 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 0%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة =<b> 0 </b>يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 0%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">أعزب بدون أطفال ودخل سنوي قدره 200,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>=<b> 64,211 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 45%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الضريبة = 64,<b>210 </b>يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 7,498 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 45%</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">زوجان ولديهما 3 أطفال ودخلهما السنوي 200,000 يورو</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 42,<b>843 </b>يورو</div><div style="margin:0 0 0.5em 0">الائتمان الضريبي = 0 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الضريبة </b>= 42,842 يورو</div><div style="margin:0 0 0.5em 0">الرسوم الإضافية = 17,283 يورو</div><div style="margin:0 0 0.5em 0">الخصم = 0 يورو</div><div style="margin:0 0 0.5em 0">التخفيض = 0 يورو</div><div style="margin:0 0 0.5em 0">معدل الضريبة = 41%</div></td></tr></table>
+
+<p>في المثال أعلاه، تشير &quot;الرسوم الإضافية&quot; إلى المبلغ الإضافي الذي يدفعه أصحاب الدخل المرتفع بسبب عاملين:</p>
+<ul>
+  <li>الحد الأقصى للخصم بنسبة 10٪ من الدخل السنوي؛
+  </li>
+  <li>الحد الأقصى لبدل الأسرة؛
+  </li>
+</ul>
+
+<p>لم يتسن التحقق من هذا المؤشر لأن أداة المحاكاة الخاصة بالسلطة الضريبية لا توفره.</p>
+<p>يمكننا أن نلاحظ أن خوارزمية الوثيقة تحسب المبلغ الضريبي الصحيح في كل مرة، وإن كان ذلك مع هامش خطأ قدره 1 يورو. وينشأ هامش الخطأ هذا عن التقريب. فجميع المبالغ النقدية يتم تقريبها لأعلى إلى أقرب يورو في بعض الحالات، ولأسفل إلى أقرب يورو في حالات أخرى. وبما أنني لم أكن على دراية بالقواعد الرسمية، فقد تم تقريب المبالغ النقدية في خوارزمية الوثيقة:</p>
+<ul>
+  <li>إلى اليورو الأعلى في حالة الخصومات والتخفيضات؛
+  </li>
+  <li>للأسفل إلى أقرب يورو للرسوم الإضافية والضريبة النهائية؛
+  </li>
+</ul>
+
+<p>سنقوم بتطوير عدة إصدارات من تطبيق حساب الضريبة.</p>
+<p><a id="toc48548971"></a>
+<a id="version1"></a>
+<a id="refheading398861881943603"></a></p>
+<h2 id="82-1">8.2. <span style="color: #4f81bd">الإصدار 1</span></h2>
+<p><img src="images/10000001000001E80000014EC2F618ED.png" width="244" height="167" style="width:6.451cm;height:4.415cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001E80000014EC2F618ED.png" /></p>
+<p><a id="toc48548972"></a>
+<a id="lescriptprincipal"></a>
+<a id="refheadingtoc1882273931965946"></a></p>
+<h3 id="821">8.2.1. <span style="color: #4f81bd">النص الرئيسي</span></h3>
+<p>نقدم برنامجًا أوليًا حيث:</p>
+<ul>
+  <li>البيانات اللازمة لحساب الضريبة مدمجة في الكود كقوائم وثوابت؛
+  </li>
+  <li>يتم تخزين بيانات دافعي الضرائب (متزوج، أطفال، راتب) في ملف نصي أول <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayersdata.txt</bdi>]</b>؛
+  </li>
+  <li>يتم تخزين نتائج حساب الضريبة (متزوج، أطفال، راتب، ضريبة) في ملف نصي ثانٍ <b>[<bdi dir="ltr" class="odt-ltr-term">results.txt</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">v-01/main.py</bdi>]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">#  modules</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">impots.v01.shared.impôts_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1">#  hand -----------------------</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1">#  constants</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">#  taxpayer file</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;./data/taxpayersdata.txt&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1">#  results file</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">RESULTATS</span> <span class="o">=</span> <span class="s2">&quot;./data/résultats.txt&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="c1">#  reading taxpayer data</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="n">tax_payers</span> <span class="o">=</span> <span class="n">get_taxpayers_data</span><span class="p">(</span><span class="n">DATA</span><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="c1">#  results list</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>    <span class="c1">#  taxpayers&#39; taxes are calculated</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="k">for</span> <span class="n">tax_payer</span> <span class="ow">in</span> <span class="n">tax_payers</span><span class="p">:</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="c1">#  tax calculation returns a dictionary of keys</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span class="c1">#  [&#39;married&#39;, &#39;children&#39;, &#39;salary&#39;, &#39;tax&#39;, &#39;surcôte&#39;, &#39;décôte&#39;, &#39;réduction&#39;, &#39;taux&#39;]</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">calcul_impôt</span><span class="p">(</span><span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;marié&#39;</span><span class="p">],</span> <span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;enfants&#39;</span><span class="p">],</span> <span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;salaire&#39;</span><span class="p">])</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>        <span class="c1">#  the dictionary is added to the list of results</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>    <span class="c1">#  we record the results</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>    <span class="n">record_results</span><span class="p">(</span><span class="n">RESULTATS</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>    <span class="c1">#  there may be various errors: no file, incorrect file content</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>    <span class="c1">#  display the error and exit the application</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;l&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>ملاحظات</strong></p>
+<ul>
+  <li>السطر 4: نستخدم الوحدة النمطية <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impots</bdi></span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a">v01</span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">modules</bdi></span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impôts_module_01</bdi></span></b><b>]</b><span style="color: #6f008a">. </span>لاحظ أن هذا المسار نسبي بالنسبة إلى جذر مشروع <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi>؛
+  </li>
+  <li>السطر 10: الملف <b>[<bdi dir="ltr" class="odt-ltr-term">data/taxpayersdata.txt</bdi>] </b>كما يلي:
+  </li>
+</ul>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>oui,2,55555
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>oui,2,50000
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>oui,3,50000
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>non,2,100000
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>non,3,100000
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>oui,3,100000
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>oui,5,100000
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>non,0,100000
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>oui,2,30000
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>non,0,200000
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>oui,3,200000
+</code></pre></div></td></tr></table></div>
+<p>يمثل كل سطر مجموعة مكونة من ثلاثة عناصر <strong>[متزوج/في شراكة مدنية أم لا، عدد الأبناء، الراتب السنوي باليورو]</strong>.</p>
+<ul>
+  <li>السطر 12: الملف الذي سيتم فيه وضع نتائج حساب الضريبة لكل دافع ضرائب في الملف <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayersdata.txt</bdi>]</b>. وسيحتوي على المحتوى التالي:
+  </li>
+</ul>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 55555, &#39;impôt&#39;: 2814, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 50000, &#39;impôt&#39;: 1384, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 384, &#39;réduction&#39;: 347, &#39;taux&#39;: 0.14}
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 50000, &#39;impôt&#39;: 0, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 720, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 19884, &#39;surcôte&#39;: 4480, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 16782, &#39;surcôte&#39;: 7176, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 9200, &#39;surcôte&#39;: 2180, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.3}
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 5, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 4230, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 0, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 22986, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 30000, &#39;impôt&#39;: 0, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0}
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 0, &#39;salaire&#39;: 200000, &#39;impôt&#39;: 64210, &#39;surcôte&#39;: 7498, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.45}
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 200000, &#39;impôt&#39;: 42842, &#39;surcôte&#39;: 17283, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 16: نسترد بيانات دافعي الضرائب الموجودة في <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayersdata.txt</bdi>]</b>. نسترد قائمة من القواميس ذات المفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]، </b>حيث يمثل كل قاموس دافع ضرائب؛
+  </li>
+  <li>الأسطر 17-25: يتم حساب الضريبة للمكلفين في قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">taxPayers</bdi>]</b>. يتم إرجاع قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">results</bdi>]</b>، حيث يكون كل عنصر عبارة عن قاموس بمفاتيح <b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>, tax, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi></span></b><b>]</b>؛
+  </li>
+  <li>السطر 27: يتم حفظ قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">results</bdi>] </b>في الملف <b>[<bdi dir="ltr" class="odt-ltr-term">results.txt</bdi>] </b>بالتنسيق الموضح أعلاه؛
+  </li>
+  <li>الأسطر 28–32: نلتقط جميع الاستثناءات التي قد تطرحها الوحدة النمطية <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impots</bdi></span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a">v01</span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">modules</bdi></span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impôts_module_01</bdi></span></b><b>]</b>؛
+  </li>
+</ul>
+
+<p>سنقوم الآن بتفصيل الوظائف الثلاث التي يستخدمها البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong>:</p>
+<ul>
+  <li><b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">get_taxpayers_data</bdi></span></b><b>]</b>: لقراءة بيانات دافعي الضرائب؛
+  </li>
+  <li><b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">calcul_impôt</bdi></span></b><b>]</b>: لحساب ضرائبهم؛
+  </li>
+  <li><b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">record_results</bdi></span></b><b>]</b>: لحفظ النتائج في ملف نصي؛
+  </li>
+</ul>
+
+<p>توجد جميع هذه الوظائف في الوحدة النمطية <strong>[</strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impots</bdi></span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">modules</bdi></span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impôts</bdi>_module_01</span></strong><strong>]</strong>.</p>
+<p><a id="toc48548973"></a>
+<a id="refheadingtoc2521312924280206"></a></p>
+<h3 id="822-impotsv01sharedimpots_module_01">8.2.2. <span style="color: #4f81bd">وحدة [<bdi dir="ltr" class="odt-ltr-term">impots</bdi><span style="color: #000000">.</span>v01<span style="color: #000000">.</span><bdi dir="ltr" class="odt-ltr-term">shared</bdi><span style="color: #000000">.</span><bdi dir="ltr" class="odt-ltr-term">impôts</bdi>_module_01]</span></h3>
+<p>تم تجميع الوظائف المطلوبة لحساب الضرائب في الوحدة النمطية <strong>[</strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impots</bdi></span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">v01</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">shared</bdi></span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">impôts</bdi>_module_01</span></strong><strong>]</strong>:</p>
+<p><img src="images/10000000000005A80000034C7B8390E7.png" width="633" height="369" style="width:16.739cm;height:9.758cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A80000034C7B8390E7.png" /></p>
+<ul>
+  <li>في <b>[1]</b>: تعريف ثوابت حساب الضرائب؛
+  </li>
+  <li>في <b>[2]</b>: قائمة الوظائف الموجودة في الوحدة النمطية؛
+  </li>
+</ul>
+<p><a id="toc48548974"></a>
+<a id="refheadingtoc2521332924280206"></a></p>
+<h3 id="823-get_taxpayers_data">8.2.3. <span style="color: #4f81bd">الدالة [<span style="color: #000000">get_taxpayers_data</span>]</span></h3>
+<p>وظيفة <strong>[</strong><strong><span style="color: #000000">get_taxpayers_data</span></strong><strong>]</strong> هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1">#  imports</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="err">…</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1">#  reading taxpayer data</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_taxpayers_data</span><span class="p">(</span><span class="n">taxpayers_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="c1">#  reading taxpayer data</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span class="c1">#  list of taxpayers</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        <span class="n">taxpayers</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>        <span class="c1">#  open file</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">taxpayers_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>        <span class="c1">#  read the first line of the taxpayer file</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>        <span class="n">ligne</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>        <span class="c1">#  as long as there&#39;s a line left to operate</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>        <span class="k">while</span> <span class="n">ligne</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>            <span class="c1">#  we retrieve the 3 fields married,children,salary which form the line</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>            <span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span> <span class="o">=</span> <span class="n">ligne</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>            <span class="c1">#  we add them to the list of taxpayers</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>            <span class="n">taxpayers</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="n">marié</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">enfants</span><span class="p">),</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">salaire</span><span class="p">)})</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>            <span class="c1">#  a new line is read from the taxpayer file</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>            <span class="n">ligne</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>        <span class="c1">#  we return the result</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>        <span class="k">return</span> <span class="n">taxpayers</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>        <span class="c1">#  close the file if it has been opened</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>        <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>            <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>ملاحظات</strong></p>
+<ul>
+  <li>السطر 7: <b>[</b><b><span style="color: #808080"><bdi dir="ltr" class="odt-ltr-term">taxpayers_filename</bdi></span></b><b>] </b>هو اسم الملف المراد معالجته. تُرجع الدالة قائمة؛
+  </li>
+  <li>الأسطر 18–24: تعالج الحلقة أسطر<b> [<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>] </b>في الملف النصي؛
+  </li>
+  <li>السطر 20: يتم استرداد العناصر الثلاثة للسطر. نفترض هنا أن السطر صحيح من الناحية النحوية، أي أنه يحتوي بالفعل على العناصر الثلاثة المتوقعة؛
+  </li>
+  <li>السطر 22: يتم إنشاء قاموس بمفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]، </b>ويتم إضافة هذا القاموس إلى القائمة <b>[<bdi dir="ltr" class="odt-ltr-term">taxPayers</bdi>]</b>؛
+  </li>
+  <li>السطر 26: بمجرد معالجة الملف، يتم إرجاع قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">taxPayers</bdi>]</b>؛
+  </li>
+  <li>الأسطر 10–30: لاحظ أنه لم تتم إضافة جملة<b> [<bdi dir="ltr" class="odt-ltr-term">catch</bdi>] </b>إلى كتلة<b> [try] </b>في السطر 10. جملة<b> [<bdi dir="ltr" class="odt-ltr-term">catch</bdi>] </b>ليست إلزامية. في السطر 27، تمت إضافة جملة<b> [<bdi dir="ltr" class="odt-ltr-term">finally</bdi>] </b>لإغلاق الملف النصي في جميع الحالات، سواء حدث خطأ أم لا؛
+  </li>
+  <li>تسمح بنية <bdi dir="ltr" class="odt-ltr-term">try/finally</bdi> هذه بمرور استثناء محتمل (لا يوجد <bdi dir="ltr" class="odt-ltr-term">catch</bdi>). سينتقل هذا الاستثناء إلى البرنامج النصي الرئيسي <b>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</b>، الذي سيتوقف ويعرض الاستثناء (انظر القسم |البرنامج النصي الرئيسي|). تم استخدام هذه الآلية في معظم وظائف الوحدة النمطية؛
+  </li>
+</ul>
+<p><a id="toc48548975"></a>
+<a id="refheadingtoc2521352924280206"></a></p>
+<h3 id="824-calcul_impot">8.2.4. <span style="color: #4f81bd">وظيفة [<span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">calcul</bdi>_impôt</span>]</span></h3>
+<p>وظيفة <strong>[</strong><strong><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">calcul</bdi>_impôt</span></strong><strong>]</strong> هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span>
+<span class="normal"><a href="#__codelineno-7-45">45</a></span>
+<span class="normal"><a href="#__codelineno-7-46">46</a></span>
+<span class="normal"><a href="#__codelineno-7-47">47</a></span>
+<span class="normal"><a href="#__codelineno-7-48">48</a></span>
+<span class="normal"><a href="#__codelineno-7-49">49</a></span>
+<span class="normal"><a href="#__codelineno-7-50">50</a></span>
+<span class="normal"><a href="#__codelineno-7-51">51</a></span>
+<span class="normal"><a href="#__codelineno-7-52">52</a></span>
+<span class="normal"><a href="#__codelineno-7-53">53</a></span>
+<span class="normal"><a href="#__codelineno-7-54">54</a></span>
+<span class="normal"><a href="#__codelineno-7-55">55</a></span>
+<span class="normal"><a href="#__codelineno-7-56">56</a></span>
+<span class="normal"><a href="#__codelineno-7-57">57</a></span>
+<span class="normal"><a href="#__codelineno-7-58">58</a></span>
+<span class="normal"><a href="#__codelineno-7-59">59</a></span>
+<span class="normal"><a href="#__codelineno-7-60">60</a></span>
+<span class="normal"><a href="#__codelineno-7-61">61</a></span>
+<span class="normal"><a href="#__codelineno-7-62">62</a></span>
+<span class="normal"><a href="#__codelineno-7-63">63</a></span>
+<span class="normal"><a href="#__codelineno-7-64">64</a></span>
+<span class="normal"><a href="#__codelineno-7-65">65</a></span>
+<span class="normal"><a href="#__codelineno-7-66">66</a></span>
+<span class="normal"><a href="#__codelineno-7-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1">#  imports</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1">#  2019 tax brackets</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">limites</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">coeffr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">]</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">coeffn</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1394.96</span><span class="p">,</span> <span class="mi">5798</span><span class="p">,</span> <span class="mf">13913.69</span><span class="p">,</span> <span class="mf">20163.45</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1">#  constant for 2019 tax calculation</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">PLAFOND_QF_DEMI_PART</span> <span class="o">=</span> <span class="mi">1551</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION</span> <span class="o">=</span> <span class="mi">21037</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">PLAFOND_REVENUS_COUPLE_POUR_REDUCTION</span> <span class="o">=</span> <span class="mi">42074</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="n">VALEUR_REDUC_DEMI_PART</span> <span class="o">=</span> <span class="mi">3797</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="n">PLAFOND_DECOTE_CELIBATAIRE</span> <span class="o">=</span> <span class="mi">1196</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="n">PLAFOND_DECOTE_COUPLE</span> <span class="o">=</span> <span class="mi">1970</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="n">PLAFOND_IMPOT_COUPLE_POUR_DECOTE</span> <span class="o">=</span> <span class="mi">2627</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="n">PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE</span> <span class="o">=</span> <span class="mi">1595</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="n">ABATTEMENT_DIXPOURCENT_MAX</span> <span class="o">=</span> <span class="mi">12502</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="n">ABATTEMENT_DIXPOURCENT_MIN</span> <span class="o">=</span> <span class="mi">437</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="err">…</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="c1">#  tAX CALCULATION</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcul_impôt</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>    <span class="c1">#  married: yes, no</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    <span class="c1">#  children: number of children</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>    <span class="c1">#  salary: annual salary</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>    <span class="c1">#  limits, coeffr, coeffn: data tables for tax calculation</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>    <span class="c1">#</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>    <span class="c1">#  tax calculation with children</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="n">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>    <span class="n">impot1</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;impôt&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>    <span class="c1">#  tax calculation without children</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>        <span class="n">result2</span> <span class="o">=</span> <span class="n">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a>        <span class="n">impot2</span> <span class="o">=</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;impôt&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a>        <span class="c1">#  application of the family allowance ceiling</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>        <span class="k">if</span> <span class="n">enfants</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a>            <span class="c1">#  PLAFOND_QF_DEMI_PART euros for the first 2 children</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a>            <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="n">enfants</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a>            <span class="c1">#  PLAFOND_QF_DEMI_PART euros for the first 2 children, double for subsequent children</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a>            <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span> <span class="o">-</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a>        <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot1</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a>        <span class="n">result2</span> <span class="o">=</span> <span class="n">result1</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a>
+<a id="__codelineno-7-49" name="__codelineno-7-49"></a>    <span class="c1">#  we take the highest tax with the rate and surcharge that go with it</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50"></a>    <span class="k">if</span> <span class="n">impot1</span> <span class="o">&gt;</span> <span class="n">impot2</span><span class="p">:</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51"></a>        <span class="n">impot</span> <span class="o">=</span> <span class="n">impot1</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52"></a>        <span class="n">taux</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;taux&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;surcôte&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="n">impot1</span> <span class="o">+</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;surcôte&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-56" name="__codelineno-7-56"></a>        <span class="n">impot</span> <span class="o">=</span> <span class="n">impot2</span>
+<a id="__codelineno-7-57" name="__codelineno-7-57"></a>        <span class="n">taux</span> <span class="o">=</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;taux&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-58" name="__codelineno-7-58"></a>
+<a id="__codelineno-7-59" name="__codelineno-7-59"></a>    <span class="c1">#  calculation of any discount</span>
+<a id="__codelineno-7-60" name="__codelineno-7-60"></a>    <span class="n">décôte</span> <span class="o">=</span> <span class="n">get_décôte</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">salaire</span><span class="p">,</span> <span class="n">impot</span><span class="p">)</span>
+<a id="__codelineno-7-61" name="__codelineno-7-61"></a>    <span class="n">impot</span> <span class="o">-=</span> <span class="n">décôte</span>
+<a id="__codelineno-7-62" name="__codelineno-7-62"></a>    <span class="c1">#  calculation of any tax reduction</span>
+<a id="__codelineno-7-63" name="__codelineno-7-63"></a>    <span class="n">réduction</span> <span class="o">=</span> <span class="n">get_réduction</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">salaire</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">impot</span><span class="p">)</span>
+<a id="__codelineno-7-64" name="__codelineno-7-64"></a>    <span class="n">impot</span> <span class="o">-=</span> <span class="n">réduction</span>
+<a id="__codelineno-7-65" name="__codelineno-7-65"></a>    <span class="c1">#  result</span>
+<a id="__codelineno-7-66" name="__codelineno-7-66"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="n">marié</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="n">enfants</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="n">salaire</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">impot</span><span class="p">),</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="n">surcôte</span><span class="p">,</span>
+<a id="__codelineno-7-67" name="__codelineno-7-67"></a>            <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="n">décôte</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="n">réduction</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="n">taux</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>ملاحظات</strong></p>
+<ul>
+  <li>الأسطر 6–8: شرائح الضريبة (انظر قسم |حساب الضريبة الإجمالية|)؛
+  </li>
+  <li>الأسطر 11–20: الثوابت لحساب الضريبة؛
+  </li>
+  <li>لاحظ أن العناصر التي تم تهيئتها في الأسطر 5–20 ستكون عامة بالنسبة للوظائف التي سنصفها. وبالتالي فهي معروفة طالما أن الوظيفة التي تستخدمها لا تعلن متغيرات تحمل نفس الأسماء؛
+  </li>
+  <li>تتغير الأرقام في الأسطر 5–20 كل عام. هنا، هي أرقام عام 2019؛
+  </li>
+  <li>السطر 25: تأخذ الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">calculate_tax</bdi>] </b>ثلاثة معلمات:
+    <ul>
+      <li><b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>]</b>: نعم/لا، تشير إلى ما إذا كان دافع الضرائب متزوجًا أو في شراكة مدنية؛
+      </li>
+      <li><b>[<bdi dir="ltr" class="odt-ltr-term">children</bdi>]</b>: عدد الأطفال؛
+      </li>
+      <li><b>[<bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>: راتبهم السنوي باليورو؛
+      </li>
+    </ul>
+  </li>
+  <li>الأسطر 31-33: حساب الضريبة مع أخذ عدد الأطفال في الاعتبار؛ 
+  </li>
+  <li>الأسطر 34-47: تطبق هذه الأسطر الحد الأقصى لمعدل الأسرة (انظر القسم |الحد الأقصى لمعدل الأسرة|)؛
+  </li>
+  <li>الأسطر 49-57: تحسب هذه الأسطر معدل الضريبة على المكلف بالضريبة بالإضافة إلى أي رسوم إضافية (انظر القسم |حالات الدخل المرتفع|)؛
+  </li>
+  <li>الأسطر 59-61: حساب أي ائتمان ضريبي (انظر القسم |حساب الائتمان الضريبي|)؛
+  </li>
+  <li>الأسطر 62–64: حساب أي تخفيض في الضريبة المستحقة (انظر القسم |حساب التخفيض الضريبي|)؛
+  </li>
+</ul>
+
+<p>الخوارزمية معقدة للغاية، ولن ندخل في تفاصيل أكثر مما هو مذكور في التعليقات. تنفذ الخوارزمية طريقة حساب الضريبة كما هو موضح في القسم |المشكلة|.</p>
+<p><a id="toc48548976"></a>
+<a id="refheadingtoc2521372924280206"></a></p>
+<h3 id="825-calcul_tax_2">8.2.5. <span style="color: #4f81bd">دالة [<bdi dir="ltr" class="odt-ltr-term">calcul</bdi>_tax_2]</span></h3>
+<p>تستدعي الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">calcul</bdi>_impôt]</strong> الدالة التالية <strong>[<bdi dir="ltr" class="odt-ltr-term">calcul</bdi>_impôt_2]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span>
+<span class="normal"><a href="#__codelineno-8-35">35</a></span>
+<span class="normal"><a href="#__codelineno-8-36">36</a></span>
+<span class="normal"><a href="#__codelineno-8-37">37</a></span>
+<span class="normal"><a href="#__codelineno-8-38">38</a></span>
+<span class="normal"><a href="#__codelineno-8-39">39</a></span>
+<span class="normal"><a href="#__codelineno-8-40">40</a></span>
+<span class="normal"><a href="#__codelineno-8-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="c1">#  married: yes, no</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="c1">#  children: number of children</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="c1">#  salary: annual salary</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="c1">#  limits, coeffr, coeffn: data tables for tax calculation</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="c1">#</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="c1">#  number of shares</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    <span class="n">marié</span> <span class="o">=</span> <span class="n">marié</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span><span class="p">:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span class="n">nb_parts</span> <span class="o">=</span> <span class="n">enfants</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>        <span class="n">nb_parts</span> <span class="o">=</span> <span class="n">enfants</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="c1">#  1 part per child from the 3rd</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>        <span class="c1">#  an additional half share for each child from the 3rd onwards</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>        <span class="n">nb_parts</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>    <span class="c1">#  taxable income</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>    <span class="c1">#  surcharge</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>    <span class="n">surcôte</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span> <span class="o">-</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>    <span class="c1">#  for rounding problems</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>    <span class="k">if</span> <span class="n">surcôte</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>    <span class="c1">#  family quotient</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>    <span class="n">quotient</span> <span class="o">=</span> <span class="n">revenu_imposable</span> <span class="o">/</span> <span class="n">nb_parts</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>    <span class="c1">#  is set at the end of the limit table to stop the following loop</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>    <span class="n">limites</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">quotient</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>    <span class="c1">#  tAX CALCULATION</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>    <span class="k">while</span> <span class="n">quotient</span> <span class="o">&gt;</span> <span class="n">limites</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a>        <span class="c1">#  because we&#39;ve placed quotient at the end of the limit array, the previous loop</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a>    <span class="c1">#  cannot go beyond the limit table</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a>    <span class="c1">#  now we can calculate the tax</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>    <span class="n">impôt</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span> <span class="o">*</span> <span class="n">coeffr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">nb_parts</span> <span class="o">*</span> <span class="n">coeffn</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a>    <span class="c1">#  result</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="n">impôt</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="n">surcôte</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="n">coeffr</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span>
+</code></pre></div></td></tr></table></div>
+<p>تم وصف هذه الخوارزمية في القسم 8.1.1.</p>
+<p><a id="toc48548977"></a>
+<a id="refheadingtoc2521392924280206"></a></p>
+<h3 id="826-get_discount">8.2.6. <span style="color: #4f81bd">دالة [get_discount]</span></h3>
+<p>تقوم الدالة <strong>[</strong><strong><span style="color: #000000">get_discount</span></strong><strong>]</strong> بتنفيذ حساب أي خصم ضريبي (القسم <a href="#calculdela"><u><span style="color: #0563c1">|حساب</span></u></a> الخصم|):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">#  calculates any discount</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_décôte</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">impots</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="c1">#  at the outset, a zero discount</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="n">décôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="c1">#  maximum tax amount to qualify for discount</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="n">plafond_impôt_pour_décôte</span> <span class="o">=</span> <span class="n">PLAFOND_IMPOT_COUPLE_POUR_DECOTE</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="k">if</span> <span class="n">impots</span> <span class="o">&lt;</span> <span class="n">plafond_impôt_pour_décôte</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>        <span class="c1">#  maximum discount</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="n">plafond_décôte</span> <span class="o">=</span> <span class="n">PLAFOND_DECOTE_COUPLE</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_DECOTE_CELIBATAIRE</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>        <span class="c1">#  theoretical discount</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span class="n">décôte</span> <span class="o">=</span> <span class="n">plafond_décôte</span> <span class="o">-</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">impots</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>        <span class="c1">#  the discount cannot exceed the amount of tax due</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>        <span class="k">if</span> <span class="n">décôte</span> <span class="o">&gt;</span> <span class="n">impots</span><span class="p">:</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>            <span class="n">décôte</span> <span class="o">=</span> <span class="n">impots</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>        <span class="c1">#  no discount &lt;0</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>        <span class="k">if</span> <span class="n">décôte</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>            <span class="n">décôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>    <span class="c1">#  result</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">décôte</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><a id="toc48548978"></a>
+<a id="refheadingtoc2521412924280206"></a></p>
+<h3 id="827-get_reduction">8.2.7. <span style="color: #4f81bd">دالة [get_reduction]</span></h3>
+<p>تقوم الدالة <strong>[get_reduction]</strong> بتنفيذ حساب أي تخفيض ضريبي (القسم <a href="#calculdela1"><u><span style="color: #0563c1">|حساب التخفيض</span></u></a> الضريبي|):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1">#  calculates any reduction</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_réduction</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">impots</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="c1">#  the income ceiling to qualify for the 20% reduction</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="n">plafond_revenu_pour_réduction</span> <span class="o">=</span> <span class="n">PLAFOND_REVENUS_COUPLE_POUR_REDUCTION</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span class="n">plafond_revenu_pour_réduction</span> <span class="o">+=</span> <span class="n">enfants</span> <span class="o">*</span> <span class="n">VALEUR_REDUC_DEMI_PART</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>        <span class="n">plafond_revenu_pour_réduction</span> <span class="o">+=</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">VALEUR_REDUC_DEMI_PART</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="c1">#  taxable income</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="c1">#  reduction</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">réduction</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="k">if</span> <span class="n">revenu_imposable</span> <span class="o">&lt;</span> <span class="n">plafond_revenu_pour_réduction</span><span class="p">:</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>        <span class="c1">#  20% discount</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>        <span class="n">réduction</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">impots</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="c1">#  result</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">réduction</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><a id="toc48548979"></a>
+<a id="refheadingtoc2521432924280206"></a></p>
+<h3 id="828-get_taxable_income">8.2.8. <span style="color: #4f81bd">دالة [get_taxable_income]</span></h3>
+<p>تحسب الدالة <strong>[get_taxable_income]</strong> الدخل الخاضع للضريبة بناءً على الراتب السنوي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">#  revenu_imposable = salaireAnnuel - allowance</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="c1">#  the allowance has a minimum and a maximum</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="c1">#  10% salary deduction</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="n">abattement</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">salaire</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="c1">#  this allowance may not exceed ABATTEMENT_DIXPOURCENT_MAX</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">if</span> <span class="n">abattement</span> <span class="o">&gt;</span> <span class="n">ABATTEMENT_DIXPOURCENT_MAX</span><span class="p">:</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="n">abattement</span> <span class="o">=</span> <span class="n">ABATTEMENT_DIXPOURCENT_MAX</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span class="c1">#  the allowance cannot be less than ABATTEMENT_DIXPOURCENT_MIN</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>    <span class="k">if</span> <span class="n">abattement</span> <span class="o">&lt;</span> <span class="n">ABATTEMENT_DIXPOURCENT_MIN</span><span class="p">:</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>        <span class="n">abattement</span> <span class="o">=</span> <span class="n">ABATTEMENT_DIXPOURCENT_MIN</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>    <span class="c1">#  taxable income</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">salaire</span> <span class="o">-</span> <span class="n">abattement</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>    <span class="c1">#  result</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><a id="toc48548980"></a>
+<a id="refheadingtoc2521452924280206"></a></p>
+<h3 id="829-record_results">8.2.9. <span style="color: #4f81bd">وظيفة [<bdi dir="ltr" class="odt-ltr-term">record</bdi>_results]</span></h3>
+<p>تقوم الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">record</bdi>_results]</strong> بحفظ نتائج حساب الضريبة في ملف نصي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">#  writing results to a text file</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">record_results</span><span class="p">(</span><span class="n">results_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span class="c1">#  results_filename: the name of the text file in which to place the results</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="c1">#  results: the results list in the form of a dictionary list</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="c1">#  each dictionary is written on a line of text</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="n">résultats</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>        <span class="c1">#  opening the results file</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span class="n">résultats</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">results_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="c1">#  taxpayer exploitation</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>            <span class="c1">#  enter the result in the results file</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>            <span class="n">résultats</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>            <span class="c1">#  next taxpayer</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>        <span class="c1">#  close the file if it has been opened</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>        <span class="k">if</span> <span class="n">résultats</span><span class="p">:</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>            <span class="n">résultats</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><a id="toc48548981"></a>
+<a id="refheadingtoc2521472924280206"></a></p>
+<h3 id="8210">8.2.10. <span style="color: #4f81bd">النتائج</span></h3>
+<p>كما ذكرنا سابقًا، باستخدام ملف دافعي الضرائب التالي <strong>[<bdi dir="ltr" class="odt-ltr-term">taxpayersdata.txt</bdi>]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>oui,2,55555
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>oui,2,50000
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>oui,3,50000
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>non,2,100000
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>non,3,100000
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>oui,3,100000
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>oui,5,100000
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>non,0,100000
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>oui,2,30000
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>non,0,200000
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>oui,3,200000
+</code></pre></div></td></tr></table></div>
+<p>ينشئ البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main.py</bdi>]</strong> الملف التالي <strong>[<bdi dir="ltr" class="odt-ltr-term">results.txt</bdi>]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 55555, &#39;impôt&#39;: 2814, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 50000, &#39;impôt&#39;: 1384, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 384, &#39;réduction&#39;: 347, &#39;taux&#39;: 0.14}
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 50000, &#39;impôt&#39;: 0, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 720, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 19884, &#39;surcôte&#39;: 4480, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 16782, &#39;surcôte&#39;: 7176, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 9200, &#39;surcôte&#39;: 2180, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.3}
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 5, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 4230, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.14}
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 0, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 22986, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 30000, &#39;impôt&#39;: 0, &#39;surcôte&#39;: 0, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0}
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a>{&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 0, &#39;salaire&#39;: 200000, &#39;impôt&#39;: 64210, &#39;surcôte&#39;: 7498, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.45}
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>{&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 200000, &#39;impôt&#39;: 42842, &#39;surcôte&#39;: 17283, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0, &#39;taux&#39;: 0.41}
+</code></pre></div></td></tr></table></div>
+<p>تتطابق هذه النتائج مع الأرقام الرسمية الواردة في قسم |الأرقام الرسمية|.</p>
+<p>الآن، دعونا نشغل هذه النسخة في نافذة وحدة التحكم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\v01&gt;python main.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Traceback (most recent call last):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  File &quot;main.py&quot;, line 4, in &lt;module&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    from impots.v01.shared.impôts_module_01 import *</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">ModuleNotFoundError: <span style="background-color:#fff2cc">No module named &#x27;impots&#x27;</span></span></span>
+</code></pre></div>
+
+<p>نواجه خطأً سبق أن رأيناه من قبل: وهو عدم العثور على وحدة نمطية، وفي هذه الحالة وحدة <strong>[<bdi dir="ltr" class="odt-ltr-term">impots</bdi>]</strong> النمطية. تذكر أن هذا يعني: </p>
+<ul>
+  <li>أن مترجم <bdi dir="ltr" class="odt-ltr-term">Python</bdi> قد بحث في الدلائل الموجودة في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> واحدًا تلو الآخر؛
+  </li>
+  <li>ولم يعثر في أي منها على دليل يحتوي على البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">impots.py</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>ستوفر النسخة <strong>[v02]</strong> حلاً لهذه المشكلة.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

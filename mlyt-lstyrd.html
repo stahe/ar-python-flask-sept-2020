@@ -1,0 +1,2586 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/mlyt-lstyrd.html">
+      
+      
+        <link rel="prev" href="tmryn-tbyqy---ldr-1.html">
+      
+      
+        <link rel="next" href="tmryn-mly-ldr-2.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>9. عمليات الاستيراد - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. عمليات الاستيراد
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dd-byy-ltwyr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. إعداد بيئة التطوير
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slsl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mlyt-lstyrd.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-import_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. البرامج النصية [import_01]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-import_02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. النص البرمجي [import_02]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-import_03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3. البرامج النصية [import_03]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-import_04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4. البرامج النصية [import_04]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-import_05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5. البرامج النصية [import_05]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-import_06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6. البرامج النصية [import_06]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-import_07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7. البرامج النصية [import_07]
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.7. البرامج النصية [import_07]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#971" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.1. تثبيت وحدة على مستوى الجهاز
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#972-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.2. البرنامج النصي [config.py]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#973-mainpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.3. البرنامج النصي [main.py]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين عملي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين عملي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lbny-lbqy-wlbrmj-lqym-l-lwjh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. البنية الطبقية والبرمجة القائمة على الواجهة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام نظام إدارة قواعد البيانات MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام نظام إدارة قواعد البيانات PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-nm-dr-qwd-lbynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن أنظمة إدارة قواعد البيانات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sqlalchemy-orm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام SQLAlchemy ORM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين التطبيق: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-ml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار عمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tdryby-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تدريبي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين عملي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-ltbyq-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين التطبيق: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين التطبيق: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين التطبيق: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين عملي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-lldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات JSON و XML للإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين عملي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين التطبيق: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين عملي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين عملي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="lesimports"></a>
+<a id="toc48548982"></a></p>
+<h1 id="9">9. <span style="color: #365f91">عمليات الاستيراد</span></h1>
+<p>الخطأ الذي واجهناه في الإصدار 1 من تمرين التطبيق يدفعنا إلى استكشاف دور عبارة <strong>[<bdi dir="ltr" class="odt-ltr-term">import</bdi>]</strong> بمزيد من التعمق.</p>
+<p><img src="images/10000001000000D10000012D4D95DD64.png" width="73" height="105" style="width:1.923cm;height:2.769cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000D10000012D4D95DD64.png" /></p>
+<p><a id="toc48548983"></a></p>
+<h2 id="91-import_01">9.1. <span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_01]</span></h2>
+<p>سيتم استيراد البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">imported</bdi>]</strong> بواسطة برامج نصية مختلفة (تسمى أيضًا وحدات):</p>
+<p><img src="images/1000000100000165000001099BBA76F1.png" width="124" height="92" style="width:3.29cm;height:2.441cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000165000001099BBA76F1.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">#  imported module</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">#  this instruction will be executed each time the module is imported</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">#  variable belonging to the imported module</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">x</span><span class="o">=</span><span class="mi">4</span>
+</code></pre></div></td></tr></table></div>
+<p>يتم <strong>تنفيذ</strong> الوحدة النمطية عند استيرادها. لذا، عند استيراد الوحدة النمطية <strong>[المستوردة]</strong>:</p>
+<ul>
+  <li>سيظهر ناتج السطر 3؛
+  </li>
+  <li>سيتم تعيين قيمة للمتغير x في السطر 5؛
+  </li>
+</ul>
+
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">#  an imported module is executed</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">imported</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">#  use of the x variable of the imported module</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">imported</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 2: يتم استيراد الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">imported</bdi>]</b>. سيؤدي ذلك إلى تنفيذها:
+    <ul>
+      <li>سيتم عرض القيمة 2؛
+      </li>
+      <li>يتم إنشاء المتغير x بالقيمة 4؛
+      </li>
+    </ul>
+  </li>
+  <li>السطر 4: يتم استخدام المتغير x من الوحدة المستوردة؛
+  </li>
+</ul>
+
+<p>في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi>، يتم الإبلاغ عن خطأ:</p>
+<p>في <strong>[1]</strong>، يشير <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> إلى أنه لا يتعرف على الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">imported</bdi>]</strong>. من الناحية الفنية، هذا يعني أن المجلد الذي يحتوي على الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">imported</bdi>]</strong> غير موجود في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi> مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> هو مجموعة المجلدات التي يتم البحث فيها عن الوحدات النمطية المستوردة. لحل هذه المشكلة، ما عليك سوى تعيين المجلد الذي يحتوي على الوحدة النمطية <strong>[المستوردة]</strong> كمجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong>، وهو في هذه الحالة المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">import/01</bdi>]</strong>:</p>
+<p><img src="images/1000000000000383000000F22A24F5ED.png" width="316" height="85" style="width:8.37cm;height:2.252cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000383000000F22A24F5ED.png" /></p>
+<p><img src="images/1000000000000216000002A7BAF59978.png" width="233" height="297" style="width:6.172cm;height:7.848cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000216000002A7BAF59978.png" /></p>
+<p>بعد هذه الخطوة، تتم إضافة المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">import/01</bdi>]</strong> إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> ويختفي الخطأ:</p>
+<p><img src="images/1000000000000375000000E9BB9A2FCE.png" width="386" height="102" style="width:10.209cm;height:2.688cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000375000000E9BB9A2FCE.png" /></p>
+<ul>
+  <li>في <b>[1]</b>، تغير لون المجلد<b> [01]</b>؛
+  </li>
+  <li>في <b>[2-3]</b>، لم يعد هناك خطأ؛
+  </li>
+</ul>
+
+<p>نتائج التنفيذ هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="mi">2</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="mi">4</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطر 2 هو نتيجة تنفيذ الوحدة المستوردة؛
+  </li>
+  <li>السطر 3 يعرض قيمة المتغير x من الوحدة المستوردة؛
+  </li>
+</ul>
+
+<p>النقطة الأساسية المستفادة من هذا المثال هي المفهوم المهم المتمثل في أن الوحدة النمطية (أو البرنامج النصي) المستوردة يتم <strong>تنفيذها</strong>.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">#  import the x variable from the imported module</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">#  we display it</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>يستخدم السطر 2 صيغة استيراد مختلفة <b>[<bdi dir="ltr" class="odt-ltr-term">from module import object1</bdi>, <bdi dir="ltr" class="odt-ltr-term">object2</bdi>, …]</b>. هنا، نستورد المتغير <b>[<bdi dir="ltr" class="odt-ltr-term">imported.x</bdi>]</b>. باستخدام هذه الصيغة، يصبح المتغير x متغيرًا في البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">main_02</bdi>]</b>. لم نعد بحاجة إلى إرفاق اسم الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">imported</bdi>] </b>به؛
+  </li>
+  <li>السطر 4: نطبع المتغير x من <b>[<bdi dir="ltr" class="odt-ltr-term">main_02</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>نتائج التنفيذ هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="mi">2</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="mi">4</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_03]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1">#  import everything visible in the imported module</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1">#  use the x variable of the imported module</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>تعني صيغة <strong>[<bdi dir="ltr" class="odt-ltr-term">import</bdi> *]</strong> في السطر 2 أننا نستورد جميع الكائنات المرئية من الوحدة المستوردة (المتغيرات، الدوال).</p>
+<p>والنتائج هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_03</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="mi">2</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="mi">4</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_04]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1">#  import the x variable from the imported module</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1">#  and rename it y</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span> <span class="k">as</span> <span class="n">y</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1">#  display variable y</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> 
+</code></pre></div></td></tr></table></div>
+<p>يُظهر السطر 3 أنه يمكننا استيراد كائن من الوحدة المستوردة وإعطائه اسمًا مستعارًا. هنا، تصبح المتغير <strong>[<bdi dir="ltr" class="odt-ltr-term">imported.x</bdi>]</strong> المتغير <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_04.y]</strong>. النتائج هي نفسها كما في السابق.</p>
+<p><a id="toc48548984"></a></p>
+<h2 id="92-import_02">9.2. <span style="color: #4f81bd"><span style="color: #4f81bd">النص البرمجي [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_02]</span></span></h2>
+<p><img src="images/10000001000001280000009EB2C9DE0E.png" width="104" height="56" style="width:2.76cm;height:1.473cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001280000009EB2C9DE0E.png" /></p>
+<p>الوحدة المستوردة <strong>[<bdi dir="ltr" class="odt-ltr-term">module1.py</bdi>]</strong> هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1">#  a function</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f1&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>تُعرّف الوحدة المستوردة دالة، وهو سيناريو شائع.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">#  import</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">module1</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1">#  execution f1</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">module1</span><span class="o">.</span><span class="n">f1</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 2: يتم استيراد الوحدة النمطية. سيتم تنفيذها. هنا، لا يتم عرض أي شيء؛
+  </li>
+  <li>السطر 4: يتم تنفيذ الدالة<b> [f1] </b>من الوحدة المستوردة؛
+  </li>
+</ul>
+
+<p>نتائج التنفيذ هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">f1</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>ملاحظة</strong>: لمنع <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> من الإبلاغ عن خطأ في الاستيراد في السطر 2، يجب وضع المجلد الذي يحتوي على <strong>[<bdi dir="ltr" class="odt-ltr-term">module1</bdi>]</strong> في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Directories</bdi>]</strong> في <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<p><img src="images/1000000000000130000000FE1D0C40DC.png" width="105" height="88" style="width:2.79cm;height:2.332cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000130000000FE1D0C40DC.png" /></p>
+<p>في <strong>[1]</strong>، يتحول لون المجلد <strong>[02]</strong> الموجود في دليل <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> إلى اللون الأزرق. لاحظ أن الخطأ المبلغ عنه لا يمنع البرامج النصية من العمل بشكل صحيح هنا. في الواقع، عند تنفيذ البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_0x]</strong>، تتم إضافة مجلد البرنامج النصي تلقائيًا إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> ونتيجة لذلك، يتم العثور على <strong>[<bdi dir="ltr" class="odt-ltr-term">module1</bdi>]</strong>. من الآن فصاعدًا، عندما يظهر مجلد باللون الأزرق في لقطة شاشة، فهذا يعني أنه تم وضعه في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> في <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi></p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">#  import</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">f1</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1">#  execution f1</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">f1</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>يستورد السطر 2 الدالة <b>[f1] </b>من الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">module1</bdi>]</b>؛
+  </li>
+  <li>في السطر 4، يتم استخدام الدالة f1؛
+  </li>
+</ul>
+
+<p>النتائج مطابقة لتلك الخاصة بالنص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong>.</p>
+<p><a id="toc48548985"></a></p>
+<h2 id="93-import_03">9.3. <span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_03]</span></h2>
+<p><img src="images/1000000000000127000001374B92EB8C.png" width="102" height="108" style="width:2.709cm;height:2.856cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000127000001374B92EB8C.png" /></p>
+<p><strong>ملاحظة</strong>: <strong>[03]</strong> موجود في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> للمشروع.</p>
+<p>ستقوم البرامج النصية الجديدة باستيراد الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</strong>، التي لا توجد في نفس المجلد الذي توجد فيه.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">#  a function</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">():</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f2&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>وبالتالي، فإن البرنامج النصي يُعرّف دالة <strong>[f2]</strong>.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1">#  class2 module import</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dir1.module2</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1">#  execution f2</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">dir1</span><span class="o">.</span><span class="n">module2</span><span class="o">.</span><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 2: نستخدم ترميزًا خاصًا للإشارة إلى كيفية العثور على الوحدة النمطية<b> [<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</b>. يجب قراءة <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">dir1</bdi></span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">module2</bdi></span></b><b>] </b>على أنها المسار <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">dir1/module2</bdi></span></b><b>]</b>: للعثور على <b>[<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</b>، ابدأ من مجلد البرنامج النصي الحالي <b>[<bdi dir="ltr" class="odt-ltr-term">main_01</bdi>]</b>، ثم انتقل إلى <b>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>]</b>، وستجد هناك <b>[<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</b>. ضع في اعتبارك أن نقطة البداية للمسار هي مجلد البرنامج النصي الذي يقوم بالاستيراد؛
+  </li>
+  <li>السطر 4: لتنفيذ الدالة <b>[f2] </b>من <b>[<bdi dir="ltr" class="odt-ltr-term">module2</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>والنتائج هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">03</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">f2</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>السطر 2، نتيجة دالة <strong>[f2]</strong>.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1">#  import module dir1.module2 and rename it</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dir1.module2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">module2</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1">#  execution f2</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">module2</span><span class="o">.</span><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>في السطر 2، نقوم بإعادة تسمية الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">dir1.module</bdi>]</strong> لتبسيط الكود في السطر 4.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_03]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1">#  import function f2 from module dir1.module2</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dir1.module2</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1">#  execution f2</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>هذه المرة، في السطر 2، نقوم باستيراد الدالة <strong>[f2]</strong> فقط، والتي تصبح بعد ذلك دالة في البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_03]</strong> (السطر 4).</p>
+<p>تعمل جميع هذه البرامج النصية في بيئة <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> بنفس الكفاءة التي تعمل بها في وحدة تحكم <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> والسبب هو أن دليل البرنامج النصي الذي يتم تنفيذه —وهو هنا الدليل <strong>[03]</strong>— هو جزء من مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في كلتا الحالتين. ونتيجة لذلك، يتم العثور على الدليل <strong>[<bdi dir="ltr" class="odt-ltr-term">dir1/module2</bdi>]</strong>.</p>
+<p><a id="toc48548986"></a></p>
+<h2 id="94-import_04">9.4. <span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_04]</span></h2>
+<p><img src="images/100000000000016A000001A351983500.png" width="125" height="145" style="width:3.32cm;height:3.844cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016A000001A351983500.png" /></p>
+<p>هنا، تم وضع المجلدين <strong>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</strong> في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> لمشروع <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi></p>
+<p>الوحدة النمطية الأولى التي تم استيرادها هي <strong>[<bdi dir="ltr" class="odt-ltr-term">module3</bdi>]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1">#  a function</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f3&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>الوحدة الثانية التي تم استيرادها هي <strong>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module3</span><span class="w"> </span><span class="kn">import</span> <span class="n">f3</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1">#  a function</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">f4</span><span class="p">():</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>    <span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f4&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 1: نستورد الدالة <b>[f3] </b>من <b>[<bdi dir="ltr" class="odt-ltr-term">module3</bdi>]</b>. وهنا، يكون<b> [<bdi dir="ltr" class="odt-ltr-term">module3</bdi>] </b>مرئيًا لأننا وضعنا دليله <b>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>] </b>في <b>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</b>؛
+  </li>
+  <li>الأسطر 4–6: نُعرّف دالة <b>[f4] </b>تستدعي الدالة <b>[f3] </b>من <b>[<bdi dir="ltr" class="odt-ltr-term">module3</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>النص البرمجي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1">#  import module4</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1">#  execution f4</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 2: استيراد الوحدة النمطية<b> [<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>. هذا مرئي لأننا وضعنا دليلها <b>[<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>] </b>في <b>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>] </b>في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi>؛
+  </li>
+  <li>السطر 4: تنفيذ الدالة<b> [f4] </b>من <b>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>فيما يلي نتائج تشغيل <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> في <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">04</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">f3</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">f4</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>الآن، دعونا نُشغّل <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> في محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi> (وحدة التحكم):</p>
+<p><img src="images/1000000000000147000002CCB9B7E723.png" width="142" height="312" style="width:3.769cm;height:8.253cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000147000002CCB9B7E723.png" /></p>
+<p>النتائج هي كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">04</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  <span class="n">File</span> <span class="s2">&quot;main_01.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;module4&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>ماذا حدث؟ لا تعرف محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi> مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الخاص بـ <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> أو <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong>. لديها مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> خاص بها. في هذا المسار، يوجد دائمًا مجلد البرنامج النصي الذي يتم تنفيذه، وهو في هذه الحالة البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong>. وبالتالي فهي تعرف مجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04</bdi>]</strong>. في البرنامج النصي المنفذ، تجد السطر:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">from<span style="color:#000000"> </span><span style="color:#6f008a">module4</span><span style="color:#000000"> </span>import<span style="color:#000000"> f4</span></span></span>
+</code></pre></div>
+
+<p>يبحث مترجم <bdi dir="ltr" class="odt-ltr-term">Python</bdi> عن <strong>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</strong> في مجلدات مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الخاص به. ومع ذلك، لا يوجد <strong>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</strong> في <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04</bdi>]</strong>—الذي يقع بالفعل في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>—ولكن في <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir2</bdi>]،</strong> الذي لا يقع فيه. ومن هنا يأتي الخطأ.</p>
+<p>إذن لدينا مشكلة واجهناها من قبل: قد يتعطل البرنامج النصي الذي يعمل بشكل صحيح في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> في محطة <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> هذه مشكلة متكررة سنحتاج إلى حلها.</p>
+<p><a id="toc48548987"></a></p>
+<h2 id="95-import_05">9.5. <span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_05]</span></h2>
+<p><img src="images/100000000000018100000231B0B3CD88.png" width="136" height="198" style="width:3.59cm;height:5.232cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018100000231B0B3CD88.png" /></p>
+<p><strong>ملاحظة</strong>: تمت إضافة مجلدي <strong>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</strong> إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> لاحظ أن هناك تعارضًا بالفعل هنا: سيتم العثور على <strong>[<bdi dir="ltr" class="odt-ltr-term">module3</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</strong> في موقعين في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<ul>
+  <li>في <b>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir1</bdi>] </b>و <b>[<bdi dir="ltr" class="odt-ltr-term">import/05/dir1</bdi>] </b>لـ <b>[<bdi dir="ltr" class="odt-ltr-term">module3</bdi>]</b>؛
+  </li>
+  <li>في <b>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir2</bdi>] </b>و<b>[<bdi dir="ltr" class="odt-ltr-term">import/05/dir2</bdi>] </b>لـ <b>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>يمكننا بعد ذلك إزالة <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir1</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir2</bdi>]</strong> من <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> لمشروع <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi> اتضح أن <strong>[<bdi dir="ltr" class="odt-ltr-term">import/05/dir1</bdi>]</strong> هنا هو نسخة من <strong>[<bdi dir="ltr" class="odt-ltr-term">import/04/dir1</bdi>]</strong> (وينطبق الأمر نفسه على <strong>[<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</strong>)، لذا لا توجد مشكلة. ومع ذلك، تجدر الإشارة إلى أنه داخل <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> نفسه، يجب الانتباه إلى قائمة المجلدات في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> لتجنب التعارضات.</p>
+<p>يصبح البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="c1">#  modify sys.path to include folders</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="c1">#  containing the classes to be imported</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir1&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir2&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1">#  import module4</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="c1">#  execution f4</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>نحن نحاول حل مشكلة مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> نريد مسارًا يعمل في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> بنفس الكفاءة التي يعمل بها في محطة <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> للقيام بذلك، سنقوم بإعداده بأنفسنا.</p>
+<ul>
+  <li>الأسطر 4–6: نضيف الدلائل <b>[., ./<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>, ./<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>] </b>إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> لكي يعمل هذا، يجب أن يكون الدليل الحالي أثناء التشغيل هو الدليل<b> [<bdi dir="ltr" class="odt-ltr-term">import/05</bdi>]</b>. سيكون هذا صحيحًا في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> ولكنه ليس صحيحًا بالضرورة في محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، كما سنرى؛
+  </li>
+  <li>السطر 8: نقوم باستيراد <b>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>. بناءً على ما قمنا به للتو، يجب العثور عليه في <b>[./<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>يؤدي التنفيذ في <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> إلى النتائج التالية:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">05</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">f3</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="n">f4</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>الآن، في محطة <bdi dir="ltr" class="odt-ltr-term">Python:</bdi></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\<span style="background-color:#fff2cc">import\05</span>&gt;python main_01.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f4</span></span>
+</code></pre></div>
+
+<p>السطر 1، دليل التنفيذ هو <strong>[<bdi dir="ltr" class="odt-ltr-term">import/05</bdi>]</strong>.</p>
+<p>الآن دعونا نرتقي مستوى واحدًا في شجرة الدلائل من <strong>[<bdi dir="ltr" class="odt-ltr-term">import/05</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\import\05&gt;<span style="background-color:#fff2cc">cd ..</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\<span style="background-color:#fff2cc">import</span>&gt;python <span style="background-color:#fff2cc">05/main_01.py</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Traceback (most recent call last):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  File &quot;05/main_01.py&quot;, line 8, in &lt;module&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    from module4 import f4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">ModuleNotFoundError: No module named &#x27;module4&#x27;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطر 2: عند تنفيذ<b> [<bdi dir="ltr" class="odt-ltr-term">main_01</bdi>]</b>، لم نعد في المجلد<b> [<bdi dir="ltr" class="odt-ltr-term">import/05</bdi>] </b>بل في <b>[<bdi dir="ltr" class="odt-ltr-term">import</bdi>]</b>. ومع ذلك، كتبنا:
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">sys</span>.path.append(<span style="color:#a31515">&quot;.&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">sys</span>.path.append(<span style="color:#a31515">&quot;./dir1&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">sys</span>.path.append(<span style="color:#a31515">&quot;./dir2&quot;</span>)</span></span>
+</code></pre></div>
+
+<p>يؤدي هذا إلى إضافة المجلدات <strong>[<bdi dir="ltr" class="odt-ltr-term">import</bdi>، <bdi dir="ltr" class="odt-ltr-term">import/dir1</bdi>، <bdi dir="ltr" class="odt-ltr-term">import/dir2</bdi>]</strong> إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، وهو ما لا نريده على الإطلاق. لاحظ أن إضافة مجلدات غير موجودة (<bdi dir="ltr" class="odt-ltr-term">import/dir1</bdi>، <bdi dir="ltr" class="odt-ltr-term">import/dir2</bdi>) إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> لا تسبب أخطاء.</p>
+<p>لقد أحرزنا تقدمًا، لكن هذا لا يكفي. نحتاج إلى إضافة مسارات مطلقة إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، وليس مسارات نسبية.</p>
+<p>البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]</strong> هو نسخة معدلة من <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_01]</strong> تستخدم ملف تكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#2e75b6">&quot;dependencies&quot;</span>: <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">    </span><span style="font-weight:bold;color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/dir1&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">    </span><span style="font-weight:bold;color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/dir2&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>قيمة مفتاح <strong>[<bdi dir="ltr" class="odt-ltr-term">dependencies</bdi>]</strong> هي قائمة الدلائل التي سيتم إضافتها إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> لاحظ أننا استخدمنا هنا مسارات مطلقة بدلاً من مسارات نسبية.</p>
+<p>يستخدم البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]</strong> ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</strong> على النحو التالي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span>
+<span class="normal"><a href="#__codelineno-24-15">15</a></span>
+<span class="normal"><a href="#__codelineno-24-16">16</a></span>
+<span class="normal"><a href="#__codelineno-24-17">17</a></span>
+<span class="normal"><a href="#__codelineno-24-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="c1">#  configuration file</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="n">config_filename</span><span class="o">=</span><span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/config.json&quot;</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="c1">#  reading the json configuration file</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="c1">#  modification of sys.path</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;dependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="c1">#  import module4</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a><span class="c1">#  execution f4</span>
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 6:  لاحظ أننا استخدمنا المسار المطلق لملف التكوين؛
+  </li>
+  <li>السطران 8-9: يتم قراءة ملف التكوين. يتم إنشاء قاموس <b>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>] </b>(السطر 9) من محتوياته؛
+  </li>
+  <li>الأسطر 11-13: تتم إضافة عناصر المصفوفة <b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">config</bdi>[</span></b><b><span style="color: #a31515">&#x27;<bdi dir="ltr" class="odt-ltr-term">dependencies</bdi>&#x27;</span></b><b>]</b>] إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> لاحظ أنه نظرًا لاستخدامنا أسماء مجلدات مطلقة في <b>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</b>، فإننا نضيف أسماء مطلقة إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>السطر 16: يتم استيراد <b>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>. يجب العثور عليه لأن <b>[<bdi dir="ltr" class="odt-ltr-term">dir2</bdi>] </b>موجود الآن في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+</ul>
+
+<p>يؤدي التنفيذ إلى نفس النتائج التي تم الحصول عليها في <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_02]،</strong> باستثناء أن البرنامج النصي يستمر في العمل حتى عندما لا يكون دليل التنفيذ هو <strong>[<bdi dir="ltr" class="odt-ltr-term">import/05</bdi>]</strong> بعد الآن:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\<span style="background-color:#fff2cc">import</span>&gt;python <span style="background-color:#fff2cc">05/main_02.py</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f4</span></span>
+</code></pre></div>
+
+<p>السطر 1، دليل التنفيذ هو <strong>[<bdi dir="ltr" class="odt-ltr-term">import</bdi>]</strong>.</p>
+<p>لقد أحرزنا تقدماً. لقد رأينا:</p>
+<ul>
+  <li>أنه كان علينا إنشاء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> بأنفسنا؛
+  </li>
+  <li>أنه كان علينا تضمين المسارات المطلقة لجميع المجلدات التي تحتوي على الوحدات النمطية التي يستوردها التطبيق؛
+  </li>
+</ul>
+
+<p>ومع ذلك، فإن وضع المسارات المطلقة في البرامج النصية ليس حلاً. فبمجرد نقل المشروع إلى موقع آخر، يتوقف عن العمل. نحتاج إلى إيجاد طريقة أخرى.</p>
+<p><a id="toc48548988"></a></p>
+<h2 id="96-import_06">9.6. <span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_06]</span></h2>
+<p><img src="images/100000000000016F0000013E247ECD7F.png" width="130" height="112" style="width:3.433cm;height:2.976cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016F0000013E247ECD7F.png" /></p>
+<p><strong>ملاحظة</strong>: تم وضع المجلدات <strong>[06، <bdi dir="ltr" class="odt-ltr-term">dir1</bdi>، <bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</strong> في <strong>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>]</strong> لمشروع <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi> المجلدان <strong>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>، <bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</strong> مطابقان لتلك الموجودة في الأمثلة السابقة.</p>
+<p>ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#2e75b6">&quot;rootDir&quot;</span>: <span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#2e75b6">&quot;relativeDependencies&quot;</span>: <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">    </span><span style="font-weight:bold;color:#a31515">&quot;dir1&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">    </span><span style="font-weight:bold;color:#a31515">&quot;dir2&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">  ]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#2e75b6">&quot;absoluteDependencies&quot;</span>: <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>نقدم نوعين من المسارات:</p>
+<ul>
+  <li>المسارات المطلقة، الأسطر 7–8؛
+  </li>
+  <li>المسارات النسبية، الأسطر 3–6. هذه المسارات نسبية بالنسبة إلى الجذر الموجود في السطر 2. وبالتالي، عندما ينتقل المشروع إلى موقع جديد، لا يلزم تعديل سوى هذا السطر؛
+  </li>
+</ul>
+
+<p>يستخدم البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">utils.py</bdi>]</strong> ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</strong> ويبني مسار <bdi dir="ltr" class="odt-ltr-term">Python:</bdi></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span>
+<span class="normal"><a href="#__codelineno-25-14">14</a></span>
+<span class="normal"><a href="#__codelineno-25-15">15</a></span>
+<span class="normal"><a href="#__codelineno-25-16">16</a></span>
+<span class="normal"><a href="#__codelineno-25-17">17</a></span>
+<span class="normal"><a href="#__codelineno-25-18">18</a></span>
+<span class="normal"><a href="#__codelineno-25-19">19</a></span>
+<span class="normal"><a href="#__codelineno-25-20">20</a></span>
+<span class="normal"><a href="#__codelineno-25-21">21</a></span>
+<span class="normal"><a href="#__codelineno-25-22">22</a></span>
+<span class="normal"><a href="#__codelineno-25-23">23</a></span>
+<span class="normal"><a href="#__codelineno-25-24">24</a></span>
+<span class="normal"><a href="#__codelineno-25-25">25</a></span>
+<span class="normal"><a href="#__codelineno-25-26">26</a></span>
+<span class="normal"><a href="#__codelineno-25-27">27</a></span>
+<span class="normal"><a href="#__codelineno-25-28">28</a></span>
+<span class="normal"><a href="#__codelineno-25-29">29</a></span>
+<span class="normal"><a href="#__codelineno-25-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">#  imports</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="c1">#  application configuration</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">config_app</span><span class="p">(</span><span class="n">config_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>    <span class="c1">#  config_filename: name of configuration file</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>    <span class="c1">#  we let the exceptions rise</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>    <span class="c1">#  using the configuration file</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>    <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>        <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a>    <span class="c1">#  add dependencies to sys.path</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a>    <span class="n">rootDir</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;rootDir&#39;</span><span class="p">]</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17"></a>    <span class="c1">#  add the project&#39;s relative dependencies to the syspath</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;relativeDependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19"></a>        <span class="c1">#  add the dependency at the beginning of the syspath</span>
+<a id="__codelineno-25-20" name="__codelineno-25-20"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rootDir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-21" name="__codelineno-25-21"></a>    <span class="c1">#  we add the project&#39;s absolute dependencies to the syspath</span>
+<a id="__codelineno-25-22" name="__codelineno-25-22"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;absoluteDependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23"></a>        <span class="c1">#  add the dependency at the beginning of the syspath</span>
+<a id="__codelineno-25-24" name="__codelineno-25-24"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-25-25" name="__codelineno-25-25"></a>    <span class="c1">#  return the configuration dictionary</span>
+<a id="__codelineno-25-26" name="__codelineno-25-26"></a>    <span class="k">return</span> <span class="n">config</span>
+<a id="__codelineno-25-27" name="__codelineno-25-27"></a>
+<a id="__codelineno-25-28" name="__codelineno-25-28"></a><span class="c1">#  executed script file</span>
+<a id="__codelineno-25-29" name="__codelineno-25-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_scriptdir</span><span class="p">():</span>
+<a id="__codelineno-25-30" name="__codelineno-25-30"></a>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 8: تستقبل الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">config_app</bdi>] </b>اسم ملف التكوين كمعلمة؛
+  </li>
+  <li>الأسطر 12–14: يُستخدم ملف التكوين لإنشاء قاموس<b> [<bdi dir="ltr" class="odt-ltr-term">config</bdi>]</b>؛
+  </li>
+  <li>السطر 20: <b>[<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>] </b>هي قائمة الدلائل الموجودة في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>الأسطر 17–20: تُضاف التبعيات النسبية من ملف التكوين إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> تُضاف إلى بداية قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>]</b>، السطر 20. وذلك لأن <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، عند البحث عن وحدة نمطية، يستكشف الدلائل الموجودة في<b> [<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>] </b>بالترتيب. ومع ذلك، في هذا المستند، ستوجد الوحدات النمطية التي تحمل الأسماء نفسها في دلائل مختلفة داخل <b>[<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>]</b>. من خلال وضع تبعيات التطبيق في بداية مصفوفة<b> [<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>]</b>، نضمن البحث عنها قبل الدلائل الأخرى في <b>[<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>] </b>التي قد تحتوي على وحدات نمطية تحمل الأسماء نفسها؛
+  </li>
+  <li>الأسطر 21–24: تتم إضافة التبعيات المطلقة لملف التكوين إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>السطر 26: يتم إرجاع تكوين التطبيق؛
+  </li>
+  <li>السطران 29 و30: تُرجع الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">get_scriptdir</bdi>] </b>المسار المطلق للدليل الذي يحتوي على البرنامج النصي قيد التشغيل حاليًا (الدليل الذي يوجد فيه استدعاء الدالة)؛
+  </li>
+</ul>
+
+<p>النص البرمجي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span>
+<span class="normal"><a href="#__codelineno-26-17">17</a></span>
+<span class="normal"><a href="#__codelineno-26-18">18</a></span>
+<span class="normal"><a href="#__codelineno-26-19">19</a></span>
+<span class="normal"><a href="#__codelineno-26-20">20</a></span>
+<span class="normal"><a href="#__codelineno-26-21">21</a></span>
+<span class="normal"><a href="#__codelineno-26-22">22</a></span>
+<span class="normal"><a href="#__codelineno-26-23">23</a></span>
+<span class="normal"><a href="#__codelineno-26-24">24</a></span>
+<span class="normal"><a href="#__codelineno-26-25">25</a></span>
+<span class="normal"><a href="#__codelineno-26-26">26</a></span>
+<span class="normal"><a href="#__codelineno-26-27">27</a></span>
+<span class="normal"><a href="#__codelineno-26-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1">#  imports</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">config_app</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">affiche_path</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>    <span class="c1">#  message</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">------------------------------&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span class="c1">#  sys.path</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="c1">#  hand -------------</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a>    <span class="c1">#  the sys.path is configured</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a>    <span class="n">affiche_path</span><span class="p">(</span><span class="s2">&quot;avant....&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">config_app</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">get_scriptdir</span><span class="p">()</span><span class="si">}</span><span class="s2">/config.json&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-20" name="__codelineno-26-20"></a>    <span class="n">affiche_path</span><span class="p">(</span><span class="s2">&quot;après....&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-21" name="__codelineno-26-21"></a>    <span class="c1">#  import module4</span>
+<a id="__codelineno-26-22" name="__codelineno-26-22"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-26-23" name="__codelineno-26-23"></a>    <span class="c1">#  execution f4</span>
+<a id="__codelineno-26-24" name="__codelineno-26-24"></a>    <span class="n">f4</span><span class="p">()</span>
+<a id="__codelineno-26-25" name="__codelineno-26-25"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-26-26" name="__codelineno-26-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-27" name="__codelineno-26-27"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-26-28" name="__codelineno-26-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 4: يتم استيراد الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">config_app</bdi>]</b>. لاحظ أنه نظرًا لوجود <b>[<bdi dir="ltr" class="odt-ltr-term">utils</bdi>] </b>و <b>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>] </b>في نفس الدليل، فإن هذا <b>[<bdi dir="ltr" class="odt-ltr-term">import</bdi>] </b>يعمل دائمًا. وذلك لأن دليل البرنامج النصي الرئيسي يُضاف تلقائيًا إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>الأسطر 7–12: تعرض الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">display_path</bdi>] </b>قائمة المجلدات الموجودة في مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>السطر 19: يتم تكوين التطبيق. لاحظ أن المسار المطلق لملف التكوين يتم تمريره إلى دالة<b> [<bdi dir="ltr" class="odt-ltr-term">config_app</bdi>]</b>. بعد هذا البيان، يتم إعادة بناء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>السطر 22: نقوم باستيراد <b>[<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>. وبفضل إعادة بناء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، سيتم العثور على هذه الوحدة النمطية؛
+  </li>
+  <li>السطر 24:  يتم تنفيذ الدالة<b> [f4]</b>؛
+  </li>
+</ul>
+
+<p>في بيئة <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi>، تكون نتائج التنفيذ كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/<span style="background-color:#fff2cc">import/06/main.py</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">avant....------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\import\06</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\fonctions\shared</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\v01\shared</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\python38.zip</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\DLLs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\lib</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\lib\site-packages</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">après....------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06/dir2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06/dir1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\import\06</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\fonctions\shared</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\v01\shared</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">….</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\python38.zip</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\DLLs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\lib</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\lib\site-packages</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">done</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>الأسطر 2–13: مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi> ويشمل جميع المجلدات الموجودة في <b>[<bdi dir="ltr" class="odt-ltr-term">Root Sources</bdi>] </b>بالمشروع؛
+  </li>
+  <li>الأسطر 14–29: مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الذي تم إنشاؤه بواسطة الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">config_app</bdi>]</b>. تحتوي الأسطر 15–16 على التبعيتين اللتين أضفناهما؛
+  </li>
+  <li>الأسطر 22–27: الدلائل النظامية لمترجم <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الذي نفذ البرنامج النصي؛
+  </li>
+  <li>الأسطر 28–29: يستمر التنفيذ بشكل طبيعي؛
+  </li>
+</ul>
+
+<p>الآن، لنعد إلى السياق الذي تسبب سابقًا في حدوث خطأ في وقت التشغيل:</p>
+<ul>
+  <li>افتح محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>انتقل إلى دليل آخر غير الذي يحتوي على البرنامج النصي الذي تم تنفيذه؛
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\<span style="background-color:#fff2cc">import</span>&gt;python <span style="background-color:#fff2cc">06/main.py</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">avant....------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\import\06</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\python38.zip</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\DLLs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\lib</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\lib\site-packages</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">après....------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06/<span style="background-color:#fff2cc">dir2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06/<span style="background-color:#fff2cc">dir1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\import\06</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\python38.zip</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\DLLs</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38\lib</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Program Files\Python38</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\lib\site-packages</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f4</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">done</span></span>
+</code></pre></div>
+
+<p>هذه المرة يعمل (السطران 20–21). لاحظ أن <strong>[<bdi dir="ltr" class="odt-ltr-term">sys.path</bdi>]</strong> لا يحتوي على نفس الدلائل كما هو الحال عند التشغيل في <bdi dir="ltr" class="odt-ltr-term">PyCharm.</bdi> </p>
+<p><a id="toc48548989"></a></p>
+<h2 id="97-import_07">9.7. <span style="color: #4f81bd"><span style="color: #4f81bd">البرامج النصية [<bdi dir="ltr" class="odt-ltr-term">import</bdi>_07]</span></span></h2>
+<p>نقوم بتحسين الحل السابق بطريقتين:</p>
+<ul>
+  <li>نستبدل ملف التكوين <b>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>] </b>بنص برمجي <b>[<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>]</b>. في الواقع، يمثل ملف <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> مشكلة كبيرة: لا يمكن إضافة تعليقات عليه. يمكن استبدال قاموس<b> [<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>] </b>بقاموس <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، الذي يتميز بإمكانية إضافة التعليقات عليه؛
+  </li>
+  <li>نستخدم وحدة نمطية مرئية لجميع مشاريع <bdi dir="ltr" class="odt-ltr-term">Python</bdi> على الجهاز؛
+  </li>
+</ul>
+<p><a id="installationdunmodule"></a>
+<a id="toc48548990"></a></p>
+<h3 id="971">9.7.1. <span style="color: #4f81bd">تثبيت وحدة على مستوى الجهاز</span></h3>
+<p><img src="images/1000000100000128000000D56ECC7998.png" width="105" height="75" style="width:2.769cm;height:1.993cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000128000000D56ECC7998.png" /></p>
+<p>أعلاه، نقوم بإنشاء مجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">packages/myutils</bdi>]</strong> في مشروع <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> (الأسماء لا تهم).</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils.py</bdi>]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span>
+<span class="normal"><a href="#__codelineno-27-11">11</a></span>
+<span class="normal"><a href="#__codelineno-27-12">12</a></span>
+<span class="normal"><a href="#__codelineno-27-13">13</a></span>
+<span class="normal"><a href="#__codelineno-27-14">14</a></span>
+<span class="normal"><a href="#__codelineno-27-15">15</a></span>
+<span class="normal"><a href="#__codelineno-27-16">16</a></span>
+<span class="normal"><a href="#__codelineno-27-17">17</a></span>
+<span class="normal"><a href="#__codelineno-27-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="c1">#  imports</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>    <span class="c1">#  absolute_dependencies: a list of absolute folder names</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a>    <span class="c1">#  add the project&#39;s absolute dependencies to the syspath</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">absolute_dependencies</span><span class="p">:</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a>        <span class="c1">#  we check the existence of the file</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12"></a>        <span class="n">existe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-27-13" name="__codelineno-27-13"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">existe</span><span class="p">:</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14"></a>            <span class="c1">#  an exception is lifted</span>
+<a id="__codelineno-27-15" name="__codelineno-27-15"></a>            <span class="k">raise</span> <span class="ne">BaseException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[set_syspath] le dossier du Python Path [</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">] n&#39;existe pas&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-16" name="__codelineno-27-16"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-27-17" name="__codelineno-27-17"></a>            <span class="c1">#  add the folder at the beginning of the syspath</span>
+<a id="__codelineno-27-18" name="__codelineno-27-18"></a>            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>الأسطر 6–18: تقوم الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">set_syspath</bdi>] </b>بإنشاء مسار <bdi dir="ltr" class="odt-ltr-term">Python Path</bdi> باستخدام قائمة الدلائل التي تم تمريرها إليها كمعلمة؛
+  </li>
+  <li>الأسطر 12–15: نتحقق من وجود الدليل المراد إضافته إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+</ul>
+
+<p>فيما يلي نص البرنامج النصي <strong>[__init.py__]</strong> (يجب أن يسبق الاسم ويليه شرطان سفليان؛ وهذا أمر إلزامي):</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> .<span style="color:#6f008a">myutils</span> <span style="color:#0000ff">import</span> set_syspath</span></span>
+</code></pre></div>
+
+<p>نقوم باستيراد الدالة <strong>[set_syspath]</strong> من البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong>. تشير التسمية <strong>[.<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> إلى المسار <strong>[./<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong>، مما يعني أن البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> موجود في نفس الدليل الذي يوجد فيه <strong>[__init.py]</strong>. كان بإمكاننا استخدام الترميز <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong>. ومع ذلك، سنقوم بإنشاء وحدة <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> على مستوى الجهاز. ونتيجة لذلك، سيصبح الترميز <strong>[<bdi dir="ltr" class="odt-ltr-term">from myutils import set</bdi>_syspath]</strong> غامضًا. هل يشير إلى استيراد البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> من الدليل الحالي أم البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> على مستوى الجهاز؟ يحل الترميز <strong>[.<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> هذا الغموض.</p>
+<p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">setup.py</bdi>]</strong> (هنا أيضًا، الاسم ثابت) هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> setuptools <span style="color:#0000ff">import</span> setup</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">setup(name=<span style="color:#a31515">&#x27;myutils&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      version=<span style="color:#a31515">&#x27;0.1&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      description=<span style="color:#a31515">&#x27;Utilitaire fixant le Python Path&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      url=<span style="color:#a31515">&#x27;#&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      author=<span style="color:#a31515">&#x27;st&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      author_email=<span style="color:#a31515">&#x27;st@gmail.com&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      license=<span style="color:#a31515">&#x27;MIT&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      packages=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;myutils&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      zip_safe=<span style="color:#0000ff">False</span>)</span></span>
+</code></pre></div>
+
+<p>في هذا البرنامج النصي، نصف الوحدة النمطية التي سنقوم بإنشائها. هنا، سنقوم بإنشائها محليًا. ومع ذلك، يتم استخدام نفس العملية لإنشاء وحدة نمطية موزعة رسميًا (انظر |<bdi dir="ltr" class="odt-ltr-term">pypi</bdi>|). النقاط المهمة هنا هي كما يلي:</p>
+<ul>
+  <li>السطر 3: اسم الوحدة النمطية التي يتم إنشاؤها؛
+  </li>
+  <li>السطر 4: إصدار الوحدة النمطية؛
+  </li>
+  <li>السطر 5: وصفها؛
+  </li>
+  <li>السطران 7-8: مؤلف الوحدة النمطية؛
+  </li>
+</ul>
+
+<p>لتثبيت هذه الوحدة على مستوى الجهاز، اتبع الخطوات التالية:</p>
+<p><img src="images/100000010000024B0000027B01C4A14B.png" width="263" height="285" style="width:6.96cm;height:7.528cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000024B0000027B01C4A14B.png" /></p>
+<p>ثم، في محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، اكتب الأمر التالي <strong>[<bdi dir="ltr" class="odt-ltr-term">pip install</bdi> .]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\packages&gt;<span style="background-color:#fff2cc">pip install .</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Processing c:\data\st-2020\dev\python\cours-2020\python3-flask-2020\packages</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Using legacy setup.py install for myutils, since package &#x27;wheel&#x27; is not installed.</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Installing collected packages: myutils</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  Attempting uninstall: myutils</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Found existing installation: myutils 0.1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Uninstalling myutils-0.1:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      Successfully uninstalled myutils-0.1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Running setup.py install for myutils ... done</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Successfully installed myutils-0.1</span></span>
+</code></pre></div>
+
+<p>من الآن فصاعدًا، يمكن لأي برنامج نصي على الجهاز استيراد وحدة <strong>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</strong> دون أن تكون موجودة في كود المشروع.</p>
+<p><a id="toc48548991"></a></p>
+<h3 id="972-configpy">9.7.2. <span style="color: #4f81bd">البرنامج النصي [<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>]</span></h3>
+<p><img src="images/100000010000010D000000D33929E6BE.png" width="135" height="106" style="width:3.56cm;height:2.792cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000010D000000D33929E6BE.png" /></p>
+<p>يتولى البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>]</strong> إدارة إعدادات التطبيق:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">():</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>    <span class="c1">#  absolute name of the configuration script folder</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a>    <span class="c1">#  absolute paths of folders to put in the syspath</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a>        <span class="c1">#  local files</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/dir1&quot;</span><span class="p">,</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/dir2&quot;</span><span class="p">,</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a>    <span class="p">]</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a>    <span class="c1">#  update syspath</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15"></a>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a>    <span class="c1">#  return the config</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17"></a>    <span class="k">return</span> <span class="p">{}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 1: تتولى الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">configure</bdi>] </b>إدارة تكوين التطبيق؛
+  </li>
+  <li>الأسطر 7–10: القاموس الذي كان موجودًا سابقًا في <b>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</b>؛
+  </li>
+  <li>السطور 9-10: نظرًا لأننا في برنامج نصي، يمكننا الوصول مباشرةً إلى أسماء المجلدات المطلقة <b>[<bdi dir="ltr" class="odt-ltr-term">dir1</bdi>، <bdi dir="ltr" class="odt-ltr-term">dir2</bdi>]</b>؛
+  </li>
+  <li>الأسطر 12–14: نستخدم دالة<b> [<bdi dir="ltr" class="odt-ltr-term">set_syspath</bdi>] </b>من وحدة<b> [<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>] </b>التي أنشأناها للتو لتعيين مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> للتكوين؛
+  </li>
+  <li>السطر 20: نُرجع قاموس تكوين التطبيق. هنا، يكون فارغًا؛
+  </li>
+</ul>
+<p><a id="toc48548992"></a></p>
+<h3 id="973-mainpy">9.7.3. <span style="color: #4f81bd">البرنامج النصي [<bdi dir="ltr" class="odt-ltr-term">main.py</bdi>]</span></h3>
+<p>النص البرمجي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> هو كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="c1">#  configure the application</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="c1">#  syspath is configured - imports can be made</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="c1">#  hand -------------</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a>    <span class="n">f4</span><span class="p">()</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>الأسطر 2–4: نقوم بتكوين التطبيق باستخدام الوحدة النمطية<b> [<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>]</b>. يمكن الوصول إليها لأنها موجودة في نفس الدليل الذي يوجد فيه البرنامج النصي الرئيسي. ومع ذلك، فإن دليل البرنامج النصي الرئيسي يكون دائمًا جزءًا من مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>وبحلول الوقت الذي نصل فيه إلى السطر 6، يكون مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> قد تم إنشاؤه ليشمل مجلد الوحدة النمطية<b> [<bdi dir="ltr" class="odt-ltr-term">module4</bdi>]</b>. وبالتالي يمكننا استيرادها في السطر 7؛
+  </li>
+  <li>الأسطر 10–15: كل ما تبقى هو تنفيذ الدالة<b> [f4]</b>؛
+  </li>
+</ul>
+
+<p>فيما يلي نتائج التنفيذ في <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span>
+<span class="normal"><a href="#__codelineno-30-4">4</a></span>
+<span class="normal"><a href="#__codelineno-30-5">5</a></span>
+<span class="normal"><a href="#__codelineno-30-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">07</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">f3</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="n">f4</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="n">done</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>في محطة <bdi dir="ltr" class="odt-ltr-term">Python</bdi> خارج دليل البرنامج النصي الرئيسي، تكون النتائج كما يلي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span><span class="o">&gt;</span><span class="n">python</span> <span class="mi">07</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="n">f3</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="n">f4</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">done</span>
+</code></pre></div></td></tr></table></div>
+<p>من الآن فصاعدًا، سنتبع دائمًا نفس الإجراء لتكوين التطبيق:</p>
+<ul>
+  <li>وجود ملف نصي<b> [<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>] </b>في دليل البرنامج النصي الرئيسي. يحتوي هذا الملف النصي على دالة<b> [<bdi dir="ltr" class="odt-ltr-term">configure</bdi>] </b>التي تخدم غرضين:
+    <ul>
+      <li>إنشاء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> للتطبيق. للقيام بذلك، يسرد<b> [<bdi dir="ltr" class="odt-ltr-term">config.py</bdi>] </b>جميع المجلدات التي تحتوي على الوحدات النمطية التي يستخدمها التطبيق ويقوم بإنشاء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> باستخدام مساراتها المطلقة؛
+      </li>
+      <li>إنشاء قاموس<b> [<bdi dir="ltr" class="odt-ltr-term">config</bdi>] </b>لتكوين التطبيق؛
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>نطبق هذا النهج على النسخة الثانية من التمرين العملي. كما تذكرون، كانت النسخة الأولى تعمل في بيئة <bdi dir="ltr" class="odt-ltr-term">PyCharm</bdi> ولكنها لم تعمل في محطة <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> كانت المشكلة ناجمة عن مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

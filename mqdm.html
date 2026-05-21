@@ -1,0 +1,1545 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/mqdm.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="dd-byy-ltwyr.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. مقدمة - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. مقدمة
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="mqdm.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dd-byy-ltwyr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. إعداد بيئة التطوير
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slsl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlyt-lstyrd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين عملي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين عملي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lbny-lbqy-wlbrmj-lqym-l-lwjh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. البنية الطبقية والبرمجة القائمة على الواجهة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام نظام إدارة قواعد البيانات MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-nm-dr-qwd-lbynt-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام نظام إدارة قواعد البيانات PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-nm-dr-qwd-lbynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن أنظمة إدارة قواعد البيانات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sqlalchemy-orm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام SQLAlchemy ORM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين التطبيق: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-ml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار عمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tdryby-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تدريبي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين عملي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-ltbyq-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين التطبيق: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين التطبيق: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين التطبيق: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين عملي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-lldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات JSON و XML للإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين عملي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-ltbyq-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين التطبيق: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين عملي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-mly-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين عملي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="toc48548914"></a>
+<a id="avant-propos"></a>
+<a id="refheading382342423505"></a></p>
+<h1 id="1">1. <span style="color: #365f91">مقدمة</span></h1>
+<p>ملف <bdi dir="ltr" class="odt-ltr-term">PDF</bdi> لهذا المستند متاح |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQA5gPKFgkFOQLVRsmkVZOAgAexDQNinvNy6hzoGgT5XsUs?e=jb0XfL">هنا</a>|.</p>
+<p>الأمثلة الواردة في هذا المستند متاحة |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQAUyU6T-RUzR4OsqvJcD9BTAffOvf2V7m4qze1qlN2hKNU?e=7tK8CU">هنا</a>|.</p>
+<p>يقدم هذا المستند قائمة ببرامج <bdi dir="ltr" class="odt-ltr-term">Python</bdi> النصية في مجالات مختلفة:</p>
+<ul>
+  <li>أساسيات اللغة؛
+  </li>
+  <li>إدارة قواعد بيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> و <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>؛
+  </li>
+  <li>برمجة شبكات <bdi dir="ltr" class="odt-ltr-term">TCP/IP</bdi> (بروتوكولات <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> و <bdi dir="ltr" class="odt-ltr-term">POP3</bdi> و <bdi dir="ltr" class="odt-ltr-term">IMAP</bdi> و <bdi dir="ltr" class="odt-ltr-term">SMTP</bdi>)؛
+  </li>
+  <li>برمجة الويب <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> باستخدام إطار عمل <bdi dir="ltr" class="odt-ltr-term">FLASK</bdi>؛
+  </li>
+  <li>البنى ثلاثية المستويات والبرمجة القائمة على الواجهة؛
+  </li>
+</ul>
+
+<p>هذه ليست دورة شاملة في لغة <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، بل هي مجموعة من الأمثلة المخصصة للمطورين الذين سبق لهم استخدام لغة برمجة نصية مثل <bdi dir="ltr" class="odt-ltr-term">Perl</bdi> أو <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> أو <bdi dir="ltr" class="odt-ltr-term">VBScript</bdi>، أو للمطورين المعتادين على اللغات المكتوبة مثل <bdi dir="ltr" class="odt-ltr-term">Java</bdi> أو <bdi dir="ltr" class="odt-ltr-term">C#</bdi> والذين يرغبون في اكتشاف لغة برمجة نصية موجهة للكائنات. هذا المستند غير مناسب للقراء الذين لديهم خبرة قليلة أو معدومة في البرمجة.</p>
+<p>كما أن هذا المستند ليس مجموعة من &quot;أفضل الممارسات&quot;. قد يجد المطورون ذوو الخبرة أن بعض الأكواد يمكن كتابتها بطريقة أكثر أناقة. الغرض الوحيد من هذا المستند هو تقديم أمثلة لمن يرغب في تعلم <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3 وإطار عمل <bdi dir="ltr" class="odt-ltr-term">Flask.</bdi> يمكنهم بعد ذلك تعميق فهمهم باستخدام موارد أخرى.</p>
+<p>تحتوي البرامج النصية على تعليقات، ويتم عرض نتائج تنفيذها. يتم تقديم تفسيرات إضافية في بعض الأحيان. يتطلب هذا المستند قراءة نشطة: لفهم البرنامج النصي، يجب عليك قراءة الكود الخاص به، وتعليقاته، ونتائج تنفيذه.</p>
+<p>الأمثلة الواردة في هذا المستند متاحة <u><span style="color: #0563c1">|</span></u><a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQAUyU6T-RUzR4OsqvJcD9BTAffOvf2V7m4qze1qlN2hKNU?e=7tK8CU"><u><span style="color: #000080">هنا</span></u></a><u><span style="color: #0563c1">|</span></u>:</p>
+<p><img src="images/10000001000000BE0000013A72D32B31.png" width="122" height="202" style="width:3.23cm;height:5.338cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000BE0000013A72D32B31.png" /></p>
+<p>هذا المستند هو تحديث لمستند أقدم نُشر في يونيو 2011 |<bdi dir="ltr" class="odt-ltr-term">https://tahe.developpez.com/tutoriels-cours/python/</bdi>|. تم إنشاء مستند 2011 باستخدام مترجم <bdi dir="ltr" class="odt-ltr-term">Python 2.7</bdi>. ومنذ ذلك الحين، تم إصدار إصدارات <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3.<bdi dir="ltr" class="odt-ltr-term">x.</bdi> اعتبارًا من فبراير 2020، الإصدار الحالي هو 3.8. أدت إصدارات 3.x إلى حدوث انقطاع في التوافق بين الإصدارات: قد لا يعمل الكود الذي يعمل تحت <bdi dir="ltr" class="odt-ltr-term">Python 2.7</bdi> تحت <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3.<bdi dir="ltr" class="odt-ltr-term">x.</bdi> وينطبق هذا بشكل خاص على إخراج وحدة التحكم. في الإصدار 2.7، يمكنك كتابة <strong>[<bdi dir="ltr" class="odt-ltr-term">print</bdi> &quot;<bdi dir="ltr" class="odt-ltr-term">toto</bdi>&quot;]</strong>، بينما في الإصدار 3.x يجب عليك كتابة <strong>[<bdi dir="ltr" class="odt-ltr-term">print</bdi>(&quot;<bdi dir="ltr" class="odt-ltr-term">toto</bdi>&quot;)]</strong>: حيث تكون الأقواس مطلوبة. يعني هذا التغيير البسيط أن معظم الكود المقدم في وثيقة عام 2011 غير قابل للاستخدام مباشرة مع <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3.<bdi dir="ltr" class="odt-ltr-term">x.</bdi> ويجب تعديله.</p>
+<p>لا يقتصر دور هذا المستند الجديد على تحديث كود 2011 لجعله قابلاً للتنفيذ مع <bdi dir="ltr" class="odt-ltr-term">Python 3.8</bdi> فحسب:</p>
+<ul>
+  <li>خضعت الأقسام المتعلقة ببرمجة <bdi dir="ltr" class="odt-ltr-term">TCP/IP</bdi> واستخدام قواعد البيانات لتغييرات كبيرة؛
+  </li>
+  <li>أصبح القسم الخاص ببرمجة الويب، الذي كان في السابق مجرد مقدمة، دورة كاملة باستخدام إطار عمل <bdi dir="ltr" class="odt-ltr-term">Flask</bdi>؛
+  </li>
+</ul>
+
+<p>لإعداد هذه الدورة التدريبية، اتبعت نهجًا غير تقليدي: فقد قمت بتحويل دورة <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> [<a href="https://stahe.github.io/en-php7-juillet-2019/"><u><span style="color: #0563c1">مقدمة إلى <bdi dir="ltr" class="odt-ltr-term">PHP7</bdi> من خلال الأمثلة</span></u></a>]. ولذلك، لم أتبع الهياكل التقليدية لدورات <bdi dir="ltr" class="odt-ltr-term">Python</bdi> أو <bdi dir="ltr" class="odt-ltr-term">Flask.</bdi> وقبل كل شيء، كنت أرغب في معرفة كيف يمكنني تنفيذ ما قمت به في <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> 7 باستخدام <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3. ونتيجة لذلك، تمكنت من إعادة إنشاء جميع الأمثلة الواردة في دورة <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> 7 باستخدام <bdi dir="ltr" class="odt-ltr-term">Python</bdi> 3 / <bdi dir="ltr" class="odt-ltr-term">Flask.</bdi></p>
+<p>قد يحتوي هذا المستند على أخطاء أو سهو. يمكن للقراء استخدام سلسلة المناقشة |المنتدى| للإبلاغ عنها.</p>
+<p>محتويات الوثيقة هي كما يلي:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>الفصل</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>مستودع الكود</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>المحتويات</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/foreword.html"><u><span style="color: #0563c1">الفصل 1</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">نظرة عامة على المقرر</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/setting-up-a-development-environment.html"><u><span style="color: #0563c1">الفصل 2</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">إعداد بيئة العمل</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/the-basics-of-python.html"><u><span style="color: #0563c1">الفصل 3</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[الأساسيات]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">أساسيات لغة <bdi dir="ltr" class="odt-ltr-term">Python</bdi></div><div style="margin:0 0 0.5em 0"> – هياكل اللغة – أنواع البيانات</div><div style="margin:0 0 0.5em 0"> – الدوال – إخراج وحدة التحكم –</div><div style="margin:0 0 0.5em 0">سلاسل التنسيق – تحويل الأنواع</div><div style="margin:0 0 0.5em 0"> – القوائم – القواميس –</div><div style="margin:0 0 0.5em 0"> التعبيرات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/strings.html"><u><span style="color: #0563c1">الفصل 4</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[سلاسل]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ترميز السلسلة – طرق فئة</div><div style="margin:0 0 0.5em 0">فئة &lt;str&gt; – ترميز/فك ترميز</div><div style="margin:0 0 0.5em 0">السلاسل في <bdi dir="ltr" class="odt-ltr-term">UTF-8</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/exceptions.html"><u><span style="color: #0563c1">الفصل 5</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[الاستثناءات]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">معالجة الاستثناءات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/functions.html"><u><span style="color: #0563c1">الفصل 6</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[الوظائف]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">نطاق المتغيرات – المعلمات</div><div style="margin:0 0 0.5em 0">التمرير – استخدام الوحدات النمطية – مسار</div><div style="margin:0 0 0.5em 0">مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> – المعلمات</div><div style="margin:0 0 0.5em 0">المعلمات –</div><div style="margin:0 0 0.5em 0"> الفصل</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/text-files.html"><u><span style="color: #0563c1">الفصل 7</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[الملفات]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">قراءة/كتابة ملف نصي –</div><div style="margin:0 0 0.5em 0">التعامل مع الملفات المشفرة بـ <bdi dir="ltr" class="odt-ltr-term">UTF-8</bdi> –</div><div style="margin:0 0 0.5em 0"> التعامل مع ملفات <bdi dir="ltr" class="odt-ltr-term">JSON</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise---version-1.html"><u><span style="color: #0563c1">الفصل 8</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/v01</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 1 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين: حساب ضريبة الدخل</div><div style="margin:0 0 0.5em 0">. التطبيق متوفر في 18</div><div style="margin:0 0 0.5em 0">إصدارات – الإصدار 1 يطبق</div><div style="margin:0 0 0.5em 0"> حل إجرائي</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/imports.html"><u><span style="color: #0563c1">الفصل 9</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[يستورد]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">إدارة</div><div style="margin:0 0 0.5em 0">التطبيقات عن طريق استيراد</div><div style="margin:0 0 0.5em 0">الوحدات النمطية – يتم عرض طريقة</div><div style="margin:0 0 0.5em 0">طريقة لإدارة التبعيات</div><div style="margin:0 0 0.5em 0"> – يتم استخدامها في جميع أنحاء</div><div style="margin:0 0 0.5em 0">الوثيقة – إدارة</div><div style="margin:0 0 0.5em 0"> مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-2.html"><u><span style="color: #0563c1">الفصل 10</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/v02</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 2 من التطبيق</div><div style="margin:0 0 0.5em 0">تستند إلى الإصدار 1 من خلال تجميع</div><div style="margin:0 0 0.5em 0">جميع ثوابت التكوين في</div><div style="margin:0 0 0.5em 0">ملف تكوين يقوم أيضًا</div><div style="margin:0 0 0.5em 0">مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-3.html"><u><span style="color: #0563c1">الفصل 11</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/v03</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 3 من التطبيق</div><div style="margin:0 0 0.5em 0">تستند إلى الإصدار 2 باستخدام</div><div style="margin:0 0 0.5em 0">الوظائف المُغلفة في</div><div style="margin:0 0 0.5em 0">وحدة نمطية — تتم</div><div style="margin:0 0 0.5em 0">يتم التعامل مع إدارة التبعيات عبر</div><div style="margin:0 0 0.5em 0">التكوين — إدخال</div><div style="margin:0 0 0.5em 0">ملف <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> لقراءة البيانات المطلوبة</div><div style="margin:0 0 0.5em 0">لحساب الضرائب وكتابة</div><div style="margin:0 0 0.5em 0">نتائج الحساب</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/classes-and-objects.html"><u><span style="color: #0563c1">الفصل 12</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">classes/01</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الفئات – الوراثة – الطرق</div><div style="margin:0 0 0.5em 0">والخصائص – أدوات الاسترجاع/التعيين –</div><div style="margin:0 0 0.5em 0">المنشئ – <b>[__dict__]</b></div><div style="margin:0 0 0.5em 0"><b> </b>الخاصية</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/the-generic-classes-baseentity-and-myexception.html"><u><span style="color: #0563c1">الفصل 13</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">classes/02</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">مقدمة إلى فئتي <b>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</b></div><div style="margin:0 0 0.5em 0">و<b>[<bdi dir="ltr" class="odt-ltr-term">MyException</bdi>] </b>المستخدمتين</div><div style="margin:0 0 0.5em 0">في بقية</div><div style="margin:0 0 0.5em 0">الوثيقة – <b>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</b></div><div style="margin:0 0 0.5em 0">تسهل تحويلات الكائنات/القواميس</div><div style="margin:0 0 0.5em 0"> التحويلات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/layered-architecture-and-interface-based-programming.html"><u><span style="color: #0563c1">الفصل 14</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[ثلاث طبقات]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">البنية الطبقية و</div><div style="margin:0 0 0.5em 0">البرمجة القائمة على الواجهة.</div><div style="margin:0 0 0.5em 0">يقدم هذا الفصل</div><div style="margin:0 0 0.5em 0">طرق البرمجة المستخدمة</div><div style="margin:0 0 0.5em 0">في بقية</div><div style="margin:0 0 0.5em 0"> الوثيقة</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise---version-4.html"><u><span style="color: #0563c1">الفصل 15</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/v04</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 4 من التطبيق – هذا</div><div style="margin:0 0 0.5em 0">تنفذ هذه النسخة حلاً</div><div style="margin:0 0 0.5em 0">بهيكلية متعددة الطبقات،</div><div style="margin:0 0 0.5em 0">والبرمجة القائمة على الواجهات، و</div><div style="margin:0 0 0.5em 0">استخدام فئات مشتقة من</div><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>] </b>و</div><div style="margin:0 0 0.5em 0"> <b>[<bdi dir="ltr" class="odt-ltr-term">MyException</bdi>]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-mysql-dbms.html"><u><span style="color: #0563c1">الفصل 16</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[قواعد البيانات/<bdi dir="ltr" class="odt-ltr-term">mysql</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">تثبيت نظام إدارة قواعد البيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> –</div><div style="margin:0 0 0.5em 0">الاتصال بقاعدة البيانات –</div><div style="margin:0 0 0.5em 0">إنشاء جدول – تنفيذ</div><div style="margin:0 0 0.5em 0">أوامر <bdi dir="ltr" class="odt-ltr-term">SQL SELECT</bdi> و <bdi dir="ltr" class="odt-ltr-term">UPDATE</bdi> و <bdi dir="ltr" class="odt-ltr-term">DELETE</bdi></div><div style="margin:0 0 0.5em 0">و <bdi dir="ltr" class="odt-ltr-term">INSERT</bdi> –</div><div style="margin:0 0 0.5em 0">المعاملات – استعلامات</div><div style="margin:0 0 0.5em 0"> استعلامات <bdi dir="ltr" class="odt-ltr-term">SQL</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-postgresql-dbms.html"><u><span style="color: #0563c1">الفصل 17</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[قواعد البيانات/<bdi dir="ltr" class="odt-ltr-term">postgresql</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">تثبيت نظام إدارة قواعد البيانات <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi></div><div style="margin:0 0 0.5em 0"> – الاتصال بقاعدة البيانات –</div><div style="margin:0 0 0.5em 0">إنشاء جدول – تنفيذ</div><div style="margin:0 0 0.5em 0">أوامر <bdi dir="ltr" class="odt-ltr-term">SQL SELECT</bdi> و <bdi dir="ltr" class="odt-ltr-term">UPDATE</bdi> و <bdi dir="ltr" class="odt-ltr-term">DELETE</bdi></div><div style="margin:0 0 0.5em 0">و <bdi dir="ltr" class="odt-ltr-term">INSERT</bdi> –</div><div style="margin:0 0 0.5em 0">المعاملات – استعلامات <bdi dir="ltr" class="odt-ltr-term">SQL</bdi></div><div style="margin:0 0 0.5em 0"> استعلامات <bdi dir="ltr" class="odt-ltr-term">SQL</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/writing-dbms-independent-code.html"><u><span style="color: #0563c1">الفصل 18</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[قواعد البيانات/أي نظام إدارة قواعد البيانات]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">كتابة كود مستقل عن نظام إدارة قواعد البيانات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-sqlalchemy-orm.html"><u><span style="color: #0563c1">الفصل 19</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[قواعد البيانات/<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">SqlAlchemy ORM</bdi> (<bdi dir="ltr" class="odt-ltr-term">Object-</bdi></div><div style="margin:0 0 0.5em 0">) – <bdi dir="ltr" class="odt-ltr-term">ORM</bdi></div><div style="margin:0 0 0.5em 0">يتيح نهجًا موحدًا</div><div style="margin:0 0 0.5em 0">العمل مع أنظمة إدارة قواعد البيانات المختلفة –</div><div style="margin:0 0 0.5em 0">ربط الفئات بجداول <bdi dir="ltr" class="odt-ltr-term">SQL</bdi> –</div><div style="margin:0 0 0.5em 0">العمليات على الفئات</div><div style="margin:0 0 0.5em 0"> تمثل جداول <bdi dir="ltr" class="odt-ltr-term">SQL</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-5.html"><u><span style="color: #0563c1">الفصل 20</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/v05</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 5 من تطبيق حساب الضرائب</div><div style="margin:0 0 0.5em 0">– استخدام بنية الطبقات</div><div style="margin:0 0 0.5em 0">من الإصدار 04 و</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">SqlAlchemy ORM</bdi> للعمل</div><div style="margin:0 0 0.5em 0">مع أنظمة إدارة قواعد البيانات</div><div style="margin:0 0 0.5em 0"> أنظمة إدارة قواعد البيانات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/internet-functions.html"><u><span style="color: #0563c1">الفصل 21</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">inet</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">البرمجة على الويب – بروتوكول <bdi dir="ltr" class="odt-ltr-term">TCP/IP</bdi></div><div style="margin:0 0 0.5em 0">(بروتوكول التحكم في الإرسال</div><div style="margin:0 0 0.5em 0">/ بروتوكول الإنترنت) –</div><div style="margin:0 0 0.5em 0">بروتوكولات <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> (بروتوكول نقل النص التشعبي</div><div style="margin:0 0 0.5em 0">) – <bdi dir="ltr" class="odt-ltr-term">SMTP</bdi></div><div style="margin:0 0 0.5em 0">(بروتوكول نقل البريد البسيط)</div><div style="margin:0 0 0.5em 0">– <bdi dir="ltr" class="odt-ltr-term">POP</bdi> (بروتوكول مكتب البريد) –</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">IMAP</bdi> (بروتوكول الوصول إلى رسائل الإنترنت</div><div style="margin:0 0 0.5em 0"> )</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/web-services-with-the-flask-framework.html"><u><span style="color: #0563c1">الفصل 22</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">flask</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">خدمات الويب باستخدام إطار عمل الويب <bdi dir="ltr" class="odt-ltr-term">Flask</bdi></div><div style="margin:0 0 0.5em 0">– عرض</div><div style="margin:0 0 0.5em 0">صفحة <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> – خدمة ويب <bdi dir="ltr" class="odt-ltr-term">JSON</bdi></div><div style="margin:0 0 0.5em 0">– طلبات <bdi dir="ltr" class="odt-ltr-term">GET</bdi> و <bdi dir="ltr" class="odt-ltr-term">POST</bdi> –</div><div style="margin:0 0 0.5em 0"> إدارة جلسة الويب</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practice-exercise-version-6.html"><u><span style="color: #0563c1">الفصل 23</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/01</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-clients/01</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 6 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – إنشاء خدمة ويب <bdi dir="ltr" class="odt-ltr-term">JSON</bdi></div><div style="margin:0 0 0.5em 0">لحساب الضرائب باستخدام</div><div style="margin:0 0 0.5em 0">بنية متعددة الطبقات – كتابة</div><div style="margin:0 0 0.5em 0">عميل ويب لهذا الخادم باستخدام</div><div style="margin:0 0 0.5em 0">البنية متعددة الطبقات –</div><div style="margin:0 0 0.5em 0">برمجة العميل/الخادم –</div><div style="margin:0 0 0.5em 0"> استخدام وحدة<b> [<bdi dir="ltr" class="odt-ltr-term">requests</bdi>]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practice-exercise-version-7.html"><u><span style="color: #0563c1">الفصل 24</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-servers/02</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[الضرائب/عملاء <bdi dir="ltr" class="odt-ltr-term">HTTP/02</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 7 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – تم تحسين الإصدار 6:</div><div style="margin:0 0 0.5em 0">العميل والخادم</div><div style="margin:0 0 0.5em 0">متعدد الخيوط – <b>[<bdi dir="ltr" class="odt-ltr-term">Logger</bdi>]</b></div><div style="margin:0 0 0.5em 0">أدوات لتسجيل تبادلات العميل/الخادم</div><div style="margin:0 0 0.5em 0">التبادلات – <b>[<bdi dir="ltr" class="odt-ltr-term">SendMail</bdi>] </b>لإرسال</div><div style="margin:0 0 0.5em 0">رسالة بريد إلكتروني إلى</div><div style="margin:0 0 0.5em 0"> التطبيق</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/-application-exercise-version-8.html"><u><span style="color: #0563c1">الفصل 25</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-servers/03</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[الضرائب/عملاء <bdi dir="ltr" class="odt-ltr-term">http/03</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 8 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – تم تحسين الإصدار 7</div><div style="margin:0 0 0.5em 0"> باستخدام جلسة ويب</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/from-dictionary-to-xml-and-vice-versa.html"><u><span style="color: #0563c1">الفصل 26</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[xml]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">إدارة <bdi dir="ltr" class="odt-ltr-term">XML</bdi> (لغة الترميز الموسعة</div><div style="margin:0 0 0.5em 0">) باستخدام وحدة</div><div style="margin:0 0 0.5em 0"> وحدة<b> [<bdi dir="ltr" class="odt-ltr-term">xmltodict</bdi>]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-9.html"><u><span style="color: #0563c1">الفصل 27</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-servers/04</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-clients/04</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 9 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – تم تعديل الإصدار 8</div><div style="margin:0 0 0.5em 0">لتضمين التبادلات بين العميل والخادم</div><div style="margin:0 0 0.5em 0"> في <bdi dir="ltr" class="odt-ltr-term">XML</bdi>؛</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-9.html"><u><span style="color: #0563c1">الفصل 28</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-servers/05</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[الضرائب/عملاء <bdi dir="ltr" class="odt-ltr-term">http/05</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 10 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – بدلاً من معالجة <bdi dir="ltr" class="odt-ltr-term">N</bdi></div><div style="margin:0 0 0.5em 0">دافع ضرائب عبر <bdi dir="ltr" class="odt-ltr-term">N</bdi> طلبات <bdi dir="ltr" class="odt-ltr-term">GET</bdi>، يتم استخدام</div><div style="margin:0 0 0.5em 0">يتم استخدام طلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> واحد مع</div><div style="margin:0 0 0.5em 0">مع دافعي الضرائب <bdi dir="ltr" class="odt-ltr-term">N</bdi> في نص</div><div style="margin:0 0 0.5em 0"> .</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-11.html"><u><span style="color: #0563c1">الفصل 29</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">taxes/http-servers/06</bdi>]</b></div><div style="margin:0 0 0.5em 0"><b>[الضرائب/عملاء <bdi dir="ltr" class="odt-ltr-term">HTTP/06</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 11 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين –</div><div style="margin:0 0 0.5em 0">بنية العميل/الخادم</div><div style="margin:0 0 0.5em 0">: تنتقل طبقة<b> [الأعمال]</b></div><div style="margin:0 0 0.5em 0">من الخادم إلى</div><div style="margin:0 0 0.5em 0"> العميل</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-12.html"><u><span style="color: #0563c1">الفصل 30</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[الضرائب/خوادم <bdi dir="ltr" class="odt-ltr-term">http/07</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 12 من</div><div style="margin:0 0 0.5em 0">تمرين – هذا الإصدار يطبق</div><div style="margin:0 0 0.5em 0">خادم <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> (نموذج – عرض –</div><div style="margin:0 0 0.5em 0">) يقدم</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">JSON</bdi> و <bdi dir="ltr" class="odt-ltr-term">XML</bdi> و <bdi dir="ltr" class="odt-ltr-term">HTML</bdi></div><div style="margin:0 0 0.5em 0">بشكل متبادل، اعتمادًا على</div><div style="margin:0 0 0.5em 0">طلب العميل. هذا الفصل</div><div style="margin:0 0 0.5em 0">يُنفذ إصداري <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> و <bdi dir="ltr" class="odt-ltr-term">XML</bdi></div><div style="margin:0 0 0.5em 0"> للخادم</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/web-clients-for-the-json-and-xml-services-of-version-12.html"><u><span style="color: #0563c1">الفصل 31</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-clients/07</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">تنفيذ عملاء <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> و</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">XML</bdi> لخادم <bdi dir="ltr" class="odt-ltr-term">MVC</bdi></div><div style="margin:0 0 0.5em 0">في الإصدار 12</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/html-mode-in-version-12.html"><u><span style="color: #0563c1">الفصل 32</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/07</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">تنفيذ خادم <bdi dir="ltr" class="odt-ltr-term">HTML</bdi></div><div style="margin:0 0 0.5em 0">في الإصدار 12 – باستخدام</div><div style="margin:0 0 0.5em 0">إطار عمل <bdi dir="ltr" class="odt-ltr-term">Bootstrap CSS</bdi> –</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-13.html"><u><span style="color: #0563c1">الفصل 33</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/08</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 13 من التطبيق</div><div style="margin:0 0 0.5em 0">– إعادة هيكلة الكود</div><div style="margin:0 0 0.5em 0">من الإصدار 12 – إدارة</div><div style="margin:0 0 0.5em 0">باستخدام</div><div style="margin:0 0 0.5em 0">وحدة<b> [<bdi dir="ltr" class="odt-ltr-term">flask_session</bdi>] </b>وخادم</div><div style="margin:0 0 0.5em 0">خادم <bdi dir="ltr" class="odt-ltr-term">Redis</bdi> – باستخدام</div><div style="margin:0 0 0.5em 0"> كلمات المرور</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-14.html"><u><span style="color: #0563c1">الفصل 34</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/</bdi>خوادم_HTTP/09]</b></div><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-clients/09</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 14 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – تنفيذ عناوين <bdi dir="ltr" class="odt-ltr-term">URL</bdi></div><div style="margin:0 0 0.5em 0">باستخدام رمز <bdi dir="ltr" class="odt-ltr-term">CSRF</bdi> (تزوير الطلبات عبر المواقع</div><div style="margin:0 0 0.5em 0"> )</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-15.html"><u><span style="color: #0563c1">الفصل 35</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/10</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 15 من التطبيق</div><div style="margin:0 0 0.5em 0">تمرين – إعادة هيكلة الكود</div><div style="margin:0 0 0.5em 0">من الإصدار 14 للتعامل مع نوعين</div><div style="margin:0 0 0.5em 0">نوعين من الإجراءات: <bdi dir="ltr" class="odt-ltr-term">ASV</bdi> (عرض الإجراء</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">Show View</bdi>)، والتي تُستخدم فقط</div><div style="margin:0 0 0.5em 0">لعرض طريقة عرض دون</div><div style="margin:0 0 0.5em 0">تعديل حالة الخادم، و</div><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">ADS</bdi> (<bdi dir="ltr" class="odt-ltr-term">Action Do Something</bdi>)،</div><div style="margin:0 0 0.5em 0">والتي تقوم بتنفيذ إجراء</div><div style="margin:0 0 0.5em 0">يغير حالة الخادم — تنتهي جميع هذه</div><div style="margin:0 0 0.5em 0">تنتهي جميعها بإعادة توجيه إلى</div><div style="margin:0 0 0.5em 0">إجراء <bdi dir="ltr" class="odt-ltr-term">ASV</bdi> — وهذا يسمح</div><div style="margin:0 0 0.5em 0">التعامل السليم مع عمليات تحديث الصفحة</div><div style="margin:0 0 0.5em 0"> في متصفح العميل</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-16.html"><u><span style="color: #0563c1">الفصل 36</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/11</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 16 من التطبيق –</div><div style="margin:0 0 0.5em 0"> إدارة عناوين <bdi dir="ltr" class="odt-ltr-term">URL</bdi> باستخدام البادئات</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-17.html"><u><span style="color: #0563c1">الفصل 37</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/12</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 17 من التطبيق –</div><div style="margin:0 0 0.5em 0">نقل الإصدار 16 إلى</div><div style="margin:0 0 0.5em 0"> خادم <bdi dir="ltr" class="odt-ltr-term">Apache/Windows</bdi></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-18-.html"><u><span style="color: #0563c1">الفصل 38</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[<bdi dir="ltr" class="odt-ltr-term">impots/http-servers/13</bdi>]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">الإصدار 18 من التطبيق –</div><div style="margin:0 0 0.5em 0"> يصلح خطأ في الإصدار 17</div></td></tr></table>
+
+<p>الإصدار النهائي لمشروع التطبيق هو تطبيق لحساب الضرائب يعمل بنظام العميل/الخادم ويتميز بالبنية التالية:</p>
+<p><img src="images/10000000000003BC0000053607429669.png" width="418" height="583" style="width:11.053cm;height:15.423cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BC0000053607429669.png" /></p>
+<p>يتم تنفيذ الطبقة <strong>[الويب]</strong> أعلاه باستخدام بنية <bdi dir="ltr" class="odt-ltr-term">MVC:</bdi></p>
+<p><img src="images/100000010000033200000102272A12E0.png" width="523" height="165" style="width:13.831cm;height:4.362cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
+<p>محتوى هذا المستند مكثف. سيكتسب القراء الذين يقرؤونه حتى النهاية فهمًا راسخًا لبرمجة الويب <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> في <bdi dir="ltr" class="odt-ltr-term">Python/Flask</bdi>، وأكثر من ذلك، فهمًا راسخًا لبرمجة الويب <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> في لغات أخرى.</p>
+<p>يمكن للقراء الذين يفضلون الاطلاع على الكود واختباره وتعديله بدلاً من قراءة محاضرة أن يتبعوا الخطوات التالية:</p>
+<ul>
+  <li>إعداد بيئة التطوير:
+    <ul>
+      <li><a href="#python381"><u><span style="color: #0563c1">مترجم <bdi dir="ltr" class="odt-ltr-term">Python</bdi></span></u></a>؛
+      </li>
+      <li><a href="#lidepycharmcommunity"><u><span style="color: #0563c1">بيئة تطوير <bdi dir="ltr" class="odt-ltr-term">PyCharm Community IDE</bdi></span></u></a>؛
+      </li>
+      <li><a href="#installationdelaragon"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">Laragon</bdi></span></u></a> (خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi>، نظام إدارة قواعد البيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi>، خادم <bdi dir="ltr" class="odt-ltr-term">Redis</bdi>)؛
+      </li>
+      <li><a href="#installationdu"><u><span style="color: #0563c1">قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi></span></u></a>؛
+      </li>
+      <li><a href="#postman"><u><span style="color: #0563c1">عميل <bdi dir="ltr" class="odt-ltr-term">HTTP Postman</bdi></span></u></a>؛
+      </li>
+      <li><a href="#installationdunserveur"><u><span style="color: #0563c1">خادم البريد <bdi dir="ltr" class="odt-ltr-term">hMailServer</bdi></span></u></a>؛
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>استكشف الكود في الأمثلة |هنا|:
+  </li>
+</ul>
+
+<p><img src="images/100000000000021B000002464776AFB5.png" width="236" height="254" style="width:6.232cm;height:6.729cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021B000002464776AFB5.png" /></p>
+<ul>
+  <li>في كل مجلد، يوجد ملف<b> [<bdi dir="ltr" class="odt-ltr-term">README.md</bdi>] </b>يربط المجلد بفصل من الدورة ويلخص محتوياته:
+  </li>
+</ul>
+
+<p>يبدو ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">README.md</bdi>]</strong> كما يلي:</p>
+<p><img src="images/1000000000000375000000EB52E5C2E8.png" width="386" height="102" style="width:10.209cm;height:2.711cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000375000000EB52E5C2E8.png" /></p>
+<p>من غير المرجح أن يقرأ القارئ الدورة التدريبية بأكملها:</p>
+<ul>
+  <li>قد يقرأ القارئ المبتدئ الفصول من 1 إلى 15 ويتوقف عند هذا الحد. يمكنه بعد ذلك قضاء بعض الوقت في كتابة نصوص <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الخاصة به قبل العودة إلى هذه الدورة التدريبية؛
+  </li>
+  <li>قد يجد القراء الذين لديهم فهم أساسي لـ <bdi dir="ltr" class="odt-ltr-term">Python</bdi> ويرغبون في التعرف على قواعد البيانات و <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> (<bdi dir="ltr" class="odt-ltr-term">Object Relational Mapper</bdi>) <b>[<bdi dir="ltr" class="odt-ltr-term">SQLAlchemy</bdi>] </b>أن الفصول من 16 إلى 20 كافية؛
+  </li>
+  <li>يمكن للقراء الراغبين في تعلم برمجة الويب (<bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، <bdi dir="ltr" class="odt-ltr-term">SMTP</bdi>، <bdi dir="ltr" class="odt-ltr-term">POP3</bdi>، <bdi dir="ltr" class="odt-ltr-term">IMAP</bdi>) قراءة الفصل 21. هذا الفصل معقد للغاية ويغطي البرامج النصية المتقدمة. يمكن قراءته على مستويين:
+    <ul>
+      <li>لتعلم بروتوكولات الإنترنت؛
+      </li>
+      <li>للحصول على نصوص برمجية تستخدم هذه البروتوكولات؛
+      </li>
+    </ul>
+  </li>
+  <li>يجب على القراء الذين لديهم فهم أساسي للغة <bdi dir="ltr" class="odt-ltr-term">Python</bdi> ويرغبون في تعلم برمجة الويب باستخدام إطار عمل <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> قراءة الفصل 22؛
+  </li>
+  <li>يمكن للقراء الراغبين في التعمق أكثر في برمجة الويب باستخدام إطار عمل <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> دراسة الفصول من 23 إلى 38. تغطي هذه الفصول تطوير تطبيقات عميل/خادم متزايدة التعقيد، بالإضافة إلى تطبيق <bdi dir="ltr" class="odt-ltr-term">HTML/Python</bdi> يتبع نمط التطوير <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> (نموذج-عرض-وحدة تحكم). تم تطوير هذا التطبيق في الفصل 32. يمكنك التوقف عند هذا الحد. تقدم الفصول التالية تغييرات غير أساسية؛
+  </li>
+</ul>
+
+<p>سيرج تاهي، سبتمبر 2020</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
