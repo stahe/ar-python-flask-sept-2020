@@ -1923,7 +1923,7 @@
 &lt;<span style="background-color:#fff2cc">root</span>&gt;&lt;action&gt;init-session&lt;/action&gt;&lt;état&gt;700&lt;/état&gt;&lt;réponse&gt;session démarrée avec le type de réponse xml&lt;/réponse&gt;&lt;/<span style="background-color:#fff2cc">root</span>&gt;</span></span>
 </code></pre></div>
 
-<p>يضمن الكود في الأسطر 64–68 أنه، في كلتا الحالتين، تحتوي <strong>[<bdi dir="ltr" class="odt-ltr-term">result</bdi>]</strong> على قاموس بمفاتيح <strong>[<bdi dir="ltr" class="odt-ltr-term">action</bdi>, <bdi dir="ltr" class="odt-ltr-term">status</bdi>, <bdi dir="ltr" class="odt-ltr-term">response</bdi>]</strong>؛</p>
+<p>يضمن الكود في الأسطر 64–68 أنه، في كلتا الحالتين، تحتوي <strong>[<bdi dir="ltr" class="odt-ltr-term">result</bdi>]</strong> على قاموس بمفاتيح <strong>[<bdi dir="ltr" class="odt-ltr-term">action, status, response</bdi>]</strong>؛</p>
 <ul>
   <li>الأسطر 70–72: إذا كانت الاستجابة تحتوي على ملفات تعريف الارتباط، يتم استردادها. ويجب إرسالها مرة أخرى مع الطلب التالي؛
   </li>
@@ -1975,11 +1975,11 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_response</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url_service</span><span class="p">,</span> <span class="n">post_params</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-  <li>تُستخدم طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">authenticate_user</bdi>] </b>للمصادقة مع الخادم. للقيام بذلك، تستقبل بيانات اعتماد تسجيل الدخول <b>[<bdi dir="ltr" class="odt-ltr-term">user</bdi>, <bdi dir="ltr" class="odt-ltr-term">password</bdi>] </b>في السطر 1؛
+  <li>تُستخدم طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">authenticate_user</bdi>] </b>للمصادقة مع الخادم. للقيام بذلك، تستقبل بيانات اعتماد تسجيل الدخول <b>[<bdi dir="ltr" class="odt-ltr-term">user, password</bdi>] </b>في السطر 1؛
   </li>
   <li>الأسطر 2–4: نحدد عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة المراد الاستعلام عنها؛
   </li>
-  <li>الأسطر 5-8: معلمات <bdi dir="ltr" class="odt-ltr-term">POST</bdi>، نظرًا لأن عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <b>[/<bdi dir="ltr" class="odt-ltr-term">authenticate-user</bdi>] </b>يتوقع طلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> مع المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">user</bdi>, <bdi dir="ltr" class="odt-ltr-term">password</bdi>]</b>؛
+  <li>الأسطر 5-8: معلمات <bdi dir="ltr" class="odt-ltr-term">POST</bdi>، نظرًا لأن عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <b>[/<bdi dir="ltr" class="odt-ltr-term">authenticate-user</bdi>] </b>يتوقع طلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> مع المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">user, password</bdi>]</b>؛
   </li>
   <li>السطر 11: يتم تنفيذ الطلب. مرة أخرى، لا نسترد استجابة الخادم. إن الاستثناء الذي ترمي به <b>[<bdi dir="ltr" class="odt-ltr-term">get_response</bdi>] </b>هو الذي يشير إلى ما إذا كانت العملية ناجحة أم لا؛
   </li>
@@ -2021,9 +2021,9 @@
   </li>
   <li>الأسطر 2–4: نحدد عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة المراد الاستعلام عنها؛
   </li>
-  <li>الأسطر 6-10: المعلمات لطلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> المراد إرساله. يتوقع عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة <b>[/<bdi dir="ltr" class="odt-ltr-term">calculate-tax</bdi>] </b>طلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> مع المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>؛
+  <li>الأسطر 6-10: المعلمات لطلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> المراد إرساله. يتوقع عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة <b>[/<bdi dir="ltr" class="odt-ltr-term">calculate-tax</bdi>] </b>طلب <bdi dir="ltr" class="odt-ltr-term">POST</bdi> مع المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">married, children, salary</bdi>]</b>؛
   </li>
-  <li>السطور 12-13: يتم تنفيذ الطلب واسترداد استجابة الخادم. يعرض عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة <b>[/<bdi dir="ltr" class="odt-ltr-term">calculate-tax</bdi>] </b>قاموسًا بمفاتيح الضريبة <b>[tax, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi>]</b>؛
+  <li>السطور 12-13: يتم تنفيذ الطلب واسترداد استجابة الخادم. يعرض عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة <b>[/<bdi dir="ltr" class="odt-ltr-term">calculate-tax</bdi>] </b>قاموسًا بمفاتيح الضريبة <b>[<bdi dir="ltr" class="odt-ltr-term">tax, discount, surcharge, reduction, rate</bdi>]</b>؛
   </li>
   <li>السطر 15: يتم استخدام القاموس الذي تم الحصول عليه <b>[<bdi dir="ltr" class="odt-ltr-term">response</bdi>] </b>لتحديث دافع الضرائب <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayer</bdi>]</b>؛
   </li>
@@ -2091,7 +2091,7 @@
 <ul>
   <li>السطر 2: تتلقى الطريقة قائمة بالدافعين من النوع <bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>؛
   </li>
-  <li>الأسطر 7–13: يتم تحويل قائمة عناصر<b> [<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>هذه إلى قائمة من القواميس <b>[<bdi dir="ltr" class="odt-ltr-term">spouse</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>؛
+  <li>الأسطر 7–13: يتم تحويل قائمة عناصر<b> [<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>هذه إلى قائمة من القواميس <b>[<bdi dir="ltr" class="odt-ltr-term">spouse, children, salary</bdi>]</b>؛
   </li>
   <li>الأسطر 15-17: يتم تعيين عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة؛
   </li>
@@ -2895,7 +2895,7 @@
 <a id="__codelineno-12-66" name="__codelineno-12-66"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Travail terminé...&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-  <li>الأسطر 1-11: استرداد المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">json</bdi>, xml] </b>التي تحدد نوع الجلسة المراد إنشاؤها مع الخادم؛
+  <li>الأسطر 1-11: استرداد المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">json, xml</bdi>] </b>التي تحدد نوع الجلسة المراد إنشاؤها مع الخادم؛
   </li>
   <li>الأسطر 13-15: نقوم بتكوين العميل؛
   </li>

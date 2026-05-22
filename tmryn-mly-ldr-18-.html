@@ -1709,9 +1709,9 @@
 <p>الآن نختبر الخادم الافتراضي الآخر. نطلب عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withpgres/impots/do</bdi>]</strong>. استجابة الخادم هي كما يلي:</p>
 <p><img src="images/10000000000005550000034336E21669.png" width="596" height="365" style="width:15.769cm;height:9.647cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005550000034336E21669.png" /></p>
 <p>تخدم مفاهيم الأسماء المستعارة <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> وبادئات عناوين <bdi dir="ltr" class="odt-ltr-term">URL</bdi> نفس الغرض. أحد هذين المفهومين زائد عن الحاجة. وبالتالي، لإضافة البادئة <strong>[/<bdi dir="ltr" class="odt-ltr-term">impots/do</bdi>]</strong> إلى عناوين <bdi dir="ltr" class="odt-ltr-term">URL</bdi> لخادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi>، هناك ثلاث طرق للقيام بذلك:</p>
-<p>1 – <strong>[<bdi dir="ltr" class="odt-ltr-term">WGSIAlias</bdi> /<bdi dir="ltr" class="odt-ltr-term">impots</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">prefix</bdi>_url=’/do’]</strong>;</p>
+<p>1 – <strong>[<bdi dir="ltr" class="odt-ltr-term">WGSIAlias /impots</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">prefix</bdi>_url=’/do’]</strong>;</p>
 <p>2 – <strong>[<bdi dir="ltr" class="odt-ltr-term">WGSIAlias</bdi> /]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">prefix</bdi>_url=’/<bdi dir="ltr" class="odt-ltr-term">impots/do</bdi>’]</strong>;</p>
-<p>3 – <strong>[<bdi dir="ltr" class="odt-ltr-term">WGSIAlias</bdi> /<bdi dir="ltr" class="odt-ltr-term">impots/do</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">prefix</bdi>_url=’’]</strong>؛</p>
+<p>3 – <strong>[<bdi dir="ltr" class="odt-ltr-term">WGSIAlias /impots/do</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">prefix</bdi>_url=’’]</strong>؛</p>
 <p><a id="toc48549353"></a></p>
 <h2 id="382">38.2. <span style="color: #4f81bd">اختبارات وحدة التحكم</span></h2>
 <p>نستخدم اختبارات وحدة التحكم الخاصة بالعميل <strong>[<bdi dir="ltr" class="odt-ltr-term">http-clients/09</bdi>]</strong> مرة أخرى:</p>

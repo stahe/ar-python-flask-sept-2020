@@ -2473,7 +2473,7 @@
   </li>
   <li>السطر 24: يتكون السطر الصحيح من أربعة حقول مفصولة بفواصل. يتم استرداد هذه الحقول. يفشل تعيين البيانات إلى تابع مكون من أربعة عناصر إذا لم يتم تعيين أربع نقاط بيانات بالضبط؛
   </li>
-  <li>السطر 25: إذا كان أي من الحقول الأربعة المسترجعة <b>[</b><b><span style="color: #000000">id, <bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi></span></b><b>] </b>غير صالح، فإن طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">BaseEntity.fromdict</bdi>] </b>ستثير استثناء<b> [<bdi dir="ltr" class="odt-ltr-term">MyException</bdi>]</b>؛
+  <li>السطر 25: إذا كان أي من الحقول الأربعة المسترجعة <b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">id, married, children, salary</bdi></span></b><b>] </b>غير صالح، فإن طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">BaseEntity.fromdict</bdi>] </b>ستثير استثناء<b> [<bdi dir="ltr" class="odt-ltr-term">MyException</bdi>]</b>؛
   </li>
   <li>السطران 25-26: تتم إضافة كائن<b> [<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>إلى قائمة دافعي الضرائب <b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">taxpayers_data</bdi></span></b><b>]</b>؛
   </li>
@@ -2581,7 +2581,7 @@
   </li>
   <li>السطر 10: إنشاء ملف النتائج بتنسيق <bdi dir="ltr" class="odt-ltr-term">UTF-8</bdi>؛
   </li>
-  <li>السطر 12: نقدم هنا دالة<b> [map]</b>، التي تكون صيغتها هنا <b>[map (<bdi dir="ltr" class="odt-ltr-term">function</bdi>, <bdi dir="ltr" class="odt-ltr-term">list1</bdi>)]</b>. تُطبق الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">function</bdi>] </b>على كل عنصر من عناصر <b>[<bdi dir="ltr" class="odt-ltr-term">list1</bdi>] </b>وتُنتج عنصرًا جديدًا يُضاف إلى قائمة <b>[<bdi dir="ltr" class="odt-ltr-term">list2</bdi>]</b>. وأخيرًا، لكل <bdi dir="ltr" class="odt-ltr-term">i:</bdi>
+  <li>السطر 12: نقدم هنا دالة<b> [map]</b>، التي تكون صيغتها هنا <b>[map (<bdi dir="ltr" class="odt-ltr-term">function, list1</bdi>)]</b>. تُطبق الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">function</bdi>] </b>على كل عنصر من عناصر <b>[<bdi dir="ltr" class="odt-ltr-term">list1</bdi>] </b>وتُنتج عنصرًا جديدًا يُضاف إلى قائمة <b>[<bdi dir="ltr" class="odt-ltr-term">list2</bdi>]</b>. وأخيرًا، لكل <bdi dir="ltr" class="odt-ltr-term">i:</bdi>
   </li>
 </ul>
 
@@ -2777,7 +2777,7 @@
 <p><img src="images/10000000000003DF0000039527DE6C80.png" width="433" height="400" style="width:11.449cm;height:10.594cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003DF0000039527DE6C80.png" /></p>
 <p>طرق الفئة مشتقة من الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">impôts</bdi>_module_02]</strong> في القسم <a href="#lemoduleimpotsv02modulesimpot"><u><span style="color: #0563c1">|الوحدة النمطية [<bdi dir="ltr" class="odt-ltr-term">impots.v02.modules.impôts</bdi>_module_02]</span></u></a>|. وقد قمنا بتحديد معلمات الطريقة في اثنتين فقط:</p>
 <ul>
-  <li><bdi dir="ltr" class="odt-ltr-term">taxpayer</bdi>(id, <bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>, tax, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi>): الكائن الذي يمثل دافع الضرائب وضرائبه؛
+  <li><bdi dir="ltr" class="odt-ltr-term">taxpayer</bdi>(<bdi dir="ltr" class="odt-ltr-term">id, married, children, salary, tax, discount, surcharge, reduction, rate</bdi>): الكائن الذي يمثل دافع الضرائب وضرائبه؛
   </li>
   <li><bdi dir="ltr" class="odt-ltr-term">admindata:</bdi> الكائن الذي يغلف بيانات إدارة الضرائب؛
   </li>

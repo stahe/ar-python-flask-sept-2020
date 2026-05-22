@@ -1506,7 +1506,7 @@
   </li>
   <li>الأسطر 21–23: يتم تحويل سلسلة <bdi dir="ltr" class="odt-ltr-term">XML</bdi> السابقة إلى قاموس، ثم يتم عرضها. الطريقة التي تؤدي هذه المهمة هي <b>[<bdi dir="ltr" class="odt-ltr-term">xmltodict.parse</bdi>]</b>. لا تنتج هذه الطريقة قاموسًا من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>بل من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>] </b>(السطر 1)؛
   </li>
-  <li>السطور 24-25: يتم تحويل النوع<b> [<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>] </b>الناتج إلى <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>باستخدام الطريقة (التي لم تُكتب بعد) <b>[</b><b><span style="color: #a31515"><mark style="background-color: #bdd6ee"><bdi dir="ltr" class="odt-ltr-term">ordereddict2dict</bdi></mark></span></b><b>]</b>. تعمل هذه الطريقة بشكل متكرر. إذا كانت قيم معينة في القاموس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>, <bdi dir="ltr" class="odt-ltr-term">list</bdi>]</b>، يتم فحص قيم هذه المجموعات لتحديد ما إذا كانت هي أيضًا من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>]</b>. إذا كان الأمر كذلك، يتم تحويلها إلى النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>]</b>. لاحظ أن الطريقة<b> [<bdi dir="ltr" class="odt-ltr-term">xmltodict.parse</bdi>] </b>لا تنتج أي قواميس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>]</b>؛
+  <li>السطور 24-25: يتم تحويل النوع<b> [<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>] </b>الناتج إلى <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>باستخدام الطريقة (التي لم تُكتب بعد) <b>[</b><b><span style="color: #a31515"><mark style="background-color: #bdd6ee"><bdi dir="ltr" class="odt-ltr-term">ordereddict2dict</bdi></mark></span></b><b>]</b>. تعمل هذه الطريقة بشكل متكرر. إذا كانت قيم معينة في القاموس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict, list</bdi>]</b>، يتم فحص قيم هذه المجموعات لتحديد ما إذا كانت هي أيضًا من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>]</b>. إذا كان الأمر كذلك، يتم تحويلها إلى النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>]</b>. لاحظ أن الطريقة<b> [<bdi dir="ltr" class="odt-ltr-term">xmltodict.parse</bdi>] </b>لا تنتج أي قواميس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>]</b>؛
   </li>
 </ul>
 
@@ -1677,7 +1677,7 @@
   </li>
   <li>السطر 32: القاموس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>الذي سيتم إرجاعه في السطر 37 بواسطة الدالة؛
   </li>
-  <li>السطر 33: نقوم بالتكرار على جميع المجموعات (key, <bdi dir="ltr" class="odt-ltr-term">value</bdi>) في القاموس <b>[</b><b><span style="color: #808080"><bdi dir="ltr" class="odt-ltr-term">ordered_dictionary</bdi></span></b><b>]</b>؛
+  <li>السطر 33: نقوم بالتكرار على جميع المجموعات (<bdi dir="ltr" class="odt-ltr-term">key, value</bdi>) في القاموس <b>[</b><b><span style="color: #808080"><bdi dir="ltr" class="odt-ltr-term">ordered_dictionary</bdi></span></b><b>]</b>؛
   </li>
   <li>السطر 35: في القاموس الجديد، يتم الاحتفاظ بالمفتاح <b>[key]</b>، لكن القيمة المرتبطة به ليست <b>[<bdi dir="ltr" class="odt-ltr-term">value</bdi>] </b>بل <b>[<bdi dir="ltr" class="odt-ltr-term">check</bdi>(<bdi dir="ltr" class="odt-ltr-term">value</bdi>)]</b>. الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">check</bdi>(<bdi dir="ltr" class="odt-ltr-term">value</bdi>)] </b>مسؤولة عن العثور، إذا كانت<b> [<bdi dir="ltr" class="odt-ltr-term">value</bdi>] </b>مجموعة، على جميع العناصر من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">OrderedDict</bdi>] </b>وتحويلها إلى النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>]</b>؛
   </li>

@@ -1643,7 +1643,7 @@
 <p><a id="toc48549094"></a></p>
 <h3 id="2013-sqlalchemy">20.1.3. <span style="color: #4f81bd">الكيانات التي تم تعيينها بواسطة [<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</span></h3>
 <p>سننشئ جدولين لتغليف البيانات من <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
-<p>الجدول <strong>[</strong><strong><span style="color: #a31515"><bdi dir="ltr" class="odt-ltr-term">tbtranches</bdi></span></strong><strong>]</strong> المحدد بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong> سيجمع البيانات من المصفوفات <strong>[<bdi dir="ltr" class="odt-ltr-term">limites</bdi>, <bdi dir="ltr" class="odt-ltr-term">coeffr</bdi>, <bdi dir="ltr" class="odt-ltr-term">coeffn</bdi>]</strong> في قاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<p>الجدول <strong>[</strong><strong><span style="color: #a31515"><bdi dir="ltr" class="odt-ltr-term">tbtranches</bdi></span></strong><strong>]</strong> المحدد بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong> سيجمع البيانات من المصفوفات <strong>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>]</strong> في قاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># la table des tranches de l&#x27;impôt</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    tranches_table = Table(</span><span style="color:#a31515">&quot;tbtranches&quot;</span><span style="color:#000000">, metadata,</span></span></span>
@@ -1764,7 +1764,7 @@
   </li>
 </ul>
 
-<p>سيكون التعيين بين كيانات <strong>[<bdi dir="ltr" class="odt-ltr-term">Constants</bdi>, <bdi dir="ltr" class="odt-ltr-term">Slice</bdi>]</strong> وجداول <strong>[<bdi dir="ltr" class="odt-ltr-term">constants</bdi>, <bdi dir="ltr" class="odt-ltr-term">slices</bdi>]</strong> كما يلي:</p>
+<p>سيكون التعيين بين كيانات <strong>[<bdi dir="ltr" class="odt-ltr-term">Constants, Slice</bdi>]</strong> وجداول <strong>[<bdi dir="ltr" class="odt-ltr-term">constants, slices</bdi>]</strong> كما يلي:</p>
 <p><img src="images/10000000000001AB000002060FD6F2A5.png" width="167" height="203" style="width:4.429cm;height:5.373cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -2678,7 +2678,7 @@
   </li>
   <li>السطر 46: نقوم بإنشاء مثيل لفئة [<a href="#laclasseadmindata"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">AdminData</bdi></span></u></a>]. تذكر أنها مشتقة من <b>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</b>؛
   </li>
-  <li>الأسطر 48-54: نقوم بتهيئة المصفوفات <b>[<bdi dir="ltr" class="odt-ltr-term">limites</bdi>, <bdi dir="ltr" class="odt-ltr-term">coeffr</bdi>, <bdi dir="ltr" class="odt-ltr-term">coeffn</bdi>] </b>لمثيل<b> [<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</b>؛
+  <li>الأسطر 48-54: نقوم بتهيئة المصفوفات <b>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>] </b>لمثيل<b> [<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</b>؛
   </li>
   <li>السطران 55-56: تهيئة الخصائص الأخرى لـ <b>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>] </b>باستخدام ثوابت حساب الضرائب. حرصنا على إعطاء نفس الأسماء لخصائص فئتي <b>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>] </b>و <b>[<bdi dir="ltr" class="odt-ltr-term">Constantes</bdi>]</b>، مما يبسط الكود؛
   </li>
@@ -2773,7 +2773,7 @@
   </li>
   <li>الأسطر 37–66: سنقوم بتشغيل البرنامج النصي للاختبار كتطبيق عادي بدلاً من <bdi dir="ltr" class="odt-ltr-term">UnitTest.</bdi> السطر 66 هو ما سيطلق إطار عمل <bdi dir="ltr" class="odt-ltr-term">UnitTest.</bdi> في الاختبارات السابقة، استخدمنا طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">setUp</bdi>] </b>لتكوين تنفيذ كل اختبار. كنا نكرر نفس التهيئة 11 مرة لأن دالة<b> [<bdi dir="ltr" class="odt-ltr-term">setUp</bdi>] </b>تُنفَّذ قبل كل اختبار. هنا، نقوم بالتهيئة مرة واحدة. وهي تتألف من تعريف المتغيرات العالمية <b>[<bdi dir="ltr" class="odt-ltr-term">business</bdi>] </b>في السطر 53 و<b>[<bdi dir="ltr" class="odt-ltr-term">admindata</bdi>] </b>في السطر 56، والتي ستُستخدم بعد ذلك بواسطة طرق <b>[<bdi dir="ltr" class="odt-ltr-term">TestDaoBusiness</bdi>]</b>، على سبيل المثال في السطر 12؛
   </li>
-  <li>الأسطر 39-47: يتوقع نص الاختبار معلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql</bdi> / <bdi dir="ltr" class="odt-ltr-term">pgres</bdi>] </b>تشير إلى ما إذا كان يتم استخدام قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> أو <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>؛
+  <li>الأسطر 39-47: يتوقع نص الاختبار معلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>] </b>تشير إلى ما إذا كان يتم استخدام قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> أو <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>؛
   </li>
   <li>السطور 50-51: يتم تكوين الاختبار؛
   </li>
@@ -2781,7 +2781,7 @@
   </li>
   <li>السطر 56: نقوم بنفس الشيء مع طبقة<b> [dao]</b>. ثم نسترد مثيل<b> [<bdi dir="ltr" class="odt-ltr-term">admindata</bdi>]</b>، الذي يغلف البيانات اللازمة لحساب الضريبة؛
   </li>
-  <li>أظهرت الاختبارات أن الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">unittest</bdi></b><b><span style="color: #000000">.</span></b><b><bdi dir="ltr" class="odt-ltr-term">main</bdi></b><b><span style="color: #000000">()</span></b><b>] </b>في السطر 66 لم تتجاهل المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql</bdi> / <bdi dir="ltr" class="odt-ltr-term">pgres</bdi>] </b>التي تم تمريرها إلى البرنامج النصي، بل أعطتها معنىً مختلفًا. ويضمن السطر 63 أن هذه الدالة لم تعد تحتوي على أي معلمات؛
+  <li>أظهرت الاختبارات أن الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">unittest</bdi></b><b><span style="color: #000000">.</span></b><b><bdi dir="ltr" class="odt-ltr-term">main</bdi></b><b><span style="color: #000000">()</span></b><b>] </b>في السطر 66 لم تتجاهل المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>] </b>التي تم تمريرها إلى البرنامج النصي، بل أعطتها معنىً مختلفًا. ويضمن السطر 63 أن هذه الدالة لم تعد تحتوي على أي معلمات؛
   </li>
 </ul>
 
@@ -2901,7 +2901,7 @@
 </code></pre></div></td></tr></table></div>
 <p><strong><span style="color: #000000">ملاحظات</span></strong></p>
 <ul>
-  <li>الأسطر 1-10: نسترد المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql</bdi> / <bdi dir="ltr" class="odt-ltr-term">pgres</bdi>]</b>، التي تحدد نظام إدارة قواعد البيانات (<bdi dir="ltr" class="odt-ltr-term">DBMS</bdi>) المطلوب استخدامه؛
+  <li>الأسطر 1-10: نسترد المعلمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</b>، التي تحدد نظام إدارة قواعد البيانات (<bdi dir="ltr" class="odt-ltr-term">DBMS</bdi>) المطلوب استخدامه؛
   </li>
   <li>الأسطر 12–14: يتم تكوين التطبيق؛
   </li>
@@ -3050,7 +3050,7 @@
 <a id="__codelineno-13-34" name="__codelineno-13-34"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Travail terminé...&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-  <li>الأسطر 1-10: يتوقع البرنامج النصي معلمة <b>[<bdi dir="ltr" class="odt-ltr-term">mysql</bdi> / <bdi dir="ltr" class="odt-ltr-term">pgres</bdi>] </b>تحدد نظام إدارة قواعد البيانات (<bdi dir="ltr" class="odt-ltr-term">DBMS</bdi>) المطلوب استخدامه؛
+  <li>الأسطر 1-10: يتوقع البرنامج النصي معلمة <b>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>] </b>تحدد نظام إدارة قواعد البيانات (<bdi dir="ltr" class="odt-ltr-term">DBMS</bdi>) المطلوب استخدامه؛
   </li>
   <li>الأسطر 12-14: يتم تكوين التطبيق؛
   </li>

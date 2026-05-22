@@ -3210,7 +3210,7 @@
   </li>
   <li>السطران 118 و7: تطلب الدالة <b>[</b><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">get_url</bdi></span></b><b>(url)] </b>مستندًا من موقع الويب <i>url</i><i><b>[<bdi dir="ltr" class="odt-ltr-term">site</bdi>] </b></i>وتخزنه في الملف النصي <i>url</i><i><b>[<bdi dir="ltr" class="odt-ltr-term">site</bdi>]</b></i><i>.<bdi dir="ltr" class="odt-ltr-term">HTML.</bdi> </i>بشكل افتراضي، يتم تسجيل تبادلات العميل/الخادم في وحدة التحكم (<bdi dir="ltr" class="odt-ltr-term">tracking</bdi>=<bdi dir="ltr" class="odt-ltr-term">True</bdi>)؛
   </li>
-  <li>يتم تنفيذ كل شيء داخل كتلة<b> [try / <bdi dir="ltr" class="odt-ltr-term">finally</bdi>] </b>(الأسطر 14–96). لا توجد جملة<b> [<bdi dir="ltr" class="odt-ltr-term">except</bdi>]</b>. يتم ترحيل الاستثناءات إلى الكود المستدعي، الذي يلتقطها ويعرضها (الأسطر 119–120)؛
+  <li>يتم تنفيذ كل شيء داخل كتلة<b> [<bdi dir="ltr" class="odt-ltr-term">try / finally</bdi>] </b>(الأسطر 14–96). لا توجد جملة<b> [<bdi dir="ltr" class="odt-ltr-term">except</bdi>]</b>. يتم ترحيل الاستثناءات إلى الكود المستدعي، الذي يلتقطها ويعرضها (الأسطر 119–120)؛
   </li>
   <li>السطور 16–17: فتح اتصال بخادم الويب. تأخذ الدالة <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">socket</bdi></span></b><b><span style="color: #000000">.<bdi dir="ltr" class="odt-ltr-term">create_connection</bdi></span></b><b>] </b>ثلاثة معلمات:
     <ul>
@@ -3491,7 +3491,7 @@
 <span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
 </code></pre></div>
 
-<p>إن ظهور نتائج للأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi> –<bdi dir="ltr" class="odt-ltr-term">help</bdi>]</strong> يدل على أن الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong> موجود في مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> الخاص بالمحطة الطرفية. في نظام <bdi dir="ltr" class="odt-ltr-term">Windows</bdi>، يمثل مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> مجموعة المجلدات التي يتم البحث فيها عندما يكتب المستخدم أمرًا قابلاً للتنفيذ، وهو في هذه الحالة <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong>. يمكن تحديد قيمة مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> على النحو التالي:</p>
+<p>إن ظهور نتائج للأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl –help</bdi>]</strong> يدل على أن الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong> موجود في مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> الخاص بالمحطة الطرفية. في نظام <bdi dir="ltr" class="odt-ltr-term">Windows</bdi>، يمثل مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> مجموعة المجلدات التي يتم البحث فيها عندما يكتب المستخدم أمرًا قابلاً للتنفيذ، وهو في هذه الحالة <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong>. يمكن تحديد قيمة مسار <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> على النحو التالي:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;<span style="background-color:#fff2cc">echo %PATH%</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python38\Scripts\;C:\Program Files\Python38\;<span style="background-color:#fff2cc">C:\windows\system32</span>;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\serge\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;</span></span>
@@ -3549,7 +3549,7 @@
   </li>
 </ul>
 
-<p>تأكد من تشغيل خادم <bdi dir="ltr" class="odt-ltr-term">Laragon Apache</bdi>، واستخدم <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong> لطلب عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">http://localhost/</bdi>]</strong> باستخدام الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi> –<bdi dir="ltr" class="odt-ltr-term">verbose</bdi> –<bdi dir="ltr" class="odt-ltr-term">output localhost.html http://localhost/</bdi>]</strong>. ستحصل على النتائج التالية:</p>
+<p>تأكد من تشغيل خادم <bdi dir="ltr" class="odt-ltr-term">Laragon Apache</bdi>، واستخدم <strong>[<bdi dir="ltr" class="odt-ltr-term">curl</bdi>]</strong> لطلب عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">http://localhost/</bdi>]</strong> باستخدام الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">curl –verbose –output localhost.html http://localhost/</bdi>]</strong>. ستحصل على النتائج التالية:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">λ <span style="background-color:#fff2cc">curl --verbose --output localhost.html http://localhost/</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span></span>
@@ -4868,7 +4868,7 @@
   </li>
   <li>في <b>[15]</b>، رد الخادم؛
   </li>
-  <li>في <b>[16-22]</b>، يجب على العميل إرسال قائمة من الأسطر النصية تنتهي بسطر يحتوي على نقطة واحدة فقط. قد تحتوي الرسالة على أسطر<b> [<bdi dir="ltr" class="odt-ltr-term">Subject:</bdi>, <bdi dir="ltr" class="odt-ltr-term">From:</bdi>, <bdi dir="ltr" class="odt-ltr-term">To:</bdi>] </b>(16-18) لتحديد موضوع الرسالة والمرسل والمستلم، على التوالي؛
+  <li>في <b>[16-22]</b>، يجب على العميل إرسال قائمة من الأسطر النصية تنتهي بسطر يحتوي على نقطة واحدة فقط. قد تحتوي الرسالة على أسطر<b> [<bdi dir="ltr" class="odt-ltr-term">Subject:, From:, To:</bdi>] </b>(16-18) لتحديد موضوع الرسالة والمرسل والمستلم، على التوالي؛
   </li>
   <li>في <b>[19]</b>، يجب أن يتبع الرؤوس السابقة سطر فارغ؛
   </li>
@@ -5348,7 +5348,7 @@
   </li>
   <li>الأسطر 141–143: عرض ما سنقوم به؛
   </li>
-  <li>الأسطر 144–149: تحديد الرسالة المراد إرسالها. تسبق الرسالة <b>[<bdi dir="ltr" class="odt-ltr-term">message</bdi>] </b>الرؤوس <b>[<bdi dir="ltr" class="odt-ltr-term">From</bdi>, <bdi dir="ltr" class="odt-ltr-term">To</bdi>, <bdi dir="ltr" class="odt-ltr-term">Subject</bdi>, <bdi dir="ltr" class="odt-ltr-term">Content-type</bdi>]</b>؛
+  <li>الأسطر 144–149: تحديد الرسالة المراد إرسالها. تسبق الرسالة <b>[<bdi dir="ltr" class="odt-ltr-term">message</bdi>] </b>الرؤوس <b>[<bdi dir="ltr" class="odt-ltr-term">From, To, Subject, Content-type</bdi>]</b>؛
   </li>
   <li>السطر 151: يتم إرسال البريد الإلكتروني باستخدام وظيفة<b> [<bdi dir="ltr" class="odt-ltr-term">sendmail</bdi>]</b>، التي تأخذ معلمتين:
     <ul>
@@ -5386,7 +5386,7 @@
       </li>
     </ul>
   </li>
-  <li>يتم تنفيذ<b> [<bdi dir="ltr" class="odt-ltr-term">sendmail</bdi>] </b>داخل كتلة<b> [try / <bdi dir="ltr" class="odt-ltr-term">finally</bdi>] </b>التي تسمح بنقل جميع الاستثناءات إلى الكود المستدعي. ونحن نعلم أن الكود المستدعي يلتقطها جميعًا لعرضها؛
+  <li>يتم تنفيذ<b> [<bdi dir="ltr" class="odt-ltr-term">sendmail</bdi>] </b>داخل كتلة<b> [<bdi dir="ltr" class="odt-ltr-term">try / finally</bdi>] </b>التي تسمح بنقل جميع الاستثناءات إلى الكود المستدعي. ونحن نعلم أن الكود المستدعي يلتقطها جميعًا لعرضها؛
   </li>
   <li>الأسطر 48–50: تحرير الموارد؛
   </li>
@@ -6963,7 +6963,7 @@
   </li>
   <li>السطر 32: يتم إلقاء استثناء مع رسالة الخطأ؛
   </li>
-  <li>السطر 35: يمكن أن تحتوي أوامر<b> [<bdi dir="ltr" class="odt-ltr-term">list</bdi>, <bdi dir="ltr" class="odt-ltr-term">retr</bdi>] </b>فقط على استجابات متعددة الأسطر؛
+  <li>السطر 35: يمكن أن تحتوي أوامر<b> [<bdi dir="ltr" class="odt-ltr-term">list, retr</bdi>] </b>فقط على استجابات متعددة الأسطر؛
   </li>
   <li>الأسطر 36–45: في حالة وجود استجابة متعددة الأسطر، نعرض جميع الأسطر المستلمة (الأسطر 42–43) حتى يتم استلام السطر الأخير (السطر 45)؛
   </li>
@@ -7649,7 +7649,7 @@
       </li>
       <li>نحصل على قائمة من المجموعات <b>[(رأس 1، الترميز 1)، (رأس 2، الترميز 2)، ...]</b>؛
       </li>
-      <li>بالنسبة للرؤوس <b>[<bdi dir="ltr" class="odt-ltr-term">From</bdi>, <bdi dir="ltr" class="odt-ltr-term">To</bdi>, <bdi dir="ltr" class="odt-ltr-term">Subject</bdi>, <bdi dir="ltr" class="odt-ltr-term">Return-Path</bdi>, <bdi dir="ltr" class="odt-ltr-term">Date</bdi>]، </b>ستحتوي القائمة على عنصر واحد فقط؛
+      <li>بالنسبة للرؤوس <b>[<bdi dir="ltr" class="odt-ltr-term">From, To, Subject, Return-Path, Date</bdi>]، </b>ستحتوي القائمة على عنصر واحد فقط؛
       </li>
       <li>السطر 8: استرجاع الرأس الوحيد وترميزه:
         <ul>
@@ -8301,7 +8301,7 @@
     <ul>
       <li><mark style="background-color: #fff2cc">يتم حفظ </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>] </mark></b><mark style="background-color: #fff2cc">في السطر 21: يتم تنفيذ الدالة</mark><b><mark style="background-color: #fff2cc"> [<bdi dir="ltr" class="odt-ltr-term">saveMessage</bdi>] </mark></b><mark style="background-color: #fff2cc">مع <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi>=0؛</mark>
       </li>
-      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتم تعيين <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> على 1 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_1</bdi>]</mark></b><mark style="background-color: #fff2cc">. وبالتالي، فإن القيمة التي تُرجعها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">saveMessage</bdi>(<bdi dir="ltr" class="odt-ltr-term">output</bdi>,<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>,0)] </mark></b><mark style="background-color: #fff2cc">هي 1 (السطر 23)؛</mark>
+      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتم تعيين <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> على 1 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_1</bdi>]</mark></b><mark style="background-color: #fff2cc">. وبالتالي، فإن القيمة التي تُرجعها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">saveMessage</bdi>(<bdi dir="ltr" class="odt-ltr-term">output,subpart1</bdi>,0)] </mark></b><mark style="background-color: #fff2cc">هي 1 (السطر 23)؛</mark>
       </li>
       <li><mark style="background-color: #fff2cc">يتم حفظ </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart2</bdi>] </mark></b><mark style="background-color: #fff2cc">في السطر 21: يتم تنفيذ الدالة</mark><b><mark style="background-color: #fff2cc"> [<bdi dir="ltr" class="odt-ltr-term">saveMessage</bdi>] </mark></b><mark style="background-color: #fff2cc">مع <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi>=1؛</mark>
       </li>
@@ -8309,7 +8309,7 @@
       </li>
       <li><mark style="background-color: #fff2cc">يتم حفظ </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart3</bdi>] </mark></b><mark style="background-color: #fff2cc">في السطر 21: يتم تنفيذ الدالة</mark><b><mark style="background-color: #fff2cc"> [<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>] </mark></b><mark style="background-color: #fff2cc">بقيمة <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi>=1؛</mark>
       </li>
-      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart3</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتغير <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> إلى 2 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_2</bdi>]</mark></b><mark style="background-color: #fff2cc">. وبالتالي، فإن القيمة التي تعيدها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>(<bdi dir="ltr" class="odt-ltr-term">output</bdi>,<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>,1)] </mark></b><mark style="background-color: #fff2cc">هي 2 (السطر 21)؛</mark>
+      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart3</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتغير <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> إلى 2 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_2</bdi>]</mark></b><mark style="background-color: #fff2cc">. وبالتالي، فإن القيمة التي تعيدها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>(<bdi dir="ltr" class="odt-ltr-term">output,subpart1</bdi>,1)] </mark></b><mark style="background-color: #fff2cc">هي 2 (السطر 21)؛</mark>
       </li>
       <li><mark style="background-color: #fff2cc">يتم حفظ </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart4</bdi>] </mark></b><mark style="background-color: #fff2cc">في السطر 21: يتم تنفيذ الدالة</mark><b><mark style="background-color: #fff2cc"> [<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>] </mark></b><mark style="background-color: #fff2cc">بقيمة <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi>=2؛</mark>
       </li>
@@ -8317,7 +8317,7 @@
       </li>
       <li><mark style="background-color: #fff2cc">يتم حفظ </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart5</bdi>] </mark></b><mark style="background-color: #fff2cc">في السطر 21: يتم تنفيذ الدالة</mark><b><mark style="background-color: #fff2cc"> [<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>] </mark></b><mark style="background-color: #fff2cc">بقيمة <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi>=2؛</mark>
       </li>
-      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart5</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتغير <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> إلى 3 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_3</bdi>]</mark></b><mark style="background-color: #fff2cc">.  وبالتالي، فإن القيمة التي تُرجعها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>(<bdi dir="ltr" class="odt-ltr-term">output</bdi>,<bdi dir="ltr" class="odt-ltr-term">subpart1</bdi>,2)] </mark></b><mark style="background-color: #fff2cc">هي 3 (السطر 21)؛</mark>
+      <li><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">subpart5</bdi>] </mark></b><mark style="background-color: #fff2cc">هو مرفق بريد إلكتروني، لذا يتغير <bdi dir="ltr" class="odt-ltr-term">irfc822</bdi> إلى 3 (السطر 6 من الكود). يتم إنشاء مجلد </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">output/irfc822_3</bdi>]</mark></b><mark style="background-color: #fff2cc">.  وبالتالي، فإن القيمة التي تُرجعها </mark><b><mark style="background-color: #fff2cc">[<bdi dir="ltr" class="odt-ltr-term">save_message</bdi>(<bdi dir="ltr" class="odt-ltr-term">output,subpart1</bdi>,2)] </mark></b><mark style="background-color: #fff2cc">هي 3 (السطر 21)؛</mark>
       </li>
     </ul>
   </li>

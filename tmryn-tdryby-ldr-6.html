@@ -2940,9 +2940,9 @@
 </code></pre></div>
 
 <ul>
-  <li>السطر 2: يرسل عميل <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> بيانات اعتماد المستخدم <b>[<bdi dir="ltr" class="odt-ltr-term">admin</bdi> / <bdi dir="ltr" class="odt-ltr-term">admin</bdi>] </b>في شكل مشفر؛
+  <li>السطر 2: يرسل عميل <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> بيانات اعتماد المستخدم <b>[<bdi dir="ltr" class="odt-ltr-term">admin / admin</bdi>] </b>في شكل مشفر؛
   </li>
-  <li>السطر 17: يستجيب الخادم بشكل صحيح. ويبلغ عن أخطاء لأن المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">marié</bdi>, <bdi dir="ltr" class="odt-ltr-term">enfants</bdi>, <bdi dir="ltr" class="odt-ltr-term">salaire</bdi>] </b>لم يتم إرسالها (السطر 1)، لكنه لا يبلغ عن خطأ في المصادقة؛
+  <li>السطر 17: يستجيب الخادم بشكل صحيح. ويبلغ عن أخطاء لأن المعلمات <b>[<bdi dir="ltr" class="odt-ltr-term">marié, enfants, salaire</bdi>] </b>لم يتم إرسالها (السطر 1)، لكنه لا يبلغ عن خطأ في المصادقة؛
   </li>
 </ul>
 
@@ -2961,7 +2961,7 @@
 <a id="__codelineno-10-3" name="__codelineno-10-3"></a>WWW-Authenticate: Basic realm=&quot;Authentication Required&quot;
 <a id="__codelineno-10-4" name="__codelineno-10-4"></a>…
 </code></pre></div></td></tr></table></div>
-<p>لا يوقف <bdi dir="ltr" class="odt-ltr-term">Firefox</bdi>، مثل المتصفحات الأخرى، نافذة الحوار عند تلقيه لهذه الرؤوس. بل يطلب من المستخدم بيانات الاعتماد التي يطلبها الخادم. في المثال أعلاه، سيؤدي مجرد كتابة <bdi dir="ltr" class="odt-ltr-term">admin</bdi> / <bdi dir="ltr" class="odt-ltr-term">admin</bdi> إلى تلقي استجابة الخادم:</p>
+<p>لا يوقف <bdi dir="ltr" class="odt-ltr-term">Firefox</bdi>، مثل المتصفحات الأخرى، نافذة الحوار عند تلقيه لهذه الرؤوس. بل يطلب من المستخدم بيانات الاعتماد التي يطلبها الخادم. في المثال أعلاه، سيؤدي مجرد كتابة <bdi dir="ltr" class="odt-ltr-term">admin / admin</bdi> إلى تلقي استجابة الخادم:</p>
 <p><img src="images/10000000000002F70000015FADE1EFB4.png" width="332" height="153" style="width:8.772cm;height:4.057cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F70000015FADE1EFB4.png" /></p>
 <p><a id="toc48549173"></a></p>
 <h2 id="233">23.3. <span style="color: #4f81bd"><span style="color: #4f81bd">عميل الويب لخادم حساب الضرائب</span></span></h2>
@@ -3514,7 +3514,7 @@
 
 <p>وكان يجب تمرير المعلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata: AdminData</bdi>]</strong> إلى منشئ الفئة؛</p>
 <ul>
-  <li>السطر 27: لم يتم تغليف كود طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">calculate_tax</bdi>] </b>في كتلة try / <bdi dir="ltr" class="odt-ltr-term">catch</bdi> / <bdi dir="ltr" class="odt-ltr-term">finally.</bdi> وهذا يعني أن أي استثناءات لن يتم معالجتها وستنتقل إلى الكود المستدعي، وهو في هذه الحالة البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</b>. ويقوم هذا البرنامج النصي بالفعل بالتقاط جميع الاستثناءات المنقولة من طبقة<b> [dao]</b>؛
+  <li>السطر 27: لم يتم تغليف كود طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">calculate_tax</bdi>] </b>في كتلة <bdi dir="ltr" class="odt-ltr-term">try / catch / finally.</bdi> وهذا يعني أن أي استثناءات لن يتم معالجتها وستنتقل إلى الكود المستدعي، وهو في هذه الحالة البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</b>. ويقوم هذا البرنامج النصي بالفعل بالتقاط جميع الاستثناءات المنقولة من طبقة<b> [dao]</b>؛
   </li>
   <li>السطر 28: يتم حساب الضريبة على جانب الخادم. لذلك سنحتاج إلى التواصل معه. نقوم بذلك باستخدام وحدة<b> [<bdi dir="ltr" class="odt-ltr-term">requests</bdi>] </b>المستوردة في السطر 2؛
   </li>
@@ -3526,7 +3526,7 @@
       </li>
       <li>السطور 35-36: يجب أن تكون قيمة المعلمة المسماة <b>[<bdi dir="ltr" class="odt-ltr-term">params</bdi>] </b>عبارة عن قاموس يحتوي على المعلومات التي سيتم تضمينها في عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> بالشكل <b>[/url?<bdi dir="ltr" class="odt-ltr-term">param1</bdi>=<bdi dir="ltr" class="odt-ltr-term">value1</bdi>&amp;<bdi dir="ltr" class="odt-ltr-term">param2</bdi>=<bdi dir="ltr" class="odt-ltr-term">value2</bdi>&amp;…]</b>؛
       </li>
-      <li>السطر 29: القاموس الذي يحتوي على المعلمات الثلاثة <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>] </b>التي يتوقعها خادم الويب. لا داعي للقلق بشأن الترميز (المسمى <bdi dir="ltr" class="odt-ltr-term">urlencoded</bdi>) الذي يجب أن تخضع له هذه المعلمات. تتولى<b> [<bdi dir="ltr" class="odt-ltr-term">requests</bdi>] </b>هذه المهمة؛
+      <li>السطر 29: القاموس الذي يحتوي على المعلمات الثلاثة <b>[<bdi dir="ltr" class="odt-ltr-term">married, children, salary</bdi>] </b>التي يتوقعها خادم الويب. لا داعي للقلق بشأن الترميز (المسمى <bdi dir="ltr" class="odt-ltr-term">urlencoded</bdi>) الذي يجب أن تخضع له هذه المعلمات. تتولى<b> [<bdi dir="ltr" class="odt-ltr-term">requests</bdi>] </b>هذه المهمة؛
       </li>
       <li>الأسطر 37–40: المعلمة المسماة <b>[<bdi dir="ltr" class="odt-ltr-term">auth</bdi>] </b>هي مجموعة مكونة من عنصرين (<bdi dir="ltr" class="odt-ltr-term">login</bdi>، <bdi dir="ltr" class="odt-ltr-term">password</bdi>). وهي تمثل بيانات الاعتماد للمصادقة الأساسية؛
       </li>

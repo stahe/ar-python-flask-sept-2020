@@ -2540,7 +2540,7 @@
 <p>من المهم أن نتذكر هنا أننا أنشأنا مسارًا <strong>[/<bdi dir="ltr" class="odt-ltr-term">init-session-without-csrftoken/</bdi>&lt;<bdi dir="ltr" class="odt-ltr-term">response-type</bdi>&gt;]</strong> لبدء الحوار بين العميل والخادم بدون رمز <bdi dir="ltr" class="odt-ltr-term">CSRF.</bdi> ومع ذلك، فقد رأينا أن طريقة <strong>[get_response]</strong> التي تم استدعاؤها في السطر 12 من الكود تضيف بشكل منهجي رمز <bdi dir="ltr" class="odt-ltr-term">CSRF</bdi> المخزن في <strong>[</strong><strong><span style="color: #0000ff"><mark style="background-color: #fff2cc"><bdi dir="ltr" class="odt-ltr-term">self</bdi></mark></span></strong><strong><mark style="background-color: #fff2cc">.__csrf_token</mark></strong><strong>]</strong> إلى نهاية عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> للخدمة. ولهذا السبب، في السطر 6 من الكود، نقوم بإزالة رمز <bdi dir="ltr" class="odt-ltr-term">CSRF</bdi> هذا إذا كان موجودًا.</p>
 <p>هذا كل شيء. للاختبار، سنقوم بتشغيل:</p>
 <ul>
-  <li><bdi dir="ltr" class="odt-ltr-term">the console clients</bdi> <b>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>, <bdi dir="ltr" class="odt-ltr-term">main2</bdi>, <bdi dir="ltr" class="odt-ltr-term">main3</bdi>]</b>;
+  <li><bdi dir="ltr" class="odt-ltr-term">the console clients</bdi> <b>[<bdi dir="ltr" class="odt-ltr-term">main, main2, main3</bdi>]</b>;
   </li>
   <li>فئات الاختبار <b>[<bdi dir="ltr" class="odt-ltr-term">Test1HttpClientDaoWithSession</bdi>] </b>و<b>[<bdi dir="ltr" class="odt-ltr-term">Test2HttpClientDaoWithSession</bdi>]</b>؛
   </li>

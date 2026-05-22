@@ -1570,7 +1570,7 @@
 <p>يتم إنشاء المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">http-servers/05</bdi>]</strong> مبدئيًا عن طريق نسخ المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">http-servers/02</bdi>]</strong>. نعود إلى التبادلات <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> بين العميل والخادم. لقد رأينا أن التبديل من <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> إلى <bdi dir="ltr" class="odt-ltr-term">XML</bdi> أمر بسيط للغاية.</p>
 <p><a id="toc48549217"></a></p>
 <h3 id="2821">28.2.1. <span style="color: #4f81bd">التكوين</span></h3>
-<p>يظل التكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>, <bdi dir="ltr" class="odt-ltr-term">config</bdi>_database, <bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> كما هو في الإصدارات السابقة. لن نعيد تناوله مرة أخرى.</p>
+<p>يظل التكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">config, config</bdi>_database, <bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> كما هو في الإصدارات السابقة. لن نعيد تناوله مرة أخرى.</p>
 <p><a id="toc48549218"></a></p>
 <h3 id="2822-main">28.2.2. <span style="color: #4f81bd">البرنامج النصي الرئيسي [<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</span></h3>
 <p>النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> مطابق للنص الموجود في المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">http-servers/02</bdi>]</strong> الذي قمنا بنسخه. هناك اختلاف واحد فقط:</p>
@@ -1797,7 +1797,7 @@
   </li>
   <li>الأسطر 14–18: نسترد نص طلب <bdi dir="ltr" class="odt-ltr-term">POST.</bdi> يمكن ترميز المعلمات المُغلفة في نص طلب <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> بطرق مختلفة. وقد صادفنا واحدة منها بالفعل: <b>[<bdi dir="ltr" class="odt-ltr-term">x-www-form-urlencoded</bdi>]</b>. هنا، سنستخدم ترميزًا آخر: <bdi dir="ltr" class="odt-ltr-term">JSON</bdi>؛
   </li>
-  <li>السطر 18: <b>[<bdi dir="ltr" class="odt-ltr-term">request.data</bdi>] </b>يسترد نص طلب <bdi dir="ltr" class="odt-ltr-term">HTTP.</bdi> هنا، نسترد نصًا، ونعلم أن هذا النص هو <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> يمثل قائمة من القواميس <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>؛
+  <li>السطر 18: <b>[<bdi dir="ltr" class="odt-ltr-term">request.data</bdi>] </b>يسترد نص طلب <bdi dir="ltr" class="odt-ltr-term">HTTP.</bdi> هنا، نسترد نصًا، ونعلم أن هذا النص هو <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> يمثل قائمة من القواميس <b>[<bdi dir="ltr" class="odt-ltr-term">married, children, salary</bdi>]</b>؛
   </li>
   <li>الأسطر 19–24: نسترد قائمة القواميس هذه؛
   </li>
@@ -1811,7 +1811,7 @@
   </li>
   <li>الأسطر 45–69: نتحقق الآن من كل قاموس:
     <ul>
-      <li>يجب أن تحتوي على المفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>؛
+      <li>يجب أن تحتوي على المفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married, children, salary</bdi>]</b>؛
       </li>
       <li>يجب أن تسمح لنا بإنشاء كائن<b> [<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>صالح؛
       </li>
@@ -1856,7 +1856,7 @@
   </li>
   <li>في <b>[4]</b>: ننتقل إلى الوضع<b> [raw] </b>لنتمكن من نسخ ولصق سلسلة <bdi dir="ltr" class="odt-ltr-term">JSON</bdi>؛
   </li>
-  <li>في <b>[6]</b>: نلصق سلسلة <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> المأخوذة من أحد ملفات<b> [<bdi dir="ltr" class="odt-ltr-term">results.json</bdi>] </b>الخاصة بالإصدارات المختلفة. ثم، بالنسبة لكل دافع ضرائب، نحتفظ فقط بالخصائص <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>]</b>؛
+  <li>في <b>[6]</b>: نلصق سلسلة <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> المأخوذة من أحد ملفات<b> [<bdi dir="ltr" class="odt-ltr-term">results.json</bdi>] </b>الخاصة بالإصدارات المختلفة. ثم، بالنسبة لكل دافع ضرائب، نحتفظ فقط بالخصائص <b>[<bdi dir="ltr" class="odt-ltr-term">married, salary, children</bdi>]</b>؛
   </li>
 </ul>
 
@@ -2370,7 +2370,7 @@
   </li>
   <li>الأسطر 31–39: نقوم بتحويل قائمة من كائنات<b> [<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>إلى قائمة من القواميس باستخدام دالة<b> [map]</b>؛
   </li>
-  <li>الأسطر 34–38: تقوم دالة لامدا المستخدمة بتحويل كائن من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>إلى قاموس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>يحتوي فقط على المفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>. للقيام بذلك، نستخدم المعلمة المسماة <b>[<bdi dir="ltr" class="odt-ltr-term">included_keys</bdi>] </b>من الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">BaseEntity.asdict</bdi>]</b>. لاحظ أنه لتحديد الأسماء الدقيقة للخصائص التي سيتم تضمينها في المعلمات<b> [<bdi dir="ltr" class="odt-ltr-term">excluded_keys</bdi>, <bdi dir="ltr" class="odt-ltr-term">included_keys</bdi>]</b>، يجب استخدام القاموس المحدد مسبقًا <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayer.__dict__</bdi>]</b>؛
+  <li>الأسطر 34–38: تقوم دالة لامدا المستخدمة بتحويل كائن من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">TaxPayer</bdi>] </b>إلى قاموس من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">dict</bdi>] </b>يحتوي فقط على المفاتيح <b>[<bdi dir="ltr" class="odt-ltr-term">married, children, salary</bdi>]</b>. للقيام بذلك، نستخدم المعلمة المسماة <b>[<bdi dir="ltr" class="odt-ltr-term">included_keys</bdi>] </b>من الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">BaseEntity.asdict</bdi>]</b>. لاحظ أنه لتحديد الأسماء الدقيقة للخصائص التي سيتم تضمينها في المعلمات<b> [<bdi dir="ltr" class="odt-ltr-term">excluded_keys, included_keys</bdi>]</b>، يجب استخدام القاموس المحدد مسبقًا <b>[<bdi dir="ltr" class="odt-ltr-term">taxpayer.__dict__</bdi>]</b>؛
   </li>
   <li>الأسطر 41–48: الاتصال بالخادم واسترداد استجابة <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> الخاصة به؛
   </li>

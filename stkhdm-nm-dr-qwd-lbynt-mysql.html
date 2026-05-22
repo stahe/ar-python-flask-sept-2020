@@ -1742,7 +1742,7 @@
 <span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\v-01&gt;</span></span>
 </code></pre></div>
 
-<p>تم سرد جميع الوحدات النمطية التي يحتوي اسمها أو وصفها على الكلمة الرئيسية <em><bdi dir="ltr" class="odt-ltr-term">MySQL</bdi></em>. الوحدة التي سنستخدمها (فبراير 2020) هي <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql-connector-python</bdi>]</strong>، السطر 17. لتثبيتها، اكتب الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">pip install</bdi> -<bdi dir="ltr" class="odt-ltr-term">U mysql-connector-python</bdi>]</strong> في المحطة الطرفية:</p>
+<p>تم سرد جميع الوحدات النمطية التي يحتوي اسمها أو وصفها على الكلمة الرئيسية <em><bdi dir="ltr" class="odt-ltr-term">MySQL</bdi></em>. الوحدة التي سنستخدمها (فبراير 2020) هي <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql-connector-python</bdi>]</strong>، السطر 17. لتثبيتها، اكتب الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">pip install -U mysql-connector-python</bdi>]</strong> في المحطة الطرفية:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\v-01&gt;<span style="background-color:#fff2cc">pip install -U mysql-connector-python</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">Collecting mysql-connector-python</span></span>
@@ -1756,7 +1756,7 @@
 </code></pre></div>
 
 <ul>
-  <li>السطر 1: يطلب الخيار<b> [<bdi dir="ltr" class="odt-ltr-term">install</bdi> -<bdi dir="ltr" class="odt-ltr-term">U</bdi>] </b>(<bdi dir="ltr" class="odt-ltr-term">U</bdi>=ترقية) أحدث إصدار من الحزم المختلفة المرتبطة بحزمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql-connector-python</bdi>]</b>؛
+  <li>السطر 1: يطلب الخيار<b> [<bdi dir="ltr" class="odt-ltr-term">install -U</bdi>] </b>(<bdi dir="ltr" class="odt-ltr-term">U</bdi>=ترقية) أحدث إصدار من الحزم المختلفة المرتبطة بحزمة<b> [<bdi dir="ltr" class="odt-ltr-term">mysql-connector-python</bdi>]</b>؛
   </li>
 </ul>
 
@@ -1856,7 +1856,7 @@
   </li>
   <li>السطر 9: اسم قاعدة البيانات التي نريد الاتصال بها؛
   </li>
-  <li>السطور 11-26: سيقوم البرنامج النصي (السطر 16) بتوصيل المستخدم <b>[<bdi dir="ltr" class="odt-ltr-term">admpersonnes</bdi> / <bdi dir="ltr" class="odt-ltr-term">nobody</bdi>] </b>بقاعدة البيانات <b>[<bdi dir="ltr" class="odt-ltr-term">dbpersonnes</bdi>]</b>؛
+  <li>السطور 11-26: سيقوم البرنامج النصي (السطر 16) بتوصيل المستخدم <b>[<bdi dir="ltr" class="odt-ltr-term">admpersonnes / nobody</bdi>] </b>بقاعدة البيانات <b>[<bdi dir="ltr" class="odt-ltr-term">dbpersonnes</bdi>]</b>؛
   </li>
   <li>الأسطر 20–26: قد يفشل الاتصال. ولذلك، يتم التعامل معه ضمن كتلة <bdi dir="ltr" class="odt-ltr-term">try/except/finally</bdi>؛
   </li>
@@ -2170,7 +2170,7 @@
       </li>
       <li>تعني السمة<b> [<bdi dir="ltr" class="odt-ltr-term">NOT NULL</bdi>] </b>لكل عمود من هذه الأعمدة أنه في أي صف من الجدول، لا يمكن أن يكون أي من الأعمدة الثلاثة فارغًا؛
       </li>
-      <li>يُطلق على المعلمة <b>[</b><b><span style="color: #a31515"><bdi dir="ltr" class="odt-ltr-term">unique</bdi>(<bdi dir="ltr" class="odt-ltr-term">last_name</bdi>, <bdi dir="ltr" class="odt-ltr-term">first_name</bdi>)</span></b><b>] </b>اسم <b>القيد</b>. هنا، يتمثل القيد المفروض على الصفوف في أن المجموعة (<bdi dir="ltr" class="odt-ltr-term">last_name</bdi>, <bdi dir="ltr" class="odt-ltr-term">first_name</bdi>) في الصف يجب أن تكون فريدة في الجدول. وهذا يعني أنه يمكننا تحديد هوية فرد في الجدول بشكل فريد إذا كان اسم عائلته واسمه الأول معروفين؛
+      <li>يُطلق على المعلمة <b>[</b><b><span style="color: #a31515"><bdi dir="ltr" class="odt-ltr-term">unique</bdi>(<bdi dir="ltr" class="odt-ltr-term">last_name, first_name</bdi>)</span></b><b>] </b>اسم <b>القيد</b>. هنا، يتمثل القيد المفروض على الصفوف في أن المجموعة (<bdi dir="ltr" class="odt-ltr-term">last_name, first_name</bdi>) في الصف يجب أن تكون فريدة في الجدول. وهذا يعني أنه يمكننا تحديد هوية فرد في الجدول بشكل فريد إذا كان اسم عائلته واسمه الأول معروفين؛
       </li>
     </ul>
   </li>
@@ -2769,7 +2769,7 @@
   </li>
   <li>السطر 8: استيراد الوحدة النمطية <b>[</b><b><span style="color: #6f008a"><bdi dir="ltr" class="odt-ltr-term">mysql_module</bdi></span></b><b>] </b>الموصوفة أعلاه:
   </li>
-  <li>الأسطر 12-22: يتوقع البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">mysql-04</bdi>] </b>معلمة يجب أن تكون إحدى القيمتين <b>[<bdi dir="ltr" class="odt-ltr-term">true</bdi> / <bdi dir="ltr" class="odt-ltr-term">false</bdi>]</b>. تشير هذه المعلمة إلى ما إذا كان يجب تنفيذ ملف أمر <bdi dir="ltr" class="odt-ltr-term">SQL</bdi> ضمن معاملة (<bdi dir="ltr" class="odt-ltr-term">true</bdi>) أم لا (<bdi dir="ltr" class="odt-ltr-term">false</bdi>)؛
+  <li>الأسطر 12-22: يتوقع البرنامج النصي<b> [<bdi dir="ltr" class="odt-ltr-term">mysql-04</bdi>] </b>معلمة يجب أن تكون إحدى القيمتين <b>[<bdi dir="ltr" class="odt-ltr-term">true / false</bdi>]</b>. تشير هذه المعلمة إلى ما إذا كان يجب تنفيذ ملف أمر <bdi dir="ltr" class="odt-ltr-term">SQL</bdi> ضمن معاملة (<bdi dir="ltr" class="odt-ltr-term">true</bdi>) أم لا (<bdi dir="ltr" class="odt-ltr-term">false</bdi>)؛
   </li>
   <li>السطر 14: توجد المعلمات التي يمررها المستخدم إلى البرنامج النصي في قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">sys.argv</bdi>]</b>؛
   </li>

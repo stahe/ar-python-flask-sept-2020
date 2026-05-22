@@ -1500,7 +1500,7 @@
 
 <p>في <strong>كتلة</strong> try، يتوقف تنفيذ الإجراءات بمجرد حدوث استثناء (خطأ). في هذه الحالة، يستمر التنفيذ بإجراءات إحدى جمل <strong><bdi dir="ltr" class="odt-ltr-term">except</bdi></strong>:</p>
 <ul>
-  <li>السطر 3: إذا كان الاستثناء <b>[ex] </b>الذي حدث من نوع ينتمي إلى التوبلة (<bdi dir="ltr" class="odt-ltr-term">Ex1</bdi>, <bdi dir="ltr" class="odt-ltr-term">Ex2</bdi>…) أو مشتقًا من أحدها، يتم تنفيذ الإجراءات الموجودة في السطر 4؛
+  <li>السطر 3: إذا كان الاستثناء <b>[ex] </b>الذي حدث من نوع ينتمي إلى التوبلة (<bdi dir="ltr" class="odt-ltr-term">Ex1, Ex2</bdi>…) أو مشتقًا من أحدها، يتم تنفيذ الإجراءات الموجودة في السطر 4؛
   </li>
   <li>السطر 5: إذا لم يتم التقاط الاستثناء بواسطة السطر 3، وكان هناك جملة<b> [<bdi dir="ltr" class="odt-ltr-term">except</bdi>] </b>أخرى، فسيحدث نفس الأمر. وهكذا...؛
   </li>
@@ -2038,13 +2038,13 @@
 </code></pre></div></td></tr></table></div>
 <p><strong>ملاحظات</strong>:</p>
 <ul>
-  <li>الأسطر 25–32: في الاستدعاء <i><bdi dir="ltr" class="odt-ltr-term">main</bdi> → f1 → f2 → f3 </i>(السطر 30)، ستنتقل استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi></i> الذي أثاره <i>f3 </i>إلى <i><bdi dir="ltr" class="odt-ltr-term">main</bdi></i>. ثم سيتم التعامل معه بواسطة جملة <i><bdi dir="ltr" class="odt-ltr-term">except</bdi> </i>في السطر 31؛
+  <li>الأسطر 25–32: في الاستدعاء <i><bdi dir="ltr" class="odt-ltr-term">main → f1 → f2 → f3</bdi> </i>(السطر 30)، ستنتقل استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi></i> الذي أثاره <i>f3 </i>إلى <i><bdi dir="ltr" class="odt-ltr-term">main</bdi></i>. ثم سيتم التعامل معه بواسطة جملة <i><bdi dir="ltr" class="odt-ltr-term">except</bdi> </i>في السطر 31؛
   </li>
-  <li>الأسطر 61–75: في الاستدعاء <i><bdi dir="ltr" class="odt-ltr-term">main</bdi> → f4 → f5 → f6 </i>(السطر 62)، سينتقل استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi></i> الذي أثاره <i>f6 </i>إلى <i><bdi dir="ltr" class="odt-ltr-term">main</bdi></i>. ثم سيتم التعامل معه بواسطة جملة <i><bdi dir="ltr" class="odt-ltr-term">except</bdi> </i>في السطر 63. هذه المرة، أثناء انتقاله عبر سلسلة وظائف الاستدعاء، فإن استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi> </i>الذي ينتقل يكون مغلفًا بحد ذاته داخل استثناء آخر؛
+  <li>الأسطر 61–75: في الاستدعاء <i><bdi dir="ltr" class="odt-ltr-term">main → f4 → f5 → f6</bdi> </i>(السطر 62)، سينتقل استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi></i> الذي أثاره <i>f6 </i>إلى <i><bdi dir="ltr" class="odt-ltr-term">main</bdi></i>. ثم سيتم التعامل معه بواسطة جملة <i><bdi dir="ltr" class="odt-ltr-term">except</bdi> </i>في السطر 63. هذه المرة، أثناء انتقاله عبر سلسلة وظائف الاستدعاء، فإن استثناء <i><bdi dir="ltr" class="odt-ltr-term">MyError</bdi> </i>الذي ينتقل يكون مغلفًا بحد ذاته داخل استثناء آخر؛
   </li>
   <li>الأسطر 66–75: توضح كيفية تتبع مكدس الاستثناءات؛
   </li>
-  <li>السطر 71: تُرجع الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">isinstance</bdi>(<bdi dir="ltr" class="odt-ltr-term">instance</bdi>, <bdi dir="ltr" class="odt-ltr-term">Class</bdi>)] </b>القيمة <bdi dir="ltr" class="odt-ltr-term">True</bdi> إذا كان الكائن <b>[<bdi dir="ltr" class="odt-ltr-term">instance</bdi>] </b>من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">Class</bdi>] </b>أو فئة فرعية. هنا، استخدمنا الاستثناء الأعلى مستوى <b>[<bdi dir="ltr" class="odt-ltr-term">BaseException</bdi>]</b>، الذي يضمن التقاط جميع الاستثناءات؛
+  <li>السطر 71: تُرجع الدالة <b>[<bdi dir="ltr" class="odt-ltr-term">isinstance</bdi>(<bdi dir="ltr" class="odt-ltr-term">instance, Class</bdi>)] </b>القيمة <bdi dir="ltr" class="odt-ltr-term">True</bdi> إذا كان الكائن <b>[<bdi dir="ltr" class="odt-ltr-term">instance</bdi>] </b>من النوع <b>[<bdi dir="ltr" class="odt-ltr-term">Class</bdi>] </b>أو فئة فرعية. هنا، استخدمنا الاستثناء الأعلى مستوى <b>[<bdi dir="ltr" class="odt-ltr-term">BaseException</bdi>]</b>، الذي يضمن التقاط جميع الاستثناءات؛
   </li>
 </ul>
 
