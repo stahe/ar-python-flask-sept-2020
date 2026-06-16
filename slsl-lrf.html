@@ -1,0 +1,1835 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/slsl-lrf.html">
+      
+      
+        <link rel="prev" href="ssyt-l-python.html">
+      
+      
+        <link rel="next" href="lstthnt.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. سلاسل الأحرف - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. سلاسل الأحرف
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tthbyt-byy-lml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. تثبيت بيئة العمل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل الأحرف
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="slsl-lrf.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل الأحرف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-str_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. البرنامج النصي [str_01]: ترميز سلاسل الأحرف
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-str_02-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. البرنامج النصي [str_02]: أساليب فئة &lt;str&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-str_03-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. البرنامج النصي [str_03]: ترميز سلاسل الأحرف (1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-str_04-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. نص برمجي [str_04]: ترميز سلاسل الأحرف (2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlyt-lstyrd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين تطبيقي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين تطبيقي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lhnds-lbqy-wlbrmj-br-lwjht.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. الهندسة الطبقية والبرمجة عبر الواجهات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-w-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام SGBD و PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين تطبيقي: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-lml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار العمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تطبيقي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين تطبيقي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-tbyqy-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين تطبيقي: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين تطبيقي: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين تطبيقي: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين تطبيقي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-mn-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات jSON و XML من الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين تطبيقي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين تطبيقي: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين تطبيقي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين تطبيقي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="toc48548934" name="toc48548934" class="odt-bookmark-anchor"></span>
+<span id="leschainesde" name="leschainesde" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282143081319169" name="refheadingtoc3282143081319169" class="odt-bookmark-anchor"></span></p>
+<h1 id="4">4. <span style="color: #365f91"><strong><span style="color: #365f91">سلاسل الأحرف</span></strong></span></h1>
+<p><img src="images/1000000100000105000000B67894934F.png" width="92" height="64" style="width:2.431cm;height:1.695cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000105000000B67894934F.png" /></p>
+<p><span id="toc48548935" name="toc48548935" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282163081319169" name="refheadingtoc3282163081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="41-str_01">4.1. <span style="color: #4f81bd"><strong>البرنامج النصي</strong> [str_01]<strong>: ترميز سلاسل الأحرف</strong></span></h2>
+<p>النص البرمجي <strong>[str_01]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># سلاسل أحرف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ثلاثة صيغ ممكنة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine1 = </span><span style="color:#a31515">&quot;un&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine2 = </span><span style="color:#a31515">&#x27;deux&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine3 = </span><span style="color:#a31515">&quot;&quot;&quot;hélène va au</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> marché acheter des légumes&quot;&quot;&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># العرض</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;chaine1=</span><span style="font-weight:bold;color:#a31515">[{chaine1}]</span><span style="color:#a31515">, chaine2=</span><span style="font-weight:bold;color:#a31515">[{chaine2}]</span><span style="color:#a31515">, chaine3=</span><span style="font-weight:bold;color:#a31515">[{chaine3}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+<li>السطر 3: سلسلة محددة بعلامات اقتباس &quot;؛</li>
+<li>السطر 4: سلسلة محددة بعلامات الفاصلة العليا &#x27;؛</li>
+<li>السطر 5: سلسلة محددة بعلامات اقتباس ثلاثية &quot;&quot;&quot;. في هذه الحالة، يمكن أن تمتد السلسلة على عدة أسطر؛</li>
+</ul>
+<p>النتائج هي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_01.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">chaine1=<span style="font-weight:bold">[un]</span>, chaine2=<span style="font-weight:bold">[deux]</span>, chaine3=<span style="font-weight:bold">[hélène va au</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> marché acheter des légumes]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548936" name="toc48548936" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282183081319169" name="refheadingtoc3282183081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="42-str_02-str">4.2. <span style="color: #4f81bd"><strong>البرنامج النصي</strong> [str_02]<strong>: أساليب فئة &lt;str&gt;</strong></span></h2>
+<p>يعرض البرنامج النصي <strong>[str_02]</strong> بعضًا من طرق الفئة &lt;str&gt;، وهي الفئة الخاصة بسلاسل الأحرف:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># وظائف على سلاسل الأحرف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة أحرف صغيرة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;ABCD&#x27;.lower()={&#x27;ABCD&#x27;.lower()}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة أحرف كبيرة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.upper()={&#x27;abcd&#x27;.upper()}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الحرف رقم 2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;cheval</span><span style="font-weight:bold;color:#a31515">[2]</span><span style="color:#a31515">={&#x27;cheval&#x27;</span><span style="font-weight:bold;color:#a31515">[2]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة فرعية تحتوي على الحرفين 5 و6</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[5:7]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[5:7]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة فرعية بدءًا من الحرف 4 بما في ذلك</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[4:]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[4:]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة فرعية حتى الحرف 6 غير مشمول</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[:5]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[:5]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># طول السلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;len(&#x27;123&#x27;)={len(&#x27;123&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># إزالة المسافات التي تسبق السلسلة وتليها</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.strip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.strip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># إزالة المسافات التي تلي السلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.rstrip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.rstrip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># إزالة المسافات التي تسبق السلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.lstrip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.lstrip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يشمل مصطلح «مسافة» في الواقع أحرفًا مختلفة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str = </span><span style="color:#a31515">&#x27;  \r\nabcd \t\f&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str.strip()=</span><span style="font-weight:bold;color:#a31515">[{str.strip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># استبدال سلسلة فرعية بأخرى</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.replace(&#x27;a&#x27;,&#x27;x&#x27;)={&#x27;abcd&#x27;.replace(&#x27;a&#x27;, &#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.replace(&#x27;ab&#x27;,&#x27;xy&#x27;)={&#x27;abcd&#x27;.replace(&#x27;ab&#x27;, &#x27;xy&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># البحث عن سلسلة فرعية: يُرجع الموضع أو -1 في حالة عدم العثور على السلسلة الفرعية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.find(&#x27;bc&#x27;)={&#x27;abcd&#x27;.find(&#x27;bc&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.find(&#x27;bc&#x27;)={&#x27;abcd&#x27;.find(&#x27;Bc&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># بداية سلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)={&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)={&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># نهاية سلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)={&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)={&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># التحويل من قائمة سلاسل إلى سلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;</span><span style="font-weight:bold;color:#a31515">[X]</span><span style="color:#a31515">&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)={&#x27;</span><span style="font-weight:bold;color:#a31515">[X]</span><span style="color:#a31515">&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)={&#x27;&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الانتقال من سلسلة إلى قائمة سلاسل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)={&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># استخراج الكلمات من سلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd 123 cdXY&#x27;.split(None)={&#x27;abcd 123 cdXY&#x27;.split(None)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p>تكفي التعليقات المرتبطة بالنتائج التي تم الحصول عليها لفهم البرنامج النصي. والنتائج هي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_02.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;ABCD&#x27;.lower()=abcd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.upper()=ABCD</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;cheval[2]=e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;أحرف مشطبة&#x27;[5:7]=tè</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;أحرف مشطبة&#x27;[4:]=أحرف مشطبة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;أحرف معلمة&#x27;[:5]=carac</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">len(&#x27;123&#x27;)=3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.strip()=[abcd]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.rstrip()=[  abcd]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.lstrip()=[abcd ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str.strip()=<span style="font-weight:bold">[abcd]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.replace(&#x27;a&#x27;,&#x27;x&#x27;)=xbcd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.replace(&#x27;ab&#x27;,&#x27;xy&#x27;)=xycd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.find(&#x27;bc&#x27;)=1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.find(&#x27;bc&#x27;)=-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)=False</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)=False</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;[X]&#x27;.join([&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;])=abcdQZXW2HTMLBW1hdZQX123QZXW2HTMLBW1hdZQXèéà</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;&#x27;.join([&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;])=abcd123èéà</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)=[&#x27;ab&#x27;, &#x27; 123 &#x27;, &#x27;XY&#x27;]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd 123 cdXY&#x27;.split(None)=[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;cdXY&#x27;]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548937" name="toc48548937" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282203081319169" name="refheadingtoc3282203081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="43-str_03-1">4.3. <span style="color: #4f81bd"><strong>البرنامج النصي</strong> [str_03]<strong>: ترميز سلاسل الأحرف (1)</strong></span></h2>
+<p>يقدم البرنامج النصي <strong>[str_03]</strong> مفاهيم حول ترميز سلاسل الأحرف:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز الأحرف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة من النوع str</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str = </span><span style="color:#a31515">&quot;hélène va au marché acheter des légumes&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str=</span><span style="font-weight:bold;color:#a31515">[{str}, type={type(str)}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;utf-8&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;utf-8&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;iso-8859-1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;iso-8859-1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز latin1=iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- latin1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;latin1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;latin1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p>يؤدي ترميز سلسلة أحرف من النوع &lt;str&gt; إلى إنتاج سلسلة ثنائية يتم فيها تمثيل كل حرف في السلسلة ببايت واحد أو أكثر. توجد أنواع مختلفة من الترميز. يعرض البرنامج النصي أعلاه النوعين الأكثر شيوعًا في الغرب، وهما «<bdi dir="ltr" class="odt-ltr-term">utf-8</bdi>» و«<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>» المعروف أيضًا باسم «<bdi dir="ltr" class="odt-ltr-term">latin1</bdi>».</p>
+<p>يتم توضيح مبدأ الترميز/فك الترميز أدناه (المرجع |<a href="https://realpython.com/python-encodings-guide/"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">https://realpython.com/python-encodings-guide/</bdi></span></u></a> |):</p>
+<p><img src="images/1000000000000595000004BDAC9DD9C8.png" width="429" height="364" style="width:11.342cm;height:9.627cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000595000004BDAC9DD9C8.png" /></p>
+<p>تعليقات</p>
+<ul>
+<li>السطران 4-5: سلسلة الأحرف الأولية التي سيتم ترميزها. المثيلات من النوع &lt;str&gt; هي سلاسل يونيكود |<bdi dir="ltr" class="odt-ltr-term">https://docs.python.org/3/howto/unicode.html</bdi>|، |<a href="https://realpython.com/python-encodings-guide/"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">https://realpython.com/python-encodings-guide/</bdi></span></u></a> |؛</li>
+<li>الأسطر 6-11: طريقتان لترميز سلسلة أحرف باستخدام <bdi dir="ltr" class="odt-ltr-term">UTF68:</bdi><ul>
+<li>السطر 8: <bdi dir="ltr" class="odt-ltr-term">str.encode</bdi>(&#x27;<bdi dir="ltr" class="odt-ltr-term">utf-8</bdi>) ;</li>
+<li>السطر 10: <bdi dir="ltr" class="odt-ltr-term">bytes</bdi>(str, &#x27;<bdi dir="ltr" class="odt-ltr-term">utf-8</bdi>&#x27;)؛</li>
+</ul>
+</li>
+<li>الأسطر 12-17: نكرر نفس العملية باستخدام الترميز &#x27;<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>&#x27;؛</li>
+<li>الأسطر 18-23: &#x27;<bdi dir="ltr" class="odt-ltr-term">latin1</bdi>&#x27; هو اسم آخر لترميز &#x27;<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>&#x27;؛</li>
+</ul>
+<p>النتائج هي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_03.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str=<span style="font-weight:bold">[hélène va au marché acheter des légumes, type=&lt;class &#x27;str&#x27;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- latin1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+<li><strong>السطر 4: نلاحظ أن الأحرف المُشَدَّدة قد تم ترميزها باستخدام بايتين:</strong><ul>
+<li><strong><bdi dir="ltr" class="odt-ltr-term">é:</bdi> [\xc3\xa9]</strong> وهو التسلسل الثنائي 11000011 10101001؛</li>
+<li><bdi dir="ltr" class="odt-ltr-term">è:</bdi> <strong>[\xc3\xa8]</strong> وهو التسلسل الثنائي 11000011 10101000؛</li>
+</ul>
+</li>
+<li>السطر 7: باستخدام ترميز <bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>، يتم ترميز هذين الحرفين المُشَدَّدين بشكل مختلف:<ul>
+<li><bdi dir="ltr" class="odt-ltr-term">é:</bdi> <strong>[\xe9]</strong> وهو التسلسل الثنائي 11101001؛</li>
+<li><bdi dir="ltr" class="odt-ltr-term">è:</bdi> <strong>[\xe8]،</strong> وهو التسلسل الثنائي 11101000؛</li>
+</ul>
+</li>
+</ul>
+<p><span id="toc48548938" name="toc48548938" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282223081319169" name="refheadingtoc3282223081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="44-str_04-2">4.4. <span style="color: #4f81bd"><strong>نص برمجي</strong> [str_04]<strong>: ترميز سلاسل الأحرف (2)</strong></span></h2>
+<p>يقدم البرنامج النصي <strong>[str_04]</strong> نوعين آخرين من الترميز: «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>» و«<bdi dir="ltr" class="odt-ltr-term">quoted-printable</bdi>». لا يقوم هذان النوعان بترميز سلاسل أحرف <bdi dir="ltr" class="odt-ltr-term">Unicode</bdi> بل كائنات ثنائية. على سبيل المثال، عند إرفاق مستند <bdi dir="ltr" class="odt-ltr-term">Word</bdi> برسالة بريد إلكتروني، سيخضع هذا المستند لأحد هذين النوعين من الترميز وفقًا لبرنامج البريد الإلكتروني المستخدم. وينطبق هذا على معظم الملفات المرفقة.</p>
+<p>النص البرمجي هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># التشفير/فك التشفير</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># سلسلة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str1 = </span><span style="color:#a31515">&quot;hélène va au marché acheter des légumes&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str1=</span><span style="font-weight:bold;color:#a31515">[{str1}]</span><span style="color:#a31515">, type(str1)={type(str1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str1, </span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1=</span><span style="font-weight:bold;color:#a31515">[{bytes1}]</span><span style="color:#a31515">, type(bytes1)={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># فك الترميز utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str2 = bytes1.decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str2=</span><span style="font-weight:bold;color:#a31515">[{str2}]</span><span style="color:#a31515">, type(str2)={type(str2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str2==str1={str2 == str1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str1, </span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2=</span><span style="font-weight:bold;color:#a31515">[{bytes2}]</span><span style="color:#a31515">, type(bytes2)={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># فك الترميز iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire iso-8859-1 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str3 = bytes2.decode(</span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str3=</span><span style="font-weight:bold;color:#a31515">[{str3}]</span><span style="color:#a31515">, type(str3)={type(str3)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str3==str1={str3 == str1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># خطأ في فك الترميز - bytes1 بتنسيق utf-8 - يتم فك ترميزه بتنسيق iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str4 = bytes1.decode(</span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str4=</span><span style="font-weight:bold;color:#a31515">[{str4}]</span><span style="color:#a31515">, type(str4)={type(str4)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز سلسلة Unicode بـ utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes3 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(str1, </span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes3=</span><span style="font-weight:bold;color:#a31515">[{bytes3}]</span><span style="color:#a31515">, type(bytes3)={type(bytes3)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز سلسلة ثنائية UTF-8 بتنسيق base64</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; binaire base64&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes4 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(bytes1, </span><span style="color:#a31515">&quot;base64&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes4=</span><span style="font-weight:bold;color:#a31515">[{bytes4}]</span><span style="color:#a31515">, type(bytes4)={type(bytes4)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># العودة إلى سلسلة يونيكود الأصلية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str6 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.decode(bytes4, </span><span style="color:#a31515">&quot;base64&quot;</span><span style="color:#000000">).decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str6=</span><span style="font-weight:bold;color:#a31515">[{str6}]</span><span style="color:#a31515">, type(str6)={type(str6)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ترميز سلسلة ثنائية بتنسيق quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; binaire quoted-printable&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str7 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(bytes1, </span><span style="color:#a31515">&quot;quoted-printable&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str7=</span><span style="font-weight:bold;color:#a31515">[{str7}]</span><span style="color:#a31515">, type(str7)={type(str7)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># العودة إلى السلسلة الأصلية بتنسيق Unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str8 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.decode(str7, </span><span style="color:#a31515">&quot;quoted-printable&quot;</span><span style="color:#000000">).decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str8=</span><span style="font-weight:bold;color:#a31515">[{str8}]</span><span style="color:#a31515">, type(str8)={type(str8)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+<li>السطر 2: تسمح الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">codecs</bdi>]</strong> بإجراء الترميزات «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>» و«<bdi dir="ltr" class="odt-ltr-term">quoted-printable</bdi>». ويمكنها إجراء العديد من الترميزات الأخرى؛</li>
+<li>الأسطر 4-7: سلسلة <bdi dir="ltr" class="odt-ltr-term">Unicode</bdi> التي ستخضع لعمليات ترميز متنوعة؛</li>
+<li>الأسطر 9-12: ترميز <bdi dir="ltr" class="odt-ltr-term">utf-8.</bdi> نحصل على ملف ثنائي؛</li>
+<li>الأسطر 14-18: فك الترميز <bdi dir="ltr" class="odt-ltr-term">utf-8</bdi> للعودة إلى سلسلة <bdi dir="ltr" class="odt-ltr-term">Unicode</bdi> الأصلية؛</li>
+<li>الأسطر 20-29: يتم تكرار نفس العملية باستخدام الترميز «<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>»؛</li>
+<li>الأسطر 31-34: نوضح خطأً في فك الترميز:</li>
+<li>السطر 33: <bdi dir="ltr" class="odt-ltr-term">bytes1</bdi> عبارة عن سلسلة ثنائية مشفرة بـ «<bdi dir="ltr" class="odt-ltr-term">utf-8</bdi>». يتم فك تشفيرها إلى «<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>»؛</li>
+<li>الأسطر 36-39: طريقة أخرى لترميز سلسلة أحرف بـ <bdi dir="ltr" class="odt-ltr-term">utf-8</bdi> باستخدام الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">codecs</bdi>]</strong>؛</li>
+<li>الأسطر 41-44: يتم ترميز سلسلة ثنائية بتنسيق «<bdi dir="ltr" class="odt-ltr-term">utf-8</bdi>» إلى «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>»؛</li>
+<li>الأسطر 46-49: توضح كيفية الانتقال من السلسلة الثنائية «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>» إلى سلسلة يونيكود الأصلية؛</li>
+<li>الأسطر 51-59: يتم تكرار هذه العملية باستخدام ترميز «<bdi dir="ltr" class="odt-ltr-term">quoted-printable</bdi>» بدلاً من «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>»؛</li>
+</ul>
+<p>والنتائج هي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_04.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str1=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str1)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=<span style="font-weight:bold">[b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;]</span>, type(bytes1)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str2=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str2)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str2==str1=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=<span style="font-weight:bold">[b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;]</span>, type(bytes2)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire iso-8859-1 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str3=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str3)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str3==str1=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str4=<span style="font-weight:bold">[hÃ©lÃ¨ne va au marchÃ© acheter des lÃ©gumes]</span>, type(str4)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes3=<span style="font-weight:bold">[b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;]</span>, type(bytes3)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; binaire base64</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes4=<span style="font-weight:bold">[b&#x27;aMOpbMOobmUgdmEgYXUgbWFyY2jDqSBhY2hldGVyIGRlcyBsw6lndW1lcw==\n&#x27;]</span>, type(bytes4)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str6=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str6)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; binaire quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str7=<span style="font-weight:bold">[b&#x27;h=C3=A9l=C3=A8ne=20va=20au=20march=C3=A9=20acheter=20des=20l=C3=A9gumes&#x27;]</span>, type(str7)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str8=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str8)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<ul>
+<li>السطور 14-15: يتم فك تشفير تسلسل ثنائي <bdi dir="ltr" class="odt-ltr-term">utf-8</bdi> إلى سلسلة يونيكود باستخدام أداة فك التشفير الخاطئة &#x27;<bdi dir="ltr" class="odt-ltr-term">iso-8859-1</bdi>&#x27;. ولذلك فإن بعض أحرف يونيكود الناتجة تكون غير صحيحة، وهي في هذه الحالة الأحرف المُشَدَّدة؛</li>
+<li>السطران 18-19: يتكون الترميز «<bdi dir="ltr" class="odt-ltr-term">base64</bdi>» من استخدام 64 حرفًا <bdi dir="ltr" class="odt-ltr-term">ASCII</bdi> (مشفرة بـ 7 بتات) لترميز أي ملف ثنائي. وهذا يزيد، كما نرى، من حجم الملف الثنائي للسلسلة؛</li>
+<li>السطران 22-23: يتكون الترميز «<bdi dir="ltr" class="odt-ltr-term">quoted-printable</bdi>» أيضًا من استخدام أحرف <bdi dir="ltr" class="odt-ltr-term">ASCII</bdi> (المشفرة بـ 7 بت) لترميز أي ملف ثنائي؛</li>
+</ul>
+<p>تجدر الإشارة إلى أنه عند تلقي ملف ثنائي، من شبكة الإنترنت على سبيل المثال، يمثل نصًا، فإن استرجاع هذا النص يتطلب معرفة الترميزات التي خضع لها.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

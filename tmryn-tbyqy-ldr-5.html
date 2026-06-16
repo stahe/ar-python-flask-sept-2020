@@ -1,0 +1,2591 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/tmryn-tbyqy-ldr-5.html">
+      
+      
+        <link rel="prev" href="stkhdm-orm-sqlalchemy.html">
+      
+      
+        <link rel="next" href="wyf-lntrnt.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>20. تمرين تطبيقي: الإصدار 5 - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#20-5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              20. تمرين تطبيقي: الإصدار 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tthbyt-byy-lml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. تثبيت بيئة العمل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slsl-lrf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل الأحرف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlyt-lstyrd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين تطبيقي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين تطبيقي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lhnds-lbqy-wlbrmj-br-lwjht.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. الهندسة الطبقية والبرمجة عبر الواجهات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-w-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام SGBD و PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين تطبيقي: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tmryn-tbyqy-ldr-5.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين تطبيقي: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#201-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1. التطبيق 1: تهيئة قاعدة البيانات
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20.1. التطبيق 1: تهيئة قاعدة البيانات">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2011-admindatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.1. الملف [admindata.json]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.2. إنشاء قواعد البيانات
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2013-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.3. الكيانات التي تم تعيينها بواسطة [sqlalchemy]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2014-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.4. ملف التكوين الخاص بـ [sqlalchemy]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2015-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.5. الطبقة [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.6. تكوين التطبيق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2017-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.7. النص البرمجي [main] الخاص بالتطبيق
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2. التطبيق 2: حساب الضريبة في الوضع الدفعي
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20.2. التطبيق 2: حساب الضريبة في الوضع الدفعي">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.1. البنية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.2. تكوين التطبيق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2023-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.3. الطبقة [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.4. اختبار الطبقة [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.5. النص البرمجي الرئيسي
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#203-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.3. التطبيق 3: حساب الضريبة في الوضع التفاعلي
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-lml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار العمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تطبيقي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين تطبيقي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-tbyqy-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين تطبيقي: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين تطبيقي: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين تطبيقي: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين تطبيقي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-mn-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات jSON و XML من الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين تطبيقي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين تطبيقي: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين تطبيقي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين تطبيقي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="exercicedapplication-copie-1" name="exercicedapplication-copie-1" class="odt-bookmark-anchor"></span>
+<span id="toc48549090" name="toc48549090" class="odt-bookmark-anchor"></span></p>
+<h1 id="20-5">20. <span style="color: #365f91">تمرين تطبيقي: الإصدار 5</span></h1>
+<p><img src="images/100000000000016E0000029AE558FCD0.png" width="144" height="262" style="width:3.812cm;height:6.936cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016E0000029AE558FCD0.png" /></p>
+<p>سنقوم بتطوير ثلاثة تطبيقات:</p>
+<ul>
+<li>التطبيق 1 سيقوم بتهيئة قاعدة البيانات التي ستحل محل الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong> الخاص بالإصدار 4؛</li>
+<li>التطبيق 2 سيقوم بحساب الضرائب في الوضع الدفعي؛</li>
+<li>التطبيق 3 سيقوم بحساب الضرائب في الوضع التفاعلي؛</li>
+</ul>
+<p><span id="toc48549091" name="toc48549091" class="odt-bookmark-anchor"></span></p>
+<h2 id="201-1">20.1. <span style="color: #4f81bd">التطبيق 1: تهيئة قاعدة البيانات</span></h2>
+<p>سيكون للتطبيق 1 البنية التالية:</p>
+<p><img src="images/1000000000000474000002D64D661730.png" width="497" height="316" style="width:13.139cm;height:8.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
+<p>وهذا يمثل تطورًا في بنية الإصدار 4 (الفقرة <a href="tmryn-tbyqy---ldr-1.html#exercicedapplication-"><u><span style="color: #0563c1">|الإصدار</span></u></a> 4|): ستُخزَّن البيانات الضريبية في قاعدة بيانات بدلاً من ملف <bdi dir="ltr" class="odt-ltr-term">jSON.</bdi> وستتطور الطبقة <strong>[dao]</strong> لتنفيذ هذا التغيير.</p>
+<p><span id="toc48549092" name="toc48549092" class="odt-bookmark-anchor"></span></p>
+<h3 id="2011-admindatajson">20.1.1. <span style="color: #4f81bd"><strong>الملف</strong> [<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</span></h3>
+<p><img src="images/100000000000017B00000129792FF6BF.png" width="166" height="130" style="width:4.382cm;height:3.433cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000129792FF6BF.png" /></p>
+<p>الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong> هو نفسه كما كان في الإصدار 4:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;limites&quot;</span>: <span style="font-weight:bold">[9964, 27519, 73779, 156244, 0]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;coeffr&quot;</span>: <span style="font-weight:bold">[0, 0.14, 0.3, 0.41, 0.45]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;coeffn&quot;</span>: <span style="font-weight:bold">[0, 1394.96, 5798, 13913.69, 20163.45]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_qf_demi_part&quot;</span>: 1551,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span>: 21037,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_revenus_couple_pour_reduction&quot;</span>: 42074,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;valeur_reduc_demi_part&quot;</span>: 3797,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_decote_celibataire&quot;</span>: 1196,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_decote_couple&quot;</span>: 1970,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_impot_couple_pour_decote&quot;</span>: 2627,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_impot_celibataire_pour_decote&quot;</span>: 1595,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;abattement_dixpourcent_max&quot;</span>: 12502,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;abattement_dixpourcent_min&quot;</span>: 437</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>سنستخدم مفاتيح هذا القاموس كأعمدة في قاعدة البيانات.</p>
+<p><span id="toc48549093" name="toc48549093" class="odt-bookmark-anchor"></span></p>
+<h3 id="2012">20.1.2. <span style="color: #4f81bd">إنشاء قواعد البيانات</span></h3>
+<p>كما هو موضح في الفقرة <a href="stkhdm-sgbd-mysql.html#creationdunebase"><u><span style="color: #0563c1">|إنشاء قاعدة بيانات</span></u></a> <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi>|، نقوم بإنشاء قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> باسم <strong>[<bdi dir="ltr" class="odt-ltr-term">dbimpots-2019</bdi>]</strong> مملوكة للمستخدم <strong>[<bdi dir="ltr" class="odt-ltr-term">admimpots</bdi>]</strong> بكلمة مرور <strong>[<bdi dir="ltr" class="odt-ltr-term">mdpimpots</bdi>]</strong>. في <strong>[<bdi dir="ltr" class="odt-ltr-term">phpMyAdmin</bdi>]،</strong> ينتج عن ذلك ما يلي:</p>
+<p><img src="images/100000000000059B000001889F0F7712.png" width="627" height="171" style="width:16.581cm;height:4.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000059B000001889F0F7712.png" /></p>
+<p>وبالمثل، كما تم توضيحه في الفقرة <a href="stkhdm-sgbd-w-postgresql.html#administrerpostgresqlavec"><u><span style="color: #0563c1">|إنشاء قاعدة بيانات</span></u></a> <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>|، نقوم بإنشاء قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi> باسم <strong>[<bdi dir="ltr" class="odt-ltr-term">dbimpots-2019</bdi>]</strong> مملوكة للمستخدم <strong>[<bdi dir="ltr" class="odt-ltr-term">admimpots</bdi>]</strong> وكلمة المرور <strong>[<bdi dir="ltr" class="odt-ltr-term">mdpimpots</bdi>]</strong>. في <strong>[<bdi dir="ltr" class="odt-ltr-term">pgAdmin</bdi>]،</strong> ينتج عن ذلك ما يلي:</p>
+<p><img src="images/10000000000005540000021DD77E89EE.png" width="596" height="236" style="width:15.76cm;height:6.251cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005540000021DD77E89EE.png" /></p>
+<p>تم إنشاء قواعد البيانات، لكنها لا تحتوي على أي جداول في الوقت الحالي. سيتم إنشاء هذه الجداول بواسطة <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> و <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>.</p>
+<p><span id="toc48549094" name="toc48549094" class="odt-bookmark-anchor"></span></p>
+<h3 id="2013-sqlalchemy">20.1.3. <span style="color: #4f81bd"><strong>الكيانات التي تم تعيينها بواسطة</strong> [<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</span></h3>
+<p>سنقوم بإنشاء جدولين لتضمين بيانات <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<p>الجدول <strong>[<bdi dir="ltr" class="odt-ltr-term">tbtranches</bdi>]،</strong> المُعرَّف بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]،</strong> سيجمع بيانات الجداول <strong>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>]</strong> من القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># جدول شرائح الضريبة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    tranches_table = Table(</span><span style="color:#a31515">&quot;tbtranches&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;limite&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffr&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffn&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+</code></pre></div>
+
+<p>ستجمع الجدولة <strong>[<bdi dir="ltr" class="odt-ltr-term">tbconstantes</bdi>]،</strong> التي تم تعريفها بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]،</strong> الثوابت الموجودة في القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># جدول الثوابت</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    constantes_table = Table(</span><span style="color:#a31515">&quot;tbconstantes&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+</code></pre></div>
+
+<p>الكيانات التي سيتم ربطها بهاتين الجدولتين هي التالية:</p>
+<p><img src="images/100000000000013F0000014DF6407E52.png" width="139" height="145" style="width:3.679cm;height:3.84cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013F0000014DF6407E52.png" /></p>
+<p>يحتوي الكيان <strong>[<bdi dir="ltr" class="odt-ltr-term">Constantes</bdi>]</strong> على الثوابت الموجودة في القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> <span style="color:#6f008a">BaseEntity</span> <span style="color:#0000ff">import</span> BaseEntity</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># فئة حاوية بيانات الإدارة الضريبية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span> <span style="color:#2b91af">Constantes</span>(BaseEntity):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # المفاتيح المستبعدة من حالة الفئة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    excluded_keys = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;_sa_instance_state&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # المفاتيح المسموح بها</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @<span style="color:#2b91af">staticmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> get_allowed_keys() -&gt; <span style="color:#2b91af">list</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;id&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_qf_demi_part&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_revenus_couple_pour_reduction&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;valeur_reduc_demi_part&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_celibataire&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_couple&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_couple&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_impot_celibataire_pour_decote&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_impot_couple_pour_decote&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;abattement_dixpourcent_max&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;abattement_dixpourcent_min&quot;</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>السطر 5: الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">Constantes</bdi>]</strong> تمتد من الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</strong>؛</li>
+<li>السطر 7: من خلال التعيين <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>، ستحصل الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">Constante</bdi>]</strong> على الخاصية <strong>[_sa_instance_state]</strong>. ونستبعدها من قاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">asdict</bdi>]</strong> الخاص بالكيان؛</li>
+<li>الأسطر 11-23: خصائص الكيان. تم استخدام الأسماء الواردة في القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong> لتسهيل كتابة الكود؛</li>
+</ul>
+<p>تحتوي الكيان <strong>[<bdi dir="ltr" class="odt-ltr-term">Tranche</bdi>]</strong> على صف واحد من الجداول الثلاثة <strong>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>]</strong> الموجودة في القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> <span style="color:#6f008a">BaseEntity</span> <span style="color:#0000ff">import</span> BaseEntity</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># فئة حاوية بيانات الإدارة الضريبية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span> <span style="color:#2b91af">Tranche</span>(BaseEntity):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # المفاتيح المستبعدة من حالة الفئة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    excluded_keys = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;_sa_instance_state&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # المفاتيح المسموح بها</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @<span style="color:#2b91af">staticmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> get_allowed_keys() -&gt; <span style="color:#2b91af">list</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;id&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;limite&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;coeffr&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;coeffn&quot;</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>السطر 5: الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">Tranche</bdi>]</strong> تمتد من الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</strong>؛</li>
+<li>السطر 7: يتم استبعاد الخاصية <strong>[_sa_instance_state]، التي</strong> تمت إضافتها بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>، من خصائص القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">asdict</bdi>]</strong> الخاص بالكيان؛</li>
+<li>الأسطر 10-12: خصائص الفئة؛</li>
+</ul>
+<p>سيكون التعيين بين الكيانات <strong>[<bdi dir="ltr" class="odt-ltr-term">Constantes, Tranche</bdi>]</strong> والجداول <strong>[<bdi dir="ltr" class="odt-ltr-term">constantes, tranches</bdi>]</strong> كما يلي:</p>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" width="167" height="203" style="width:4.429cm;height:5.375cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># جدول الثوابت</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    constantes_table = Table(</span><span style="color:#a31515">&quot;tbconstantes&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># جدول شرائح الضريبة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    tranches_table = Table(</span><span style="color:#a31515">&quot;tbtranches&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;limite&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffr&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffn&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># التعيينات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Tranche, tranches_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Constantes, constantes_table)</span></span>
+</code></pre></div>
+
+<ul>
+<li>تتم عمليات التعيين في الأسطر 24-29. وقد تم هنا إغفال إجراء المطابقات بين خصائص الكيانات المعينة وجداول قاعدة البيانات. ويكون ذلك ممكنًا عندما تكون أسماء أعمدة الجداول هي نفسها أسماء الخصائص التي يجب ربطها بها. ولهذا السبب، قمنا بإدراج أسماء خصائص الكيانات المعينة في الجداول. وهذا يسهل كتابة الكود وفهمه؛</li>
+</ul>
+<p><span id="refheadingtoc822323439697744" name="refheadingtoc822323439697744" class="odt-bookmark-anchor"></span>
+<span id="lefichierde" name="lefichierde" class="odt-bookmark-anchor"></span>
+<span id="toc48549095" name="toc48549095" class="odt-bookmark-anchor"></span></p>
+<h3 id="2014-sqlalchemy">20.1.4. <span style="color: #4f81bd"><strong>ملف التكوين الخاص بـ</strong> [<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</span></h3>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" width="167" height="203" style="width:4.429cm;height:5.375cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
+<p>لقد قمنا للتو بتفصيل جزء من تكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>. وفيما يلي ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_database]</strong> بالكامل:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # تكوين SQLAlchemy</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">sqlalchemy</span> <span style="color:#0000ff">import</span> create_engine, Table, Column, Integer, MetaData, Float</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">sqlalchemy</span>.<span style="color:#6f008a">orm</span> <span style="color:#0000ff">import</span> mapper, sessionmaker</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # سلاسل الاتصال بقواعد البيانات المستخدمة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    connection_strings = {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27;mysql&#x27;: &quot;mysql+mysqlconnector://admimpots:mdpimpots@localhost/dbimpots-2019&quot;,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27;pgres&#x27;: &quot;postgresql+psycopg2://admimpots:mdpimpots@localhost/dbimpots-2019&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # سلسلة اتصال قاعدة البيانات المستخدمة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    engine = create_engine(connection_strings<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;sgbd&#x27;</span><span style="font-weight:bold">]</span>])</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # البيانات الوصفية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    metadata = MetaData()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # جدول الثوابت</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    constantes_table = Table(<span style="color:#a31515">&quot;tbconstantes&quot;</span>, metadata,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;id&#x27;</span>, Integer, primary_key=<span style="color:#0000ff">True</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # جدول شرائح الضريبة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    tranches_table = Table(<span style="color:#a31515">&quot;tbtranches&quot;</span>, metadata,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;id&#x27;</span>, Integer, primary_key=<span style="color:#0000ff">True</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;limite&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;coeffr&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;coeffn&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # التعيينات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">Tranche</span> <span style="color:#0000ff">import</span> Tranche</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Tranche, tranches_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">Constantes</span> <span style="color:#0000ff">import</span> Constantes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Constantes, constantes_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # مصنع الجلسات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session_factory = sessionmaker()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session_factory.configure(bind=engine)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # جلسة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session = session_factory()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # يتم تسجيل بعض المعلومات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;database&#x27;</span><span style="font-weight:bold">]</span> = {<span style="color:#a31515">&quot;engine&quot;</span>: engine, <span style="color:#a31515">&quot;metadata&quot;</span>: metadata, <span style="color:#a31515">&quot;tranches_table&quot;</span>: tranches_table,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                          <span style="color:#a31515">&quot;constantes_table&quot;</span>: constantes_table, <span style="color:#a31515">&quot;session&quot;</span>: session}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # النتيجة</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>السطر 1: تتلقى الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">configure</bdi>]</strong> كمعلمة قاموسًا يحدد المفتاح <strong>[<bdi dir="ltr" class="odt-ltr-term">sgbd</bdi>]</strong> فيه نوع <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> الذي يجب استخدامه: <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> (<bdi dir="ltr" class="odt-ltr-term">mysql</bdi>) أو <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi> (<bdi dir="ltr" class="odt-ltr-term">pgres</bdi>)؛</li>
+<li>الأسطر 6-12: يتم اختيار قاعدة البيانات المطلوبة حسب التكوين؛</li>
+<li>الأسطر 14-44: تعيينات الكيانات/الجداول. هذه التعيينات بسيطة لأنه لا توجد أي صلة بين الجدولين <strong>[<bdi dir="ltr" class="odt-ltr-term">tranches</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">constantes</bdi>]</strong>. فهما مستقلان. وبالتالي، لا توجد مفتاح أجنبي لأحدهما على الآخر يتعين إدارته؛</li>
+<li>الأسطر 46-51: يتم إنشاء جلسة العمل <strong>[<bdi dir="ltr" class="odt-ltr-term">session</bdi>]</strong> للتطبيق؛</li>
+<li>الأسطر 53-58: يتم إدراج المعلومات المفيدة في قاموس التكوين ويتم إرجاع هذا القاموس؛</li>
+</ul>
+<p><span id="toc48549096" name="toc48549096" class="odt-bookmark-anchor"></span></p>
+<h3 id="2015-dao">20.1.5. <span style="color: #4f81bd"><strong>الطبقة</strong> [dao]</span></h3>
+<p>لنعد إلى بنية التطبيق 1 المراد إنشاؤه:</p>
+<p><img src="images/1000000000000474000002D64D661730.png" width="497" height="316" style="width:13.139cm;height:8.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
+<p>يجب أن تقوم الطبقة <strong>[dao] [1]</strong> بقراءة الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>] [2]</strong> ونقل محتواه إلى إحدى قواعد البيانات <strong>[3, 4]</strong>؛</p>
+<p><img src="images/100000000000022F000001FDE6D0F33E.png" width="244" height="222" style="width:6.459cm;height:5.883cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000022F000001FDE6D0F33E.png" /></p>
+<p>تقدم الطبقة <strong>[dao]</strong> الواجهة <strong>[1]</strong> ويتم تنفيذها بواسطة الفئة <strong>[2]</strong>.</p>
+<p>الواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao4TransferAdminData2Database</bdi>]</strong> هي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">abc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#2b91af">ABC</span><span style="color:#000000">, abstractmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># واجهة InterfaceImpôtsUI</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">InterfaceDao4TransferAdminData2Database</span><span style="color:#000000">(</span><span style="color:#2b91af">ABC</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># نقل البيانات الضريبية إلى قاعدة بيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @abstractmethod</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> transfer_admindata_in_database(</span><span style="color:#808080">self</span><span style="color:#000000">:</span><span style="color:#2b91af">object</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">pass</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>الأسطر 8-10: لا تحتوي الواجهة سوى على طريقة واحدة <strong>هي [<bdi dir="ltr" class="odt-ltr-term">transfer</bdi>_admindata_in_database]</strong> بدون معلمات. ونظرًا لأن هذه الطريقة تحتاج إلى معلمات (ما هو الملف؟، ما هي قاعدة البيانات؟)، فهذا يعني أن هذه المعلمات سيتم تمريرها إلى منشئ الفئات التي تنفذ هذه الواجهة؛</li>
+</ul>
+<p>تُنفذ الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">DaoTransferAdminDataFromJsonFile2Database</bdi>]</strong> الواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao4TransferAdminData2Database</bdi>]</strong> بالطريقة التالية:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">json</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">sqlalchemy</span><span style="color:#000000">.</span><span style="color:#6f008a">exc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> DatabaseError, IntegrityError, InterfaceError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">InterfaceDao4TransferAdminData2Database</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> InterfaceDao4TransferAdminData2Database</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">DaoTransferAdminDataFromJsonFile2Database</span><span style="color:#000000">(InterfaceDao4TransferAdminData2Database):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># المُنشئ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> __init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">: </span><span style="color:#2b91af">dict</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.config = </span><span style="color:#808080">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># النقل</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> transfer_admindata_in_database(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># عمليات التهيئة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        session = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        config = </span><span style="color:#808080">self</span><span style="color:#000000">.config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># استرداد البيانات من مصلحة الضرائب</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">with</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.open(config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;admindataFilename&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;r&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;utf8&quot;</span><span style="color:#000000">) </span><span style="color:#0000ff">as</span><span style="color:#000000"> fd:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000"># نقل المحتوى إلى قاموس</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                admindata = </span><span style="color:#6f008a">json</span><span style="color:#000000">.load(fd)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># استرداد إعدادات قاعدة البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;database&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># حذف الجدولين من قاعدة البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># checkfirst=True: التحقق أولاً من وجود الجدول</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;tranches_table&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.drop(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, checkfirst=</span><span style="color:#0000ff">True</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;constantes_table&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.drop(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, checkfirst=</span><span style="color:#0000ff">True</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># إعادة إنشاء الجداول استنادًا إلى التعيينات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;metadata&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.create_all(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># الجلسة الحالية [sqlalchemy]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            session = database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;session&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم ملء جدول شرائح الضريبة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            limites = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;limites&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffr = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;coeffr&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffn = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;coeffn&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">for</span><span style="color:#000000"> i </span><span style="color:#0000ff">in</span><span style="color:#000000"> </span><span style="color:#2b91af">range</span><span style="color:#000000">(len(limites)):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.add(Tranche().fromdict(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    {</span><span style="color:#a31515">&quot;limite&quot;</span><span style="color:#000000">: limites</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;coeffr&quot;</span><span style="color:#000000">: coeffr</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;coeffn&quot;</span><span style="color:#000000">: coeffn</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">}))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># ملء جدول الثوابت</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            session.add(Constantes().fromdict({</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_qf_demi_part&#x27;: admindata[&quot;plafond_qf_demi_part&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;: admindata[&quot;plafond_revenus_celibataire_pour_reduction&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_revenus_couple_pour_reduction&#x27;: admindata[&quot;plafond_revenus_couple_pour_reduction&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;valeur_reduc_demi_part&#x27;: admindata[&quot;valeur_reduc_demi_part&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_decote_celibataire&#x27;: admindata[&quot;plafond_decote_celibataire&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_decote_couple&#x27;: admindata[&quot;plafond_decote_couple&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_impot_celibataire_pour_decote&#x27;: admindata[&quot;plafond_impot_celibataire_pour_decote&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_impot_couple_pour_decote&#x27;: admindata[&quot;plafond_impot_couple_pour_decote&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;abattement_dixpourcent_max&#x27;: admindata[&quot;abattement_dixpourcent_max&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;abattement_dixpourcent_min&#x27;: admindata[&quot;abattement_dixpourcent_min&quot;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># التحقق من صحة الجلسة [sqlalchemy]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            session.commit()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">except</span><span style="color:#000000"> (IntegrityError, DatabaseError, InterfaceError) </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># إعادة إثارة الاستثناء بشكل آخر</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(17, </span><span style="color:#a31515">f&quot;{erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># تحرير موارد الجلسة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">if</span><span style="color:#000000"> session:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.close()</span></span>
+</code></pre></div>
+
+<ul>
+<li>السطر 13: الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">DaoTransferAdminDataFromJsonFile2Database</bdi>]</strong> تُنفِّذ الواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao4TransferAdminData2Database</bdi>]</strong>؛</li>
+<li>الأسطر 15-17: يتلقى منشئ الفئة قاموس التكوين كمعلمة. سيتم استخدام المفاتيح التالية:<ul>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">admindataFilename</bdi>]</strong> (السطر 27): اسم الملف <bdi dir="ltr" class="odt-ltr-term">jSON</bdi> الذي يحتوي على بيانات مصلحة الضرائب المراد نقلها إلى قاعدة البيانات؛</li>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">database</bdi>]</strong> السطر 32: تكوين التطبيق [<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]؛</li>
+</ul>
+</li>
+<li>السطور 34-37: حذف الجدولين <strong>[<bdi dir="ltr" class="odt-ltr-term">constantes</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">tranches</bdi>]</strong> في حالة وجودهما؛</li>
+<li>السطران 39-40: إعادة إنشاء الجدولين؛</li>
+<li>السطر 43: استرداد الجلسة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong> الموجودة في التكوين؛</li>
+<li>الأسطر 45-51: يتم إدراج الجداول <strong>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>]</strong> من القاموس <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata</bdi>]</strong> في الجلسة. وللقيام بذلك، يتم إدراج مثيلات الكيان <strong>[<bdi dir="ltr" class="odt-ltr-term">Tranche</bdi>]</strong> في الجلسة؛</li>
+<li>الأسطر 52-64: يتم إدراج مثيل للكيان <strong>[<bdi dir="ltr" class="odt-ltr-term">Constantes</bdi>]</strong> في الجلسة؛</li>
+<li>الأسطر 66-67: يتم التحقق من صحة الجلسة. إذا لم تكن بيانات الجلسة موجودة في قاعدة البيانات بعد، يتم إدخالها في ذلك الوقت؛</li>
+<li>الأسطر 68-70: معالجة أي خطأ محتمل؛</li>
+<li>الأسطر 71-74: يتم إغلاق الجلسة. يمكن القيام بذلك لأن الطبقة <strong>[dao]</strong> تُستخدم مرة واحدة فقط؛</li>
+</ul>
+<p><span id="toc48549097" name="toc48549097" class="odt-bookmark-anchor"></span></p>
+<h3 id="2016">20.1.6. <span style="color: #4f81bd">تكوين التطبيق</span></h3>
+<p><img src="images/1000000000000185000002053F5226B4.png" width="169" height="225" style="width:4.48cm;height:5.955cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000185000002053F5226B4.png" /></p>
+<p>يتم تكوين التطبيق بواسطة ثلاثة ملفات <strong>[1]</strong>:</p>
+<ul>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>]</strong> هو ملف التكوين العام. وهو الذي يقوم بتكوين التطبيق <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong>. ويستعين في ذلك بالملفين الآخرين:<ul>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_database]</strong> الذي درسناه سابقًا والذي يقوم بتكوين <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> <strong>و[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>؛</li>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> الذي يقوم بتكوين طبقات التطبيق؛</li>
+</ul>
+</li>
+</ul>
+<p>الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># يحتوي [config] على المفتاح [sgbd] الذي يساوي:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># [mysql] لإدارة قاعدة بيانات MySQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># [pgres] لإدارة قاعدة بيانات PostgreSQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> os</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># الخطوة 1 ---</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># يتم تعيين مسار Python للتطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># المسار المطلق لمجلد هذا البرنامج النصي</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># root_dir (قد يلزم تغييره)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    root_dir = </span>&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># المسارات المطلقة للتبعيات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    absolute_dependencies = <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># InterfaceImpôtsDao، InterfaceImpôtsMétier، InterfaceImpôtsUi</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/interfaces&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># AbstractImpôtsDao، ImpôtsConsole، ImpôtsMétier</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/services&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># AdminData، ImpôtsError، TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/entities&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># BaseEntity، MyException</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/classes/02/entities&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># المجلدات المحلية</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../interfaces&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../services&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># تحديد مسار النظام</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> myutils <span style="color:#0000ff">import</span> set_syspath</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    set_syspath(absolute_dependencies)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># الخطوة 2 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># استكمال تكوين التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config.update({</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># المسارات المطلقة لملفات البيانات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>&quot;admindataFilename&quot;<span style="color:#000000">: </span><span style="color:#0000ff">f</span>&quot;<span style="color:#000000">{script_dir}</span>/../../data/input/admindata.json&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    })</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># الخطوة 3 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># إعداد قاعدة البيانات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> config_database</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config = config_database.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># الخطوة 4 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># إنشاء مثيلات طبقات التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> config_layers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config = config_layers.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># تطبيق التكوين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> config</span></span>
+</code></pre></div>
+
+<ul>
+<li>الأسطر 8-36: يتم إنشاء مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الخاص بالتطبيق؛</li>
+<li>الأسطر 38-43: يتم إدراج مسار الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata.json</bdi>]</strong> في التكوين؛</li>
+<li>الأسطر 45-48: تكوين <strong>ملف</strong> [<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]؛</li>
+<li>الأسطر 50-53: إنشاء مثيلات لطبقات التطبيق؛</li>
+<li>السطر 56: يتم إرجاع التكوين العام؛</li>
+</ul>
+<p>الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إنشاء مثيل لطبقة [dao]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">DaoTransferAdminDataFromJsonFile2Database</span> <span style="color:#0000ff">import</span> DaoTransferAdminDataFromJsonFile2Database</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;dao&#x27;</span><span style="font-weight:bold">]</span> = DaoTransferAdminDataFromJsonFile2Database(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إرجاع التكوين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>الأسطر 3-4: إنشاء مثيل لطبقة <strong>[dao]</strong>. وقد رأينا أن منشئ الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">DaoTransferAdminDataFromJsonFile2Database</bdi>]</strong> يتوقع كمعلمة قاموس التكوين العام للتطبيق؛</li>
+<li>السطر 4: يتم إدراج مرجع الطبقة <strong>[dao]</strong> في التكوين؛</li>
+<li>السطر 7: يتم إرجاع التكوين؛</li>
+</ul>
+<p><span id="toc48549098" name="toc48549098" class="odt-bookmark-anchor"></span></p>
+<h3 id="2017-main">20.1.7. <span style="color: #4f81bd"><strong>النص البرمجي</strong> [<bdi dir="ltr" class="odt-ltr-term">main</bdi>] <strong>الخاص بالتطبيق</strong></span></h3>
+<p><img src="images/100000000000018E000002054838D98A.png" width="157" height="203" style="width:4.142cm;height:5.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018E000002054838D98A.png" /></p>
+<p><img src="images/100000010000032E00000215DF1A35C4.png" width="523" height="342" style="width:13.831cm;height:9.056cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032E00000215DF1A35C4.png" /></p>
+<p>النص البرمجي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># في انتظار معلمة mysql أو pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم تكوين التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># تم تحديد مسار النظام (syspath) - يمكن الآن إجراء عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم استرداد الطبقة [dao]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">dao = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الرمز</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># نقل البيانات إلى قاعدة البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    dao.transfer_admindata_in_database()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex1:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم عرض الخطأ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 1 suivante s&#x27;est produite : {ex1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex2:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم عرض الخطأ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 2 suivante s&#x27;est produite : {ex2}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># النهاية</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>الأسطر 1-10: يتم انتظار معلمة. يتم التحقق من وجودها وصحتها؛</li>
+<li>الأسطر 12-14: يتم تكوين التطبيق (الإعدادات العامة، <bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>، الطبقات) عن طريق تمرير نوع <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> المختار كمعلمة؛</li>
+<li>الأسطر 19-20: سنحتاج إلى الطبقة <strong>[dao]</strong>. نقوم باستردادها؛</li>
+<li>السطر 25: يتم إجراء النقل إلى قاعدة البيانات. جميع المعلومات اللازمة لطريقة <strong>[<bdi dir="ltr" class="odt-ltr-term">transfer</bdi>_admindata_in_database]</strong> متوفرة في خصائص الطبقة <strong>[dao]</strong> في السطر 20. ومن هناك ستقوم الطريقة باستردادها؛</li>
+</ul>
+<p>بعد التنفيذ باستخدام القاعدة <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi>، تحتوي هذه القاعدة على العناصر التالية (<bdi dir="ltr" class="odt-ltr-term">phpMyAdmin</bdi>):</p>
+<p><img src="images/10000000000002560000042A6C088693.png" width="261" height="465" style="width:6.9cm;height:12.3cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002560000042A6C088693.png" /></p>
+<p><img src="images/10000001000003FC0000012874B7E25A.png" width="662" height="192" style="width:17.521cm;height:5.085cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FC0000012874B7E25A.png" /></p>
+<p><img src="images/1000000100000239000001CA5BAB3F52.png" width="363" height="292" style="width:9.61cm;height:7.735cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000239000001CA5BAB3F52.png" /></p>
+<p>في العمود [3]، نرى القيم التي عُينت بواسطة <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> للمفتاح الأساسي <strong>[id]</strong>. يبدأ الترقيم من 1. تم الحصول على لقطة الشاشة أعلاه بعد عدة عمليات تنفيذ للبرنامج النصي.</p>
+<p><img src="images/10000001000003FA000001298DD2231E.png" width="662" height="193" style="width:17.51cm;height:5.108cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FA000001298DD2231E.png" /></p>
+<p><img src="images/10000001000003920000012381489F31.png" width="585" height="186" style="width:15.469cm;height:4.925cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003920000012381489F31.png" /></p>
+<p>مع قاعدة البيانات <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>، تكون النتائج كما يلي:</p>
+<p><img src="images/10000001000003DF0000016993076DEB.png" width="621" height="226" style="width:16.439cm;height:5.988cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003DF0000016993076DEB.png" /></p>
+<ul>
+<li>نضغط بزر الفأرة الأيمن على <strong>[1]</strong>، ثم على <strong>[2-3]</strong>؛</li>
+<li>في <strong>[4]</strong>، تظهر بيانات شرائح الضرائب بشكل صحيح؛</li>
+</ul>
+<p><span style="color: #000000">نكرر نفس الخطوات مع جدول الثوابت </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">tbconstantes</bdi>]</span></strong><span style="color: #000000">:</span></p>
+<p><img src="images/100000010000030C000000FE9B9CCE88.png" width="497" height="162" style="width:13.152cm;height:4.283cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000030C000000FE9B9CCE88.png" /></p>
+<p><img src="images/10000001000002F8000000FEDB45024E.png" width="496" height="166" style="width:13.13cm;height:4.389cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002F8000000FEDB45024E.png" /></p>
+<p><img src="images/100000010000031F000000FCF159E5CB.png" width="522" height="165" style="width:13.822cm;height:4.359cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000031F000000FCF159E5CB.png" /></p>
+<p><span id="application2" name="application2" class="odt-bookmark-anchor"></span>
+<span id="toc48549099" name="toc48549099" class="odt-bookmark-anchor"></span></p>
+<h2 id="202-2">20.2. <span style="color: #4f81bd">التطبيق 2: حساب الضريبة في الوضع الدفعي</span></h2>
+<p><img src="images/10000000000001850000023E1A30A3E3.png" width="170" height="251" style="width:4.493cm;height:6.629cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001850000023E1A30A3E3.png" /></p>
+<p><span id="toc48549100" name="toc48549100" class="odt-bookmark-anchor"></span>
+<span id="refheading399281881943603" name="refheading399281881943603" class="odt-bookmark-anchor"></span></p>
+<h3 id="2021">20.2.1. <span style="color: #4f81bd">البنية</span></h3>
+<p>كان تطبيق حساب الضريبة في الإصدار 4 يستخدم البنية التالية:</p>
+<p><img src="images/1000000100000257000000DAE081E99C.png" width="382" height="139" style="width:10.119cm;height:3.683cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DAE081E99C.png" /></p>
+<p><span style="color: #000000">تقوم الطبقة </span><strong><span style="color: #000000">[dao] </span></strong><span style="color: #000000">بتنفيذ واجهة </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">InterfaceImpôtsDao</bdi>]</span></strong><span style="color: #000000">. وقد أنشأنا فئةً تنفذ هذه الواجهة:</span></p>
+<ul>
+<li><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">ImpôtsDaoWithAdminDataInJsonFile</bdi>] </span></strong><span style="color: #000000">التي كانت تستخرج البيانات الضريبية من ملف <bdi dir="ltr" class="odt-ltr-term">jSON.</bdi> كان ذلك في الإصدار 3؛</span></li>
+</ul>
+<p><span style="color: #000000">سنقوم بتنفيذ واجهة </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">InterfaceImpôtsDao</bdi>] </span></strong><span style="color: #000000">من خلال فئة جديدة هي </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">ImpotsDaoWithTaxAdminDataInDatabase</bdi>] </span></strong><span style="color: #000000">التي ستستخرج بيانات مصلحة الضرائب من قاعدة بيانات. وستقوم الطبقة [dao]، كما في السابق، بكتابة النتائج في ملف <bdi dir="ltr" class="odt-ltr-term">jSON</bdi> وستستخرج بيانات دافعي الضرائب من ملف نصي. ونعلم أنه إذا واصلنا الالتزام بواجهة [<bdi dir="ltr" class="odt-ltr-term">InterfaceImpôtsDao</bdi>]، فلن تكون هناك حاجة لتعديل الطبقة </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</span></strong><span style="color: #000000">.</span></p>
+<p><span style="color: #000000">وستكون البنية الجديدة كما يلي:</span></p>
+<p><img src="images/10000000000003B5000002BD8D4E698A.png" width="414" height="306" style="width:10.95cm;height:8.087cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B5000002BD8D4E698A.png" /></p>
+<p><span id="refheadingtoc900743955410047" name="refheadingtoc900743955410047" class="odt-bookmark-anchor"></span></p>
+<p><span id="configurationdelapplication" name="configurationdelapplication" class="odt-bookmark-anchor"></span>
+<span id="toc48549101" name="toc48549101" class="odt-bookmark-anchor"></span></p>
+<h3 id="2022">20.2.2. <span style="color: #4f81bd">تكوين التطبيق</span></h3>
+<p><img src="images/100000000000019500000206ACE6D19A.png" width="159" height="203" style="width:4.202cm;height:5.373cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019500000206ACE6D19A.png" /></p>
+<p>يظل ملف التكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_database]</strong> كما كان في التطبيق 1. أما التكوين <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>]</strong> فيتضمن عناصر جديدة:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># الخطوة 2 ------</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># إكمال تكوين التطبيق</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">config</span><span style="color:#000000">.update({</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># المسارات المطلقة لملفات البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;admindataFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/input/admindata.json&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;taxpayersFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/input/taxpayersdata.txt&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;errorsFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/output/errors.txt&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;resultsFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/output/résultats.json&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    })</span></span>
+</code></pre></div>
+
+<ul>
+<li>الأسطر 6-8: المسارات المطلقة للملفات النصية التي يستخدمها التطبيق 2؛</li>
+</ul>
+<p>تتطور تكوينات الطبقات <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> على النحو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إنشاء مثيل لطبقة DAO</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpotsDaoWithAdminDataInDatabase</span> <span style="color:#0000ff">import</span> ImpotsDaoWithAdminDataInDatabase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold">]</span> = ImpotsDaoWithAdminDataInDatabase(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إنشاء مثيل لطبقة [métier]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsMétier</span> <span style="color:#0000ff">import</span> ImpôtsMétier</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsMétier()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إرجاع التكوين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>السطران 3-4: يتم الآن تنفيذ الطبقة <strong>[dao]</strong> بواسطة الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpotsDaoWithAdminDataInDatabase</bdi>]</strong>. هذه الفئة جديدة ولكنها تنفذ نفس الواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao</bdi>]</strong> الموجودة في <a href="tmryn-tbyqy---ldr-4.html#linterfaceinterfaceimpotsdao"><u><span style="color: #0563c1">الإصدار 4 من تمرين التطبيق</span></u></a>؛</li>
+<li>السطران 7-8: يتم تنفيذ الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> بواسطة الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpôtsMétier</bdi>]</strong>. وهذه هي الفئة المستخدمة في الإصدار 4 من التمرين التطبيقي؛</li>
+</ul>
+<p><span id="lacouchedao" name="lacouchedao" class="odt-bookmark-anchor"></span>
+<span id="toc48549102" name="toc48549102" class="odt-bookmark-anchor"></span></p>
+<h3 id="2023-dao">20.2.3. <span style="color: #4f81bd"><strong>الطبقة</strong> [dao]</span></h3>
+<p><img src="images/100000000000028A00000157C8CEF8B5.png" width="255" height="135" style="width:6.759cm;height:3.567cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028A00000157C8CEF8B5.png" /></p>
+<p>ستكون فئة التنفيذ <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpotsDaoWithAdminDataInDatabase</bdi>]</strong> للواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceImpôtsDao</bdi>]</strong> كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">sqlalchemy</span><span style="color:#000000">.</span><span style="color:#6f008a">exc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> DatabaseError, IntegrityError, InterfaceError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">AbstractImpôtsDao</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> AbstractImpôtsDao</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">AdminData</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> AdminData</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">ImpotsDaoWithAdminDataInDatabase</span><span style="color:#000000">(AbstractImpôtsDao):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># المنشئ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> __init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">: </span><span style="color:#2b91af">dict</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># التكوين [&quot;taxPayersFilename&quot;]: اسم الملف النصي للمكلفين</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># التكوين[&quot;taxPayersResultsFilename&quot;]: اسم ملف النتائج jSON</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;errorsFilename&quot;]: يسجل الأخطاء التي تم العثور عليها في taxPayersFilename</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;database&quot;]: تهيئة قاعدة البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># تهيئة فئة Parent</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        AbstractImpôtsDao.__init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># تخزين المعلمات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.__config = </span><span style="color:#808080">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># بيانات الإدارة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># تنفيذ الواجهة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> get_admindata(</span><span style="color:#808080">self</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># هل تم تخزين admindata؟</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># يتم إجراء استعلام في BD</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        session = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        config = </span><span style="color:#808080">self</span><span style="color:#000000">.__config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># جلسة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database_config = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;database&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            session = database_config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;session&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم قراءة جدول شرائح الضريبة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            tranches = session.query(Tranche).all()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم قراءة جدول الثوابت (سطر واحد فقط)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            constantes = session.query(Constantes).first()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم إنشاء مثيل admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            admindata = AdminData()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم إنشاء الجداول limtes فيها، coeffR، coeffN</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            limites = admindata.limites = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffr = admindata.coeffr = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffn = admindata.coeffn = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">for</span><span style="color:#000000"> tranche </span><span style="color:#0000ff">in</span><span style="color:#000000"> tranches:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                limites.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.limite))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                coeffr.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.coeffr))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                coeffn.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.coeffn))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># نضيف الثوابت إليها</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            admindata.fromdict(constantes.asdict())</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم حفظ «admindata»</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata = admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># يتم إرجاع القيمة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">except</span><span style="color:#000000"> (IntegrityError, DatabaseError, InterfaceError) </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># نعيد إطلاق الاستثناء بشكل آخر</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(27, </span><span style="color:#a31515">f&quot;{erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># نغلق الجلسة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">if</span><span style="color:#000000"> session:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.close()</span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">ملاحظات</span></strong></p>
+<ul>
+<li>السطر 11: ترث الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpotsDaoWithAdminDataInDatabase</bdi>]</strong> الفئة [<bdi dir="ltr" class="odt-ltr-term">AbstractImpôtsDao</bdi>] الواردة في الإصدار 4. ومن المعروف أن هذه الأخيرة تُنفذ الواجهة [<bdi dir="ltr" class="odt-ltr-term">InterfaceDao</bdi>] الواردة في هذا الإصدار نفسه. وإن الامتثال لهذه الواجهة هو ما يسمح لنا بعدم تغيير الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong>؛</li>
+<li>السطر 13: يتلقى منشئ الفئة قاموس إعدادات التطبيق كمعلمة؛</li>
+<li>السطر 20: يتم تهيئة الفئة الأم <strong>[]</strong>. وهي تُنفذ جزئيًا الواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao</bdi>]</strong>:<ul>
+<li>تقوم <strong>[get_taxpayers_data]</strong> بقراءة الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">taxpayersdata.txt</bdi>]</strong> الذي يحتوي على بيانات دافعي الضرائب؛</li>
+<li>تقوم <strong>[<bdi dir="ltr" class="odt-ltr-term">write</bdi>_taxpayers_results]</strong> بكتابة النتائج في الملف <bdi dir="ltr" class="odt-ltr-term">jSON</bdi> و <strong>[<bdi dir="ltr" class="odt-ltr-term">résultats.json</bdi>]</strong>؛</li>
+<li><strong>[get_admindata]</strong> لم يتم تنفيذه؛</li>
+</ul>
+</li>
+<li>السطر 22: يتم تخزين التكوين الذي تم تمريره كمعلمات؛</li>
+<li>السطر 27: تنفيذ الطريقة <strong>[get_admindata]</strong> للواجهة <strong>[<bdi dir="ltr" class="odt-ltr-term">InterfaceDao</bdi>]</strong>:</li>
+<li>الأسطر 28-30: تسترد الطريقة <strong>[get_admindata]</strong> البيانات من مصلحة الضرائب في كائن من النوع <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</strong> وتخزن هذا الكائن في <strong>[<bdi dir="ltr" class="odt-ltr-term">self.</bdi>__admindata]</strong>. إذا تم استدعاء الطريقة <strong>[get_admindata]</strong> عدة مرات، فلا يتم الاستعلام عن قاعدة البيانات عدة مرات. بل يتم الاستعلام عنها في المرة الأولى فقط. وفي المرات التالية، يتم إرجاع الكائن <strong>[<bdi dir="ltr" class="odt-ltr-term">self.</bdi>__admindata]</strong>؛</li>
+<li>السطران 36-37: يتم استرداد الجلسة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong> التي تم إنشاؤها أثناء تكوين التطبيق بواسطة <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_database]</strong>؛</li>
+<li>السطر 40: يتم استرداد شرائح الضريبة في قائمة؛</li>
+<li>السطر 43: يتم استرداد الثوابت الخاصة بحساب الضريبة؛</li>
+<li>السطر 46: يتم إنشاء مثيل للفئة [<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]. تجدر الإشارة إلى أنها مشتقة من <strong>[<bdi dir="ltr" class="odt-ltr-term">BaseEntity</bdi>]</strong>؛</li>
+<li>الأسطر 48-54: يتم تهيئة المصفوفات <strong>[<bdi dir="ltr" class="odt-ltr-term">limites, coeffr, coeffn</bdi>]</strong> للمثيل <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</strong>؛</li>
+<li>الأسطر 55-56: يتم تهيئة الخصائص الأخرى لـ <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</strong> باستخدام الثوابت الخاصة بحساب الضريبة. وقد حرصنا على تسمية خصائص الفئتين <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</strong> و <strong>[<bdi dir="ltr" class="odt-ltr-term">Constantes</bdi>]</strong> بنفس الأسماء، مما يبسط الكود؛</li>
+<li>السطران 57-58: يتم تخزين مثيل <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminData</bdi>]</strong> في الطبقة <strong>[dao]</strong> لاستعادته عند الاستدعاءات التالية للطريقة <strong>[get_admindata]</strong>؛</li>
+<li>السطر 60: يتم إرجاع القيمة المطلوبة من قبل الكود المستدعي؛</li>
+<li>السطور 61-63: معالجة أي خطأ محتمل؛</li>
+<li>الأسطر 64-67: لا تخضع قاعدة البيانات إلا لطلب واحد فقط. لذا يمكن إغلاق الجلسة <strong>[<bdi dir="ltr" class="odt-ltr-term">sqlalchemy</bdi>]</strong>؛</li>
+</ul>
+<p><span id="refheadingtoc822343439697744" name="refheadingtoc822343439697744" class="odt-bookmark-anchor"></span>
+<span id="lescriptprincipal1" name="lescriptprincipal1" class="odt-bookmark-anchor"></span>
+<span id="toc48549103" name="toc48549103" class="odt-bookmark-anchor"></span></p>
+<h3 id="2024-dao">20.2.4. <span style="color: #4f81bd"><strong>اختبار الطبقة</strong> [dao]</span></h3>
+<p>في الإصدار 4 من هذا التطبيق، قمنا بإنشاء <a href="tmryn-tbyqy---ldr-4.html#testsdescouches"><u><span style="color: #0563c1">فئة لاختبار</span></u></a> الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong>. وبشكل أكثر دقة، كانت هذه الفئة تختبر كل من الطبقتين <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> و <strong>[dao]</strong>. نعيد إجراء هذا الاختبار للتحقق من أن الطبقة <strong>[dao]</strong> تعمل كما هو متوقع. في الواقع، لم تتغير الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong>.</p>
+<p><img src="images/100000000000017E000001A74483DEE4.png" width="150" height="167" style="width:3.979cm;height:4.406cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017E000001A74483DEE4.png" /></p>
+<p><img src="images/100000000000047B00000345B54A307A.png" width="501" height="365" style="width:13.25cm;height:9.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047B00000345B54A307A.png" /></p>
+<p>الاختبار <strong>[<bdi dir="ltr" class="odt-ltr-term">TestDaoMétier</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>unittest</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">TestDaoMétier</span><span style="color:#000000">(</span>unittest<span style="color:#000000">.</span><span style="color:#2b91af">TestCase</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> test_1(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>TaxPayer<span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># {&#x27;متزوج&#x27;: &#x27;نعم&#x27;, &#x27;أطفال&#x27;: 2, &#x27;راتب&#x27;: 55555,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># &#x27;الضريبة&#x27;: 2814, &#x27;الزيادة&#x27;: 0, &#x27;الخصم&#x27;: 0, &#x27;التخفيض&#x27;: 0, &#x27;المعدل&#x27;: 0.14}</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        taxpayer = TaxPayer().fromdict({</span><span style="color:#a31515">&quot;marié&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;oui&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;enfants&quot;</span><span style="color:#000000">: 2, </span><span style="color:#a31515">&quot;salaire&quot;</span><span style="color:#000000">: 55555})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxpayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># التحقق</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.impôt, 2815, delta=1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.décôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.réduction, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.taux, 0.14, delta=0.01)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.surcôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> test_11(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>TaxPayer<span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># {&#x27;متزوج&#x27;: &#x27;نعم&#x27;, &#x27;الأطفال&#x27;: 3, &#x27;الراتب&#x27;: 200000,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># &#x27;الضريبة&#x27;: 42842, &#x27;الزيادة&#x27;: 17283, &#x27;الخصم&#x27;: 0, &#x27;التخفيض&#x27;: 0, &#x27;المعدل&#x27;: 0.41}</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        taxpayer = TaxPayer().fromdict({</span><span style="color:#a31515">&#x27;marié&#x27;</span><span style="color:#000000">: </span><span style="color:#a31515">&#x27;oui&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;enfants&#x27;</span><span style="color:#000000">: 3, </span><span style="color:#a31515">&#x27;salaire&#x27;</span><span style="color:#000000">: 200000})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxpayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># التحققات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.impôt, 42842, 1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.décôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.réduction, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.taux, 0.41, delta=0.01)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.surcôte, 17283, delta=1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> __name__ == </span><span style="color:#a31515">&#x27;__main__&#x27;</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يُتوقع وجود معلمة mysql أو pgres</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span>sys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = len(</span>sys<span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        sgbd = </span>sys<span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>sys<span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم تكوين التطبيق</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span>config</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>config<span style="color:#000000"> = </span>config<span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># طبقة الأعمال</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    métier = </span>config<span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># إدارة البيانات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        admindata = </span>config<span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;dao&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.get_admindata()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># العرض</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print((</span><span style="color:#a31515">f&quot;L&#x27;erreur suivante s&#x27;est produite : {ex}&quot;</span><span style="color:#000000">))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># النهاية</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>sys<span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># إزالة المعلمة التي استلمها البرنامج النصي</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>sys<span style="color:#000000">.argv.pop()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم تنفيذ طرق الاختبار</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;tests en cours...&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">   </span>unittest<span style="color:#000000">.</span>main<span style="color:#000000">()</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>لن نعود إلى الاختبارات الـ 11 الموضحة في الفقرة <a href="tmryn-tbyqy---ldr-4.html#testsdescouches"><u><span style="color: #0563c1">|اختبار الطبقة [<bdi dir="ltr" class="odt-ltr-term">métier</bdi>] الإصدار</span></u></a> 4|؛</li>
+<li>الأسطر 37-66: سنقوم بتنفيذ البرنامج النصي للاختبارات كتطبيق عادي وليس كاختبار <bdi dir="ltr" class="odt-ltr-term">UnitTest.</bdi> السطر 66 هو الذي سيقوم بتشغيل إطار العمل <bdi dir="ltr" class="odt-ltr-term">UnitTest.</bdi> في الاختبارات السابقة، كنا نستخدم الطريقة <strong>[<bdi dir="ltr" class="odt-ltr-term">setUp</bdi>]</strong> لتكوين تنفيذ كل اختبار. وكنا نكرر نفس التكوين 11 مرة لأن الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">setUp</bdi>]</strong> تُنفَّذ قبل كل اختبار. هنا، نقوم بالتكوين مرة واحدة. ويتمثل ذلك في تعريف المتغيرات العامة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> في السطر 53، <strong>و[<bdi dir="ltr" class="odt-ltr-term">admindata</bdi>]</strong> في السطر 56، والتي ستُستخدم لاحقًا بواسطة طرق <strong>[<bdi dir="ltr" class="odt-ltr-term">TestDaoMétier</bdi>]</strong>، في السطر 12 على سبيل المثال؛</li>
+<li>الأسطر 39-47: ينتظر البرنامج النصي للاختبار معلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</strong> التي تشير إلى ما إذا كنا نستخدم قاعدة بيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> أو <bdi dir="ltr" class="odt-ltr-term">PostgreSQL</bdi>؛</li>
+<li>الأسطر 50-51: يتم تكوين الاختبار؛</li>
+<li>السطر 53: يتم استرداد الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> من التكوين؛</li>
+<li>السطر 56: يتم إجراء الأمر نفسه مع الطبقة <strong>[dao]</strong>. ثم يتم استرداد المثيل <strong>[<bdi dir="ltr" class="odt-ltr-term">admindata</bdi>]</strong> الذي يحتوي على البيانات اللازمة لحساب الضريبة؛</li>
+<li>أظهرت الاختبارات أن الطريقة <strong>[<bdi dir="ltr" class="odt-ltr-term">unittest.main</bdi>()]</strong> في السطر 66 لم تتجاهل المعلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</strong> التي استلمها البرنامج النصي، بل أعطتها معنىً آخر. ويضمن السطر 63 أن هذه الطريقة لم تعد تحتوي على أي معلمات؛</li>
+</ul>
+<p>نقوم بإنشاء تكوينين <a href="lhnds-lbqy-wlbrmj-br-lwjht.html#lescriptprincipal2"><u><span style="color: #0563c1">للتنفيذ</span></u></a>:</p>
+<p><img src="images/1000000000000517000002697CC32661.png" width="568" height="269" style="width:15.032cm;height:7.117cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000517000002697CC32661.png" /></p>
+<p><img src="images/1000000000000513000002406E8B8A1E.png" width="567" height="252" style="width:15.011cm;height:6.655cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000513000002406E8B8A1E.png" /></p>
+<p>إذا قمنا بتنفيذ إحدى هاتين التهيئتين، فسنحصل على النتائج التالية:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v05/tests/<span style="background-color:#fff2cc">TestDaoMétier.py mysql</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">tests en cours...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...........</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">----------------------------------------------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Ran 11 tests in 0.001s</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">OK</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<ul>
+<li>السطران 5 و7: نجحت الاختبارات الـ11؛</li>
+</ul>
+<p>تجدر الإشارة إلى أن هذه الاختبارات لا تتحقق إلا من 11 حالة لحساب الضريبة. ومع ذلك، فإن نجاحها قد يكون كافياً لمنحنا الثقة في الطبقة <strong>[dao]</strong>.</p>
+<p><span id="lescriptprincipal5" name="lescriptprincipal5" class="odt-bookmark-anchor"></span>
+<span id="toc48549104" name="toc48549104" class="odt-bookmark-anchor"></span></p>
+<h3 id="2025">20.2.5. <span style="color: #4f81bd">النص البرمجي الرئيسي</span></h3>
+<p><img src="images/10000000000001A1000002152583529E.png" width="164" height="210" style="width:4.339cm;height:5.547cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A1000002152583529E.png" /></p>
+<p><img src="images/100000000000039F000002AD82466924.png" width="404" height="299" style="width:10.702cm;height:7.908cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039F000002AD82466924.png" /></p>
+<p>البرنامج النصي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> هو نفسه الموجود في الإصدار 4:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># في انتظار معلمة mysql أو pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم تكوين التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># تم تعيين syspath - يمكن الآن إجراء عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم استرداد طبقات التطبيق (وهي مُنشأة بالفعل)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">dao = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">métier = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;métier&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># استرداد شرائح الضريبة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    admindata = dao.get_admindata()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># قراءة بيانات دافعي الضرائب</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    taxpayers = dao.get_taxpayers_data()</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;taxpayers&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># المكلفين؟</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> taxpayers:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(57, </span><span style="color:#a31515">f&quot;Pas de contribuables valides dans le fichier {config</span><span style="font-weight:bold;color:#a31515">[&#x27;taxpayersFilename&#x27;]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># حساب ضريبة المكلفين</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">for</span><span style="color:#000000"> taxPayer </span><span style="color:#0000ff">in</span><span style="color:#000000"> taxpayers:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># taxPayer هو معلمة إدخال وإخراج في آن واحد</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># سيتم تعديل taxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxPayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># كتابة النتائج في ملف نصي</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    dao.write_taxpayers_results(taxpayers)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># عرض الخطأ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur suivante s&#x27;est produite : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># انتهى</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Travail terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">ملاحظات</span></strong></p>
+<ul>
+<li>الأسطر 1-10: يتم استرداد المعلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</strong> التي تشير إلى <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> المطلوب استخدامه؛</li>
+<li>الأسطر 12-14: يتم تكوين التطبيق؛</li>
+<li>الأسطر 16-17: يتم استيراد الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpôtsError</bdi>]</strong>. نحتاج إليها في السطر 38؛</li>
+<li>الأسطر 19-21: يتم استرداد المراجع الخاصة بطبقات التطبيق؛</li>
+<li>السطر 25: يتم طلب بيانات إدارة الضرائب من الطبقة <strong>[dao]</strong>. تحتاج الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> إليها لحساب الضريبة؛</li>
+<li>السطر 27: يتم استرداد البيانات (المعرف، الحالة الاجتماعية، عدد الأبناء، الراتب) الخاصة بالمكلفين في قائمة؛</li>
+<li>السطران 29-30: إذا كانت هذه القائمة فارغة، يتم إثارة استثناء؛</li>
+<li>السطور 32-35: حساب الضريبة على عناصر القائمة <strong>[<bdi dir="ltr" class="odt-ltr-term">taxpayers</bdi>]</strong>؛</li>
+<li>السطر 37: كتابة النتائج في الملف <strong><bdi dir="ltr" class="odt-ltr-term">jSON</bdi>[<bdi dir="ltr" class="odt-ltr-term">résultats.json</bdi>]</strong>؛</li>
+<li>الأسطر 38-40: معالجة أي أخطاء محتملة؛</li>
+</ul>
+<p><span style="color: #000000">لتنفيذ البرنامج النصي، يتم إنشاء </span><a href="lhnds-lbqy-wlbrmj-br-lwjht.html#lescriptprincipal2"><u><span style="color: #0563c1">|تكوينين</span></u></a><span style="color: #000000"> للتنفيذ|:</span></p>
+<p><img src="images/10000000000003D2000001DC25ED70E5.png" width="426" height="207" style="width:11.269cm;height:5.486cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001DC25ED70E5.png" /></p>
+<p><span style="color: #000000">النتائج التي تم الحصول عليها في الملف </span><strong><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">résultats.json</bdi>] </span></strong><span style="color: #000000">هي نتائج الإصدار 4.</span></p>
+<p><img src="images/10000000000003D2000001D660C57B6C.png" width="426" height="205" style="width:11.269cm;height:5.415cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001D660C57B6C.png" /></p>
+<p><span id="application3" name="application3" class="odt-bookmark-anchor"></span>
+<span id="toc48549105" name="toc48549105" class="odt-bookmark-anchor"></span></p>
+<h2 id="203-3">20.3. <span style="color: #4f81bd">التطبيق 3: حساب الضريبة في الوضع التفاعلي</span></h2>
+<p>نقدم الآن التطبيق الذي يتيح حساب الضريبة بطريقة تفاعلية. وهو نسخة معدلة من <a href="tmryn-tbyqy---ldr-4.html#version4-"><u><span style="color: #0563c1">التطبيق 2</span></u></a> الخاص بالإصدار 4.</p>
+<p><img src="images/100000000000018500000205A7925E38.png" width="153" height="203" style="width:4.052cm;height:5.383cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018500000205A7925E38.png" /></p>
+<p><img src="images/1000000000000422000003317DC9988A.png" width="462" height="357" style="width:12.233cm;height:9.446cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000422000003317DC9988A.png" /></p>
+<ul>
+<li>يُطلق البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> حوارًا مع المستخدم باستخدام الطريقة <strong>[<bdi dir="ltr" class="odt-ltr-term">ui.run</bdi>]</strong> من الطبقة <strong>[ui]</strong>؛</li>
+<li>الطبقة <strong>[ui]</strong>:<ul>
+<li>تستخدم الطبقة <strong>[dao]</strong> للحصول على البيانات اللازمة لحساب الضريبة؛</li>
+<li>يطلب من المستخدم المعلومات المتعلقة بالمكلف الذي يُراد حساب ضريبته؛</li>
+<li>يستخدم الطبقة <strong>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>]</strong> لإجراء هذا الحساب؛</li>
+</ul>
+</li>
+</ul>
+<p>يقوم الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>_layers]</strong> بإنشاء مثيل لطبقة إضافية:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إنشاء مثيل لطبقة DAO</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpotsDaoWithAdminDataInDatabase</span> <span style="color:#0000ff">import</span> ImpotsDaoWithAdminDataInDatabase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold">]</span> = ImpotsDaoWithAdminDataInDatabase(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إنشاء مثيل لطبقة [métier]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsMétier</span> <span style="color:#0000ff">import</span> ImpôtsMétier</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsMétier()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # واجهة المستخدم</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsConsole</span> <span style="color:#0000ff">import</span> ImpôtsConsole</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;ui&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsConsole(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # إرجاع التكوين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<p>الفئة <strong>[<bdi dir="ltr" class="odt-ltr-term">ImpôtsConsole</bdi>]</strong>، السطور 11-12، هي نفسها الموجودة في <a href="tmryn-tbyqy---ldr-4.html#laclasseimpotsconsole"><u><span style="color: #0563c1">|الإصدار</span></u></a> 4|.</p>
+<p>النص البرمجي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># في انتظار معلمة mysql أو pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم تكوين التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># تم تكوين syspath - يمكن إجراء عمليات الاستيراد</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم استرداد الطبقة [ui]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">ui = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;ui&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الكود</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># تنفيذ الطبقة [ui]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ui.run()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex1:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم عرض رسالة الخطأ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 1 suivante s&#x27;est produite : {ex1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex2:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم عرض رسالة الخطأ</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 2 suivante s&#x27;est produite : {ex2}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># يتم التنفيذ في جميع الحالات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Travail terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>السطور 1-10، ينتظر البرنامج النصي معلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</strong> التي تحدد <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> المطلوب استخدامه؛</li>
+<li>الأسطر 12-14: يتم تكوين التطبيق؛</li>
+<li>الأسطر 19-20: يتم استرداد الطبقة <strong>[ui]</strong> من التكوين؛</li>
+<li>السطر 25: يتم تنفيذها؛</li>
+</ul>
+<p>النتائج مطابقة لتلك الخاصة بـ <a href="tmryn-tbyqy---ldr-4.html#lescriptprincipal4"><u><span style="color: #0563c1">|الإصدار</span></u></a> 4|. ولا يمكن أن يكون الأمر خلاف ذلك، حيث تم الالتزام بجميع واجهات الإصدار 4 في الإصدار 5.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

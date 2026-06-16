@@ -1,0 +1,2542 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-python-flask-sept-2020/tmryn-tbyqy-ldr-17.html">
+      
+      
+        <link rel="prev" href="tmryn-tbyqy-ldr-16.html">
+      
+      
+        <link rel="next" href="tmryn-tbyqy-ldr-18-.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>37. تمرين تطبيقي: الإصدار 17 - مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#37-17" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              37. تمرين تطبيقي: الإصدار 17
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى Python 3 وإطار عمل الويب Flask من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tthbyt-byy-lml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. تثبيت بيئة العمل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssyt-l-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. أساسيات لغة Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slsl-lrf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. سلاسل الأحرف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lstthnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. الاستثناءات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lwyf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. الوظائف
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmlft-lny.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. الملفات النصية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. تمرين تطبيقي – الإصدار 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlyt-lstyrd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. عمليات الاستيراد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. تمرين تطبيقي: الإصدار 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. تمرين تطبيقي: الإصدار 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfyt-wlkynt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. الفئات والكائنات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lfytn-lmtn-baseentity-w-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. الفئتان العامتان [BaseEntity] و [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lhnds-lbqy-wlbrmj-br-lwjht.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. الهندسة الطبقية والبرمجة عبر الواجهات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy---ldr-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. تمرين تطبيقي - الإصدار 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. استخدام SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-sgbd-w-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. استخدام SGBD و PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ktb-kwd-mstql-n-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. كتابة كود مستقل عن SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stkhdm-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. استخدام ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. تمرين تطبيقي: الإصدار 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyf-lntrnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. وظائف الإنترنت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khdmt-lwyb-bstkhdm-r-lml-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. خدمات الويب باستخدام إطار العمل Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. تمرين تطبيقي: الإصدار 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. تمرين تطبيقي: الإصدار 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-tmryn-tbyqy-ldr-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  تمرين تطبيقي: الإصدار 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mn-lqmws-l-xml-wlks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. من القاموس إلى XML والعكس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. تمرين تطبيقي: الإصدار 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. تمرين تطبيقي: الإصدار 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. تمرين تطبيقي: الإصدار 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. تمرين تطبيقي: الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ml-lwyb-lkhdmt-json-w-xml-mn-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. عملاء الويب لخدمات jSON و XML من الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="w-html-fy-ldr-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. وضع HTML في الإصدار 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. تمرين تطبيقي: الإصدار 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. تمرين تطبيقي: الإصدار 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. تمرين تطبيقي: الإصدار 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. تمرين تطبيقي: الإصدار 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين تطبيقي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tmryn-tbyqy-ldr-17.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. تمرين تطبيقي: الإصدار 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#371" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.1. إعادة تحديد موقع المكونات التابعة للتطبيق
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#372" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.2. الاختبارات
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#373-python-flask-apache-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.3. نقل تطبيق Python / Flask إلى خادم Apache / Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="37.3. نقل تطبيق Python / Flask إلى خادم Apache / Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3731" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.3.1. المصادر
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3732-python-mod_wsgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.3.2. تثبيت وحدة Python mod_wsgi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3733-apache-laragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.3.3. تكوين خادم Apache في Laragon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#374-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.4. إنشاء أول خادم افتراضي Apache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#375-apache-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37.5. نقل تطبيق حساب الضريبة إلى Apache / Windows
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tmryn-tbyqy-ldr-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. تمرين تطبيقي: الإصدار 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. الخلاصة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="exercicedapplication13" name="exercicedapplication13" class="odt-bookmark-anchor"></span>
+<span id="toc48549342" name="toc48549342" class="odt-bookmark-anchor"></span></p>
+<h1 id="37-17">37. <span style="color: #365f91">تمرين تطبيقي: الإصدار 17</span></h1>
+<p><img src="images/1000000000000114000001AD0792667B.png" width="121" height="188" style="width:3.193cm;height:4.962cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000114000001AD0792667B.png" /></p>
+<p>تتضمن هذه النسخة الجديدة التحديثات التالية:</p>
+<ul>
+  <li>سيتم نقلها إلى خادم <bdi dir="ltr" class="odt-ltr-term">Apache / Windows</bdi>؛
+  </li>
+  <li>ولتحقيق هذا النقل، تحتوي الإصدار 17 على جميع التبعيات التي تحتاجها في مجلدها <b>[<bdi dir="ltr" class="odt-ltr-term">impots / http-servers/</bdi> 12]</b>. تجدر الإشارة إلى أن الإصدارات السابقة كانت تستمد تبعياتها من مجلدات مختلفة ضمن مشروع <b>[<bdi dir="ltr" class="odt-ltr-term">python-flask-2020</bdi>]</b> بأكمله؛
+  </li>
+</ul>
+
+<p><span id="toc48549343" name="toc48549343" class="odt-bookmark-anchor"></span></p>
+<h2 id="371">37.1. <span style="color: #4f81bd">إعادة تحديد موقع المكونات التابعة للتطبيق</span></h2>
+<p><img src="images/1000000000000109000000D06F1F6856.png" width="116" height="91" style="width:3.069cm;height:2.409cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000109000000D06F1F6856.png" /></p>
+<p>تجدر الإشارة إلى أن إدارة تبعيات التطبيق تتم في البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">syspath</bdi>]</strong>. في الإصدار السابق، كان هذا البرنامج النصي كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> os</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># مجلد هذا الملف</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># مسار الجذر</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    root_dir = <span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># التبعيات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    absolute_dependencies = <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># مجلدات المشروع</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># BaseEntity، MyException</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/classes/02/entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># InterfaceImpôtsDao، InterfaceImpôtsMétier، InterfaceImpôtsUi</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/v04/interfaces&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># AbstractImpôtsdao، ImpôtsConsole, ImpôtsMétier</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/v04/services&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># ImpotsDaoWithAdminDataInDatabase</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/v05/services&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># AdminData، ImpôtsError، TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/v04/entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># الثوابت، الشرائح</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/v05/entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># مسجل، SendAdminMail</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{root_dir}</span><span style="font-weight:bold;color:#a31515">/impots/http-servers/02/utilities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># مجلد البرنامج النصي الرئيسي</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        script_dir,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># التكوينات [database, layers, parameters, controllers, views]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../configs&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># وحدات التحكم</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../controllers&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># الردود HTTP</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../responses&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># نماذج العروض</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../models_for_views&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># تحديد مسار النظام</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> myutils <span style="color:#0000ff">import</span> set_syspath</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    set_syspath(absolute_dependencies)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># تحديد التكوين</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#a31515">&quot;root_dir&quot;</span>: root_dir,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#a31515">&quot;script_dir&quot;</span>: script_dir</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+</code></pre></div>
+
+<p>يجب إعادة تحديد مواقع جميع التبعيات التي يعتمد اسمها المطلق على المتغير <strong>[<bdi dir="ltr" class="odt-ltr-term">root</bdi>_dir]</strong> في السطر 8، أي الأسطر من 13 إلى 26.</p>
+<p>سيكون النص البرمجي <strong>[<bdi dir="ltr" class="odt-ltr-term">syspath</bdi>]</strong> في الإصدار الجديد كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> os</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># مجلد هذا الملف</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># التبعيات</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    absolute_dependencies = <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># كيانات التطبيق</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># الطبقة [dao]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../layers/dao&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># طبقة [métier]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../layers/métier&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># الأدوات المساعدة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../utilities&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># مجلد البرنامج النصي الرئيسي</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        script_dir,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># التكوينات [database, layers, parameters, controllers, views]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../configs&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># وحدات التحكم</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../controllers&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># الردود HTTP</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../responses&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># نماذج العروض</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">/../models_for_views&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># يتم تعيين مسار النظام</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> sys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># إضافة التبعيات المطلقة للمشروع</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">for</span> directory <span style="color:#0000ff">in</span> absolute_dependencies:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># التحقق من وجود المجلد</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        existe = os.path.exists(directory) <span style="color:#0000ff">and</span> os.path.isdir(directory)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">if</span> <span style="color:#0000ff">not</span> existe:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#008000"># إخطار المطور</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#0000ff">raise</span> BaseException(<span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span><span style="font-weight:bold;color:#a31515">[set_syspath]</span><span style="color:#a31515"> le dossier du Python Path </span><span style="font-weight:bold;color:#a31515">[</span><span style="font-weight:bold">{directory}</span><span style="font-weight:bold;color:#a31515">]</span><span style="color:#a31515"> n&#x27;existe pas&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#008000"># يتم إدراج المجلد في بداية مسار النظام</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            sys.path.insert(<span style="color:#098658">0</span>, directory)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># يتم إجراء التهيئة</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#a31515">&quot;script_dir&quot;</span>: script_dir,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+</code></pre></div>
+
+<ul>
+  <li>الأسطر 8-27: أصبحت جميع التبعيات الآن مرتبطة بالمتغير <b>[<bdi dir="ltr" class="odt-ltr-term">script_dir</bdi>] </b>في السطر 5؛
+  </li>
+  <li>الأسطر 42-45: اختفى المتغير <b>[<bdi dir="ltr" class="odt-ltr-term">root_dir</bdi>] </b>من تكوين <bdi dir="ltr" class="odt-ltr-term">syspath</bdi>؛
+  </li>
+  <li>السطر 10: كيانات التطبيق موجودة في المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">entities</bdi>] [1]</b>؛
+  </li>
+  <li>السطر 12: الطبقة <b>[dao] </b>موجودة في المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">layers/dao</bdi>] </b>[2]؛
+  </li>
+  <li>السطر 14: الطبقة <b>[<bdi dir="ltr" class="odt-ltr-term">métier</bdi>] </b>موجودة في المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">layers/métier</bdi>] </b>[2]؛
+  </li>
+  <li>السطر 16: الأدوات المساعدة <b>[<bdi dir="ltr" class="odt-ltr-term">Logger, SendMail</bdi>] </b>موجودة في المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">utilities</bdi>] [3]</b>؛
+  </li>
+  <li>الأسطر 29-40: يتم حساب مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> للتطبيق دون استيراد الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">myutils</bdi>]</b>؛
+  </li>
+</ul>
+
+<p><img src="images/100000000000061A000001BCF1041F6F.png" width="680" height="193" style="width:18cm;height:5.117cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061A000001BCF1041F6F.png" /></p>
+<p><span id="toc48549344" name="toc48549344" class="odt-bookmark-anchor"></span></p>
+<h2 id="372">37.2. <span style="color: #4f81bd">الاختبارات</span></h2>
+<p>في هذه المرحلة، يجب أن تعمل الإصدارة 17. تحقق من ذلك.</p>
+<p><span id="toc48549345" name="toc48549345" class="odt-bookmark-anchor"></span></p>
+<h2 id="373-python-flask-apache-windows">37.3. <span style="color: #4f81bd">نقل تطبيق <bdi dir="ltr" class="odt-ltr-term">Python / Flask</bdi> إلى خادم <bdi dir="ltr" class="odt-ltr-term">Apache / Windows</bdi></span></h2>
+<p><span id="sources" name="sources" class="odt-bookmark-anchor"></span>
+<span id="toc48549346" name="toc48549346" class="odt-bookmark-anchor"></span></p>
+<h3 id="3731">37.3.1. <span style="color: #4f81bd">المصادر</span></h3>
+<p>لإجراء نقل تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> إلى <bdi dir="ltr" class="odt-ltr-term">Apache / Windows</bdi>، اضطررت إلى البحث على الإنترنت. إليكم الرابط الذي ساعدني على البدء: [<bdi dir="ltr" class="odt-ltr-term">https://medium.com/@madumalt/flask-app-deployment-in-windows-apache-server-mod-wsgi-82e1cfeeb2ed</bdi>]؛</p>
+<p>استخدمت المعلومات الواردة في هذا الرابط باستثناء إعدادات خادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> بالنسبة لهذه الإعدادات، استخدمت مثالًا لإعداد خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> من <bdi dir="ltr" class="odt-ltr-term">Laragon.</bdi></p>
+<p><span id="toc48549347" name="toc48549347" class="odt-bookmark-anchor"></span></p>
+<h3 id="3732-python-mod_wsgi">37.3.2. <span style="color: #4f81bd">تثبيت وحدة <bdi dir="ltr" class="odt-ltr-term">Python mod</bdi>_wsgi</span></h3>
+<p>كان تطبيق <bdi dir="ltr" class="odt-ltr-term">Python / Flask</bdi> الذي قمنا بتطويره يستخدم خادم <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> (<bdi dir="ltr" class="odt-ltr-term">Web Server Gateway Interface</bdi>) <strong>[<bdi dir="ltr" class="odt-ltr-term">werkzeug</bdi>]</strong> المرفق مع <bdi dir="ltr" class="odt-ltr-term">Flask.</bdi> يتم وصف هذا الخادم |هنا|. يصف الرابط [<bdi dir="ltr" class="odt-ltr-term">https://www.fullstackpython.com/wsgi-servers.html</bdi>] كيفية عمل خوادم <bdi dir="ltr" class="odt-ltr-term">WSGI.</bdi> توجد <a href="https://wsgi.readthedocs.io/en/latest/servers.html"><u><span style="color: #0563c1">|خوادم</span></u></a> <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi>| مختلفة. أحدها هو خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> الذي يعمل في وضع <bdi dir="ltr" class="odt-ltr-term">WSGI.</bdi> وهذا هو الحل الذي تم اعتماده هنا لأن <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi>، الذي قمنا بتثبيته، يأتي مزودًا بخادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi></p>
+<p>لكي يتمكن خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> من استضافة تطبيق <bdi dir="ltr" class="odt-ltr-term">Python</bdi>، يتعين علينا تثبيت وحدة <bdi dir="ltr" class="odt-ltr-term">Python</bdi> <strong>[mod_wsgi]</strong>. يعد تثبيت هذه الوحدة أمرًا دقيقًا لأن عملية تجميع لغة <bdi dir="ltr" class="odt-ltr-term">C++</bdi> تتم أثناء التثبيت. ولنجاح التثبيت، يلزم وجود مُجمِّع <bdi dir="ltr" class="odt-ltr-term">Microsoft C++.</bdi> ومن الحلول البسيطة تثبيت الإصدار الحالي من <bdi dir="ltr" class="odt-ltr-term">Visual Studio Community</bdi> [<bdi dir="ltr" class="odt-ltr-term">https://visualstudio.microsoft.com/fr/vs/community/</bdi>].</p>
+<p>وإذا لم تكن هناك حاجة إلى <bdi dir="ltr" class="odt-ltr-term">Visual Studio</bdi> إلا من أجل [mod_wsgi]، فيمكن قصر التثبيت على بيئة <bdi dir="ltr" class="odt-ltr-term">C++:</bdi></p>
+<p><img src="images/100000000000053100000327B3B2CAA6.png" width="579" height="352" style="width:15.332cm;height:9.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053100000327B3B2CAA6.png" /></p>
+<p>بمجرد تثبيت مُجمِّع <bdi dir="ltr" class="odt-ltr-term">C++</bdi>، يتم تثبيت الوحدة النمطية <strong>[mod_wsgi]</strong> في محطة طرفية <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<span style="background-color:#fff2cc">SET MOD_WSGI_APACHE_ROOTDIR=C:\MyPrograms\laragon\bin\apache\httpd-2.4.35-win64-VC15</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<span style="background-color:#fff2cc">pip install mod_wsgi</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Collecting mod_wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  Using cached mod_wsgi-4.7.1.tar.gz (498 kB)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Using legacy setup.py install for mod-wsgi, since package &#x27;wheel&#x27; is not installed.</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Installing collected packages: mod-wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Running setup.py install for mod-wsgi ... done</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Successfully installed mod-wsgi-4.7.1</span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطر 1: يتم تعيين قيمة متغير البيئة <b>[<bdi dir="ltr" class="odt-ltr-term">MOD_WSGI_APACHE_ROOTDIR</bdi>]</b>. هذه القيمة هي موقع خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> في نظام الملفات. هنا، هذا الموقع هو <b>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\bin\<bdi dir="ltr" class="odt-ltr-term">apache</bdi>\<bdi dir="ltr" class="odt-ltr-term">httpd-2.4.35-win64-VC15</bdi>] </b>حيث &lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt; هو مجلد تثبيت <bdi dir="ltr" class="odt-ltr-term">Laragon.</bdi> يمكنك الحصول على هذا الموقع بعدة طرق. وإليك إحدى الطرق التي يتم الحصول عليه من خلالها باستخدام إحدى خيارات <bdi dir="ltr" class="odt-ltr-term">Laragon:</bdi>
+  </li>
+</ul>
+
+<p><img src="images/100000000000031D000001D48D3C5E42.png" width="348" height="204" style="width:9.209cm;height:5.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031D000001D48D3C5E42.png" /></p>
+<p>في [1-3]، الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong> هو ملف التكوين الرئيسي لخادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> ثم يتم فتح الملف المعني في محرر نصوص (<bdi dir="ltr" class="odt-ltr-term">Notepad</bdi> ++ أدناه):</p>
+<p><img src="images/1000000000000472000001006BDF5600.png" width="496" height="112" style="width:13.13cm;height:2.955cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000001006BDF5600.png" /></p>
+<p>في <strong>[2]</strong>، مجلد تثبيت <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> هو ما يسبق السلسلة <strong>[<bdi dir="ltr" class="odt-ltr-term">conf</bdi>\<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong>.</p>
+<p>لنعد إلى تثبيت الوحدة النمطية <strong>[mod_wsgi]</strong>:</p>
+<ul>
+  <li>الأسطر 3-9: تثبيت الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">mod_wsgi</bdi>]</b>؛
+  </li>
+</ul>
+
+<p><span id="toc48549348" name="toc48549348" class="odt-bookmark-anchor"></span></p>
+<h3 id="3733-apache-laragon">37.3.3. <span style="color: #4f81bd">تكوين خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> في <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi></span></h3>
+<p>سنقوم بتكوين خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> في <bdi dir="ltr" class="odt-ltr-term">Laragon.</bdi> نبدأ بملف التكوين الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong>:</p>
+<p><img src="images/100000000000031D000001D48D3C5E42.png" width="348" height="204" style="width:9.209cm;height:5.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031D000001D48D3C5E42.png" /></p>
+<p>ننتقل إلى نهاية الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">IncludeOptional &quot;C:/MyPrograms/laragon/etc/apache2/alias/*.conf&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">IncludeOptional &quot;C:/MyPrograms/laragon/etc/apache2/sites-enabled/*.conf&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Include &quot;C:/MyPrograms/laragon/etc/apache2/httpd-ssl.conf&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Include &quot;C:/MyPrograms/laragon/etc/apache2/mod_php.conf&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># Python mod_wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">LoadModule wsgi_module</span> &quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd&quot;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>تمت إضافة السطر 8 إلى ملف <b>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</b> الموجود في نهاية الملف. وهو يحدد لخادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> مكان عنصر من الوحدة النمطية <b>[<bdi dir="ltr" class="odt-ltr-term">mod_wsgi</bdi>] </b>التي قمنا بتثبيتها للتو؛
+  </li>
+</ul>
+
+<p>طريقة بسيطة للحصول على مسار السطر 8 هي تنفيذ الأمر التالي في محطة طرفية <bdi dir="ltr" class="odt-ltr-term">PyCharm:</bdi></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<span style="background-color:#fff2cc">mod_wsgi-express module-config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">LoadModule wsgi_module</span> &quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">WSGIPythonHome</span> &quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv&quot;</span></span>
+</code></pre></div>
+
+<p>تشير بعض الوثائق إلى ضرورة إضافة السطرين 2 و3 في نهاية الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong>. في حالتي، تسبب السطر 3 أعلاه في حدوث خطأ (الوحدة النمطية <strong>[<bdi dir="ltr" class="odt-ltr-term">encodings</bdi>]</strong> مفقودة). لذلك لم يتم إدراجها في الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">httpd.conf</bdi>]</strong>. تم إدراج السطر 2 فقط فيه. يتم شرح معنى المعلمات المختلفة للوحدة النمطية <strong>[mod_wsgi]</strong> التي يمكن استخدامها في ملفات تكوين <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> |هنا|.</p>
+<p>بعد ذلك، سنقوم بتنشيط بروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> على خادم <bdi dir="ltr" class="odt-ltr-term">Apache:</bdi></p>
+<p><img src="images/100000000000055600000275CC678078.png" width="596" height="274" style="width:15.769cm;height:7.262cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055600000275CC678078.png" /></p>
+<ul>
+  <li>في <b>[1-4]</b>، نقوم بتنشيط بروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> لخادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi>؛
+  </li>
+</ul>
+
+<p>من الآن فصاعدًا، سيكون بإمكاننا استخدام <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و <strong>[<bdi dir="ltr" class="odt-ltr-term">https://serveur/chemin</bdi>]</strong>؛</p>
+<p>لتكوين <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> بحيث يقدم تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi>، يستخدم الرابط المشار إليه <a href="#sources"><u><span style="color: #0563c1">|أعلاه|</span></u></a> خوادم افتراضية. يوفر <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi> أيضًا إمكانية إدارة الخوادم الافتراضية:</p>
+<p><img src="images/1000000000000619000002D28424DFC7.png" width="680" height="315" style="width:18cm;height:8.326cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000619000002D28424DFC7.png" /></p>
+<ul>
+  <li>في <b>[1-3]</b>، نطلب من <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi> إنشاء مضيفات افتراضية تلقائيًا؛
+  </li>
+</ul>
+
+<p>الخطوة التالية هي إنشاء مشروع ويب باستخدام <bdi dir="ltr" class="odt-ltr-term">Laragon:</bdi></p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000615000001BB97C79F61.png" width="680" height="194" style="display:inline-block; margin:4px;width:18cm;height:5.121cm;" class="odt-zoomable" data-zoom-src="images/1000000000000615000001BB97C79F61.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000396000001B233858FE2.png" width="401" height="189" style="display:inline-block; margin:4px;width:10.599cm;height:5.011cm;" class="odt-zoomable" data-zoom-src="images/1000000000000396000001B233858FE2.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000017B000000EF66868113.png" width="166" height="104" style="display:inline-block; margin:4px;width:4.382cm;height:2.762cm;" class="odt-zoomable" data-zoom-src="images/100000000000017B000000EF66868113.png" /></td></tr></table>
+
+<ul>
+  <li>في [1-3]، يتم إنشاء مشروع فارغ باسم <bdi dir="ltr" class="odt-ltr-term">PHP</bdi>؛
+  </li>
+  <li>في [4-8]، قام <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi> بإنشاء موقع افتراضي باسم <b>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test</bdi>] </b>تم تكوينه بواسطة الملف <b>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>] [8] </b>الموجود في المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>] [7]</b>. يوجد هذا المجلد على العنوان <b>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>]</b>، حيث يمثل <b>[<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>] </b>مجلد تثبيت <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi>؛
+  </li>
+</ul>
+
+<p>على الرغم من أن هذا لا يدخل في نطاق ما نقوم به حاليًا، فقد تشعر بالفضول لمعرفة ماهية موقع الويب <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test</bdi>]</strong> الذي أنشأناه للتو:</p>
+<p><img src="images/100000000000061700000298A930E748.png" width="680" height="290" style="width:18cm;height:7.666cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061700000298A930E748.png" /></p>
+<ul>
+  <li>في [1-5]، تم إنشاء مشروع فارغ. إنه مشروع <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> موجود في المجلد <b>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;/www] </b>حيث <b>[<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>] </b>هو مجلد تثبيت <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi>؛
+  </li>
+</ul>
+
+<p>الآن دعونا نلقي نظرة على الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>]</strong> الذي أنشأه <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi> في المجلد <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define ROOT </span>&quot;C:/MyPrograms/laragon/www/projet-test/&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define SITE </span>&quot;projet-test.test&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:80&gt; </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span>&quot;${ROOT}&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span>&quot;${ROOT}&quot;<span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:443&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span>&quot;${ROOT}&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span>&quot;${ROOT}&quot;<span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLEngine on</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateKeyFile   C:/MyPrograms/laragon/etc/ssl/laragon.key</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطر 1: الجذر، في نظام الملفات، للمشروع الذي تم إنشاؤه؛
+  </li>
+  <li>السطر 2: اسم الخادم الافتراضي. وستكون ملفات <bdi dir="ltr" class="odt-ltr-term">URL</bdi> الخاصة بهذا الخادم على شكل <b>[<bdi dir="ltr" class="odt-ltr-term">http</bdi>(s)://<bdi dir="ltr" class="odt-ltr-term">projet-test.test/chemin</bdi>]</b>؛
+  </li>
+  <li>الأسطر 4-12: تكوين الموقع الافتراضي للمنفذ 80 (السطر 4) وبروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>؛
+  </li>
+  <li>الأسطر 14-27: تكوين الموقع الافتراضي للمنفذ 443 (السطر 14) وبروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi>؛
+  </li>
+</ul>
+
+<p>لنرى كيف يعمل الخادم الافتراضي. لنقم أولاً بتشغيل خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> و <bdi dir="ltr" class="odt-ltr-term">PHP:</bdi></p>
+<p>ثم نطلب عبر متصفح الويب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [<bdi dir="ltr" class="odt-ltr-term">http://projet-test.test/</bdi>]:</p>
+<p><img src="images/100000000000026C000000D3F181C390.png" width="271" height="92" style="width:7.17cm;height:2.439cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026C000000D3F181C390.png" /></p>
+<ul>
+  <li>في [1]، الصفحة المطلوبة <bdi dir="ltr" class="odt-ltr-term">URL</bdi>؛
+  </li>
+  <li>في [2]، تم استخدام البروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>؛
+  </li>
+  <li>في <b>[3]</b>، نظرًا لأن المشروع <b>[<bdi dir="ltr" class="odt-ltr-term">projet-test</bdi>] </b>فارغ، نحصل على فهرس مجلده (قائمة محتوياته)، وهو فهرس فارغ؛
+  </li>
+</ul>
+
+<p>الآن لنطلب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> الآمن [<bdi dir="ltr" class="odt-ltr-term">https://projet-test.test/</bdi>]:</p>
+<p><img src="images/10000000000002980000010E1AEDFA71.png" width="290" height="118" style="width:7.661cm;height:3.115cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002980000010E1AEDFA71.png" /></p>
+<ul>
+  <li>في <b>[1-2]</b>، نحصل على نفس الإجابة السابقة ولكن باستخدام البروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> <b>[1]</b>؛
+  </li>
+</ul>
+
+<p>أدى إنشاء الخادم الافتراضي <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>]</strong> إلى إنشاء إدخال جديد في الملف <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">windows</bdi>&gt;/<bdi dir="ltr" class="odt-ltr-term">system32/drivers/etc/hosts</bdi>]</strong>:</p>
+<p><img src="images/100000000000035500000233AB323C45.png" width="372" height="246" style="width:9.85cm;height:6.502cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035500000233AB323C45.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gh"># حقوق النشر (c) 1993-2009 Microsoft Corp.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gh">#</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gh"># هذا ملف نموذجي يستخدمه برنامج Microsoft TCP/IP لنظام التشغيل Windows.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gh">#</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gh"># يحتوي هذا الملف على تعيينات عناوين IP إلى أسماء المضيفين. يجب أن يظل كل</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gh"># يجب أن يوضع في سطر منفصل. يجب أن يوضع عنوان IP</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gh"># في العمود الأول متبوعًا باسم المضيف المقابل.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="gh"># يجب فصل عنوان IP واسم المضيف بمسافة واحدة على الأقل</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="gh"># مسافة على الأقل.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="gh">#</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="gh"># بالإضافة إلى ذلك، يمكن إدراج تعليقات (مثل هذه) في كل</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="gh"># أو بعد اسم الجهاز مع الإشارة إلى ذلك برمز «#».</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="gh">#</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="gh"># على سبيل المثال:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="gh">#</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="gh">#       102.54.9    4.97 rhino.         acme.com # خادم المصدر</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="gh">#        38.25.    63.10 x             .acme.com # مضيف عميل x</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="gh"># تتم معالجة تحليل اسم localhost داخل DNS نفسه.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="gh">#     127.0.0.1       المضيف المحلي</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="gh">#     ::1             المضيف المحلي</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>127.0.0.1      projet-test.test     <span class="ni">#سحر</span> لاراجون!   
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 23: عنوان <bdi dir="ltr" class="odt-ltr-term">IP</bdi> الخاص بالاسم <b>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>] </b>هو 127.0.0.1، أي عنوان <b>[<bdi dir="ltr" class="odt-ltr-term">localhost</bdi>] </b>(السطر 20)، الجهاز المحلي. وبالتالي، عندما يتم كتابة <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <b>أو [<bdi dir="ltr" class="odt-ltr-term">http://projet-test.test/chemin</bdi>]</b> في متصفح، يتم إرسال الطلب إلى العنوان 127.0.0.1 على المنفذ 80. وعندها يقوم خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> الخاص بالجهاز المحلي (<bdi dir="ltr" class="odt-ltr-term">localhost</bdi>) بالرد.
+  </li>
+</ul>
+
+<p>قد يتساءل المرء عن سبب استخدام خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> لإعدادات ملف <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>\<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>]</strong> عند كتابة الطلب [<bdi dir="ltr" class="odt-ltr-term">http://projet-test.test/</bdi>]:</p>
+<p><img src="images/10000000000002D500000132A4D6508A.png" width="316" height="133" style="width:8.363cm;height:3.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D500000132A4D6508A.png" /></p>
+<p>لفهم ذلك، يجب معرفة ما يرسله المتصفح إلى خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> عند إجراء هذا الطلب. لنقم بذلك باستخدام <bdi dir="ltr" class="odt-ltr-term">Postman:</bdi></p>
+<p><img src="images/1000000000000472000003064AF73E99.png" width="497" height="338" style="width:13.139cm;height:8.938cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000003064AF73E99.png" /></p>
+<ul>
+  <li>في <b>[1-3]</b>، يتم إرسال طلب <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> <b>[1]</b>؛
+  </li>
+  <li>عند <b>[4]</b>، يُشير <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> إلى أنه لم يتعرف على شهادة الأمان. يقوم بروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> بإنشاء اتصال مشفر بين عميل الويب (وهو <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> في هذه الحالة) وخادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> ويتم هذا الاتصال المشفر عن طريق شهادات يتم تبادلها بين العميل والخادم. ويقوم الخادم ببدء عملية إنشاء الاتصال المشفر عن طريق إرسال شهادة أمان إلى العميل. ولكي يقبل العميل هذه الشهادة، يجب أن تكون موقعة، أي مشتراة من شركات مخولة بإصدار شهادات الأمان. وعندما قمنا بتنشيط بروتوكول <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> الخاص بـ <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi>، قام <bdi dir="ltr" class="odt-ltr-term">Laragon</bdi> بنفسه بإنشاء شهادة الأمان. وعندئذ يُقال إن الشهادة موقعة ذاتيًا. تصدر معظم برامج تصفح الويب تحذيرًا عند تلقي شهادة موقعة ذاتيًا. وهذا ما يفعله <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> في <b>[4]</b>. وعندئذٍ تقترح معظم برامج تصفح الويب تعطيل التحقق من شهادة الأمان المرسلة من الخادم. وهذا ما يقترحه <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> في <b>[5]</b>؛
+  </li>
+</ul>
+
+<p>نضغط على الرابط <strong>[5]</strong> لتعطيل التحقق من <bdi dir="ltr" class="odt-ltr-term">SSL</bdi> (طبقة المقابس الآمنة). <bdi dir="ltr" class="odt-ltr-term">SSL / TSL</bdi> (<bdi dir="ltr" class="odt-ltr-term">Transport Layer Security</bdi>) هو بروتوكول أمان ينشئ قناة اتصال آمنة بين جهازين على الإنترنت. وهو البروتوكول المستخدم هنا بواسطة <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> والاستجابة هي كما يلي:</p>
+<p><img src="images/10000000000002D4000001E194E1D0AF.png" width="316" height="210" style="width:8.37cm;height:5.562cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D4000001E194E1D0AF.png" /></p>
+<p>نتلقى نفس الصفحة التي نحصل عليها عند استخدام متصفح تقليدي. والآن لنلقِ نظرة على الحوار بين العميل والخادم في وحدة التحكم <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> (<bdi dir="ltr" class="odt-ltr-term">Ctrl-Alt-C</bdi>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">PostmanRuntime</span><span class="o">/</span><span class="mf">7.26.2</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">Postman</span><span class="o">-</span><span class="n">Token</span><span class="p">:</span> <span class="n">d153f711</span><span class="o">-</span><span class="n">ad99</span><span class="o">-</span><span class="mf">4e1</span><span class="n">d</span><span class="o">-</span><span class="mi">93</span><span class="n">c3</span><span class="o">-</span><span class="mi">61</span><span class="n">c25374d1be</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">Host</span><span class="p">:</span> <span class="n">projet</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">test</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span><span class="p">,</span> <span class="n">br</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">Date</span><span class="p">:</span> <span class="n">Fri</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Aug</span> <span class="mi">2020</span> <span class="mi">09</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">24</span> <span class="n">GMT</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.4.35</span> <span class="p">(</span><span class="n">Win64</span><span class="p">)</span> <span class="n">OpenSSL</span><span class="o">/</span><span class="mf">1.1.1</span><span class="n">b</span> <span class="n">PHP</span><span class="o">/</span><span class="mf">7.2.19</span> <span class="n">mod_wsgi</span><span class="o">/</span><span class="mf">4.7.1</span> <span class="n">Python</span><span class="o">/</span><span class="mf">3.8</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">161</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>السطر 6: يحدد الرأس <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> <b>[<bdi dir="ltr" class="odt-ltr-term">Host</bdi>] </b>اسم الخادم الذي يستهدفه عميل الويب. هذا هو مبدأ الخوادم الافتراضية. في نفس العنوان <bdi dir="ltr" class="odt-ltr-term">IP</bdi> (هنا 127.0.0.1)، يمكن لخادم الويب استضافة عدة مواقع ويب بأسماء مختلفة. تسمح الرأس <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> <b>[<bdi dir="ltr" class="odt-ltr-term">Host</bdi>] </b>للعميل بتحديد الخادم (هنا العنوان 127.0.0.1) الذي يتصل به؛
+  </li>
+</ul>
+
+<p>الآن، ماذا يفعل <bdi dir="ltr" class="odt-ltr-term">Apache</bdi>؟</p>
+<p>عند بدء تشغيله، يقرأ <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> جميع ملفات التكوين الموجودة في المجلد <strong>[[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>]</strong>:</p>
+<p><img src="images/10000000000002D500000132A4D6508A.png" width="316" height="133" style="width:8.363cm;height:3.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D500000132A4D6508A.png" /></p>
+<p>يحدد كل ملف تكوين خادمًا افتراضيًا. على سبيل المثال، في الملف [<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>]، نجد السطر التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define ROOT </span>&quot;C:/MyPrograms/laragon/www/projet-test/&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">define SITE </span><span style="background-color:#fff2cc">&quot;projet-test.test&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>السطر 2 يحدد الخادم الافتراضي <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>]</strong>. الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>]</strong> هو ملف تكوين هذا الخادم الافتراضي. ونظرًا لأن خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> يقرأ عند بدء التشغيل جميع ملفات التكوين الموجودة في المجلد [&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>]، فإنه يدرك وجود خادم افتراضي باسم <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>]</strong>. وبالتالي، عندما يتلقى من عميل <bdi dir="ltr" class="odt-ltr-term">Postman</bdi> الطلب <bdi dir="ltr" class="odt-ltr-term">HTTPS:</bdi></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">PostmanRuntime</span><span class="o">/</span><span class="mf">7.26.2</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Postman</span><span class="o">-</span><span class="n">Token</span><span class="p">:</span> <span class="n">d153f711</span><span class="o">-</span><span class="n">ad99</span><span class="o">-</span><span class="mf">4e1</span><span class="n">d</span><span class="o">-</span><span class="mi">93</span><span class="n">c3</span><span class="o">-</span><span class="mi">61</span><span class="n">c25374d1be</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Host</span><span class="p">:</span> <span class="n">projet</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">test</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span><span class="p">,</span> <span class="n">br</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+</code></pre></div></td></tr></table></div>
+<p>، فإنه يدرك أن الطلب موجه إلى الخادم الافتراضي <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>]</strong> (السطر 6) وأن هذا الخادم موجود. ثم يستخدم تكوين الخادم الافتراضي <strong>[<bdi dir="ltr" class="odt-ltr-term">projet-test.test</bdi>]</strong> للرد على عميل <bdi dir="ltr" class="odt-ltr-term">Postman.</bdi></p>
+<p><span id="toc48549349" name="toc48549349" class="odt-bookmark-anchor"></span></p>
+<h2 id="374-apache">37.4. <span style="color: #4f81bd">إنشاء أول خادم افتراضي <bdi dir="ltr" class="odt-ltr-term">Apache</bdi></span></h2>
+<p>الآن بعد أن عرفنا الغرض من الخوادم الافتراضية وكيفية تعريفها، سنقوم بإنشاء واحدة. ستُستخدم هذه الخادم الافتراضي لتشغيل تطبيق <bdi dir="ltr" class="odt-ltr-term">Python Flask</bdi> المثبت في مجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">Apache</bdi>]</strong> من الإصدار 17 الذي يجري نشره حاليًا على خادم <bdi dir="ltr" class="odt-ltr-term">Apache:</bdi></p>
+<p><span id="hlk48316329" name="hlk48316329" class="odt-bookmark-anchor"></span>لقد وضعنا في المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">http-servers/12/apache/exemple</bdi>]</strong> التطبيق الذي تم تطويره في الفقرة |رابط|، وهو خدمة ويب للتاريخ/الوقت:</p>
+<p><img src="images/100000000000016D000001854BC86A09.png" width="159" height="170" style="width:4.219cm;height:4.496cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016D000001854BC86A09.png" /></p>
+<p>الخادم <strong>[<bdi dir="ltr" class="odt-ltr-term">date</bdi>_time_server.py]</strong> هو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># الاستيرادات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import<span style="color:#000000"> os</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import<span style="color:#000000"> sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import<span style="color:#000000"> time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># علينا وضع مجلد الوحدات النمطية في مسار Python</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># لنقل التطبيق إلى Apache على نظام Windows</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">sys.path.insert(</span><span style="color:#098658">0</span><span style="color:#000000">, </span>&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;<span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> flask <span style="color:#0000ff">import</span> Flask, make_response, render_template</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># تطبيق Flask</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">application</span> = Flask(__name__, template_folder=<span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{script_dir}<span style="color:#a31515">&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الصفحة الرئيسية URL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">@application.route(<span style="color:#a31515">&#x27;/&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> index():</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># إرسال الوقت إلى العميل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># time.localtime: عدد الميلي ثانية منذ 01/01/1970</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># time.strftime يسمح بتنسيق الوقت والتاريخ</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># تنسيق عرض التاريخ والوقت</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># d: اليوم برقمين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># m: الشهر برقمين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># y: السنة برقمين</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># H: الساعة 0,23</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># M: الدقائق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># S: الثواني</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># التاريخ/الساعة الحالية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    time_of_day = time.strftime(<span style="color:#a31515">&#x27;%d/%m/%y %H:%M:%S&#x27;</span>, time.localtime())</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># يتم إنشاء المستند المراد إرساله إلى العميل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    page = {<span style="color:#a31515">&quot;date_heure&quot;</span>: time_of_day}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    document = render_template(<span style="color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#a31515">date_time_server.html</span><span style="color:#a31515">&quot;</span>, page=page)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(<span style="color:#a31515">&quot;document&quot;</span>, type(document), document)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># الرد HTTP إلى العميل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    response = make_response(document)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(<span style="color:#a31515">&quot;response&quot;</span>, type(response), response)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> response</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># للاستخدام الداخلي فقط</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span> __name__ == <span style="color:#a31515">&#x27;__main__&#x27;</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="background-color:#fff2cc">application</span>.config.update(ENV=<span style="color:#a31515">&quot;development&quot;</span>, DEBUG=<span style="color:#0000ff">True</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="background-color:#fff2cc">application</span>.run()</span></span>
+</code></pre></div>
+
+<p>يُشار إلى تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> بالمعرف <strong>[<bdi dir="ltr" class="odt-ltr-term">application</bdi>]</strong> (الأسطر 14 و43 و44). هذا الاسم <strong><mark style="background-color: #fff2cc">إلزامي</mark></strong>. إذا تمت الإشارة إلى تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> بمعرف آخر، فلن يعمل التطبيق وستظهر رسالة خطأ تشير إلى أنه لا يمكن العثور على <bdi dir="ltr" class="odt-ltr-term">URL</bdi> المطلوب. لا تقدم رسالة الخطأ هذه أي تلميح حول مصدر الخطأ. لذا يجب توخي الحذر بشأن هذه النقطة.</p>
+<p>الملف <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> المشار إليه في السطر 34 هو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span>&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;html<span style="color:#000000"> </span><span style="color:#ff0000">lang</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;fr&quot;</span>&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;head&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;meta<span style="color:#000000"> </span><span style="color:#ff0000">charset</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;UTF-8&quot;</span>&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;title&gt;<span style="color:#000000">Date et heure du moment</span>&lt;/title&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/head&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;body&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;b&gt;<span style="color:#000000">Date et heure du moment : {{page.date_heure}}</span>&lt;/b&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/body&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/html&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>سيكون <b>[<bdi dir="ltr" class="odt-ltr-term">date-time-server</bdi>] </b>هو الخادم الافتراضي الذي سيستضيف هذا التطبيق. وسيتم تكوينه بواسطة الملف <b>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>\<bdi dir="ltr" class="odt-ltr-term">date-time-server.conf</bdi>] </b>(نذكر أن هذا الاسم حر – حيث يقرأ <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> جميع الملفات الموجودة في <b>[<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>] </b>لاكتشاف المواقع الافتراضية المستضافة)؛
+  </li>
+</ul>
+
+<p>نحصل على هذا الملف أولاً عن طريق نسخ الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>]</strong> ثم نقوم بتعديله.</p>
+<p><img src="images/100000000000033C0000017DAC6AA1DA.png" width="361" height="166" style="width:9.55cm;height:4.394cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C0000017DAC6AA1DA.png" /></p>
+<p>سيكون ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">date-time-server.conf</bdi>]</strong> كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># مجلد البرنامج النصي python-flask الخاص بالتطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">define ROOT </span><span style="background-color:#fff2cc;color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache/exemple&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># اسم موقع الويب الذي تم تكوينه بواسطة هذا الملف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># هنا سيُسمى date-time-server</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ستكون URL من النوع http(s)://date-time-server/المسار</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">define SITE </span><span style="background-color:#fff2cc;color:#a31515">&quot;date-time-server&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># أدخل العنوان IP 127.0.0.1 للموقع SITE في c:/windows/system32/drivers/etc/hosts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL HTTP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:80&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل http(s)://date-time-server/chemin/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="background-color:#fff2cc;color:#000000">WSGIScriptAlias / </span><span style="background-color:#fff2cc;color:#a31515">&quot;${ROOT}/date_time_server.py&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL آمنة باستخدام HTTPS</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:443&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل http(s)://date-time-server/chemin/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="background-color:#fff2cc;color:#000000">WSGIScriptAlias / </span><span style="background-color:#fff2cc;color:#a31515">&quot;${ROOT}/date_time_server.py&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLEngine on</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطر 7: نحدد اسمًا للخادم الافتراضي الذي تم تكوينه بواسطة الملف؛
+  </li>
+  <li>السطر 2: نحدد قيمة المتغير <b>[<bdi dir="ltr" class="odt-ltr-term">ROOT</bdi>] </b>المستخدم في السطرين 14 و27؛
+  </li>
+  <li>السطران 14 و27: نحدد مسار البرنامج النصي <bdi dir="ltr" class="odt-ltr-term">Python</bdi> الذي يجب تنفيذه عندما يتلقى الخادم الافتراضي طلبًا. ونحدد هنا أن الطلبات الموجهة إلى الخادم <b>[<bdi dir="ltr" class="odt-ltr-term">date-time-server</bdi>] </b>تتم معالجتها بواسطة البرنامج النصي <bdi dir="ltr" class="odt-ltr-term">Python</bdi> <b>[<bdi dir="ltr" class="odt-ltr-term">date_time_server.py</bdi>]</b>. ويعود هذا الاختلاف عن الملف <b>[<bdi dir="ltr" class="odt-ltr-term">auto.projet-test.test.conf</bdi>] </b>إلى أن هذا الملف كان يقوم بتكوين خادم <bdi dir="ltr" class="odt-ltr-term">PHP</bdi>، في حين أن الملف <b>[<bdi dir="ltr" class="odt-ltr-term">date-time-server.conf</bdi>] </b>يقوم بتكوين خادم <bdi dir="ltr" class="odt-ltr-term">Python</bdi>؛
+  </li>
+  <li>السطران 14 و27: يشير السمة <b>[<bdi dir="ltr" class="odt-ltr-term">WSGIScriptAlias</bdi> /] </b>هنا إلى أن جذر الخادم <b>[<bdi dir="ltr" class="odt-ltr-term">date-time-server</bdi>] </b>سيكون <b>[/]</b>. وبالتالي، فإن ملفات <bdi dir="ltr" class="odt-ltr-term">URL</bdi> الخاصة بالتطبيق ستكون على شكل <b>[<bdi dir="ltr" class="odt-ltr-term">http</bdi>(s)://<bdi dir="ltr" class="odt-ltr-term">date-time-server/chemin</bdi>]</b>؛
+  </li>
+  <li>في السطرين 14 و27، يمكننا تعيين جذر آخر للتطبيق، على سبيل المثال <b>[<bdi dir="ltr" class="odt-ltr-term">WSGIScriptAlias /show</bdi>]</b><mark style="background-color: #fff2cc">. </mark>وبذلك، ستصبح قيم <bdi dir="ltr" class="odt-ltr-term">URL</bdi> الخاصة بالتطبيق على الشكل <b>[<bdi dir="ltr" class="odt-ltr-term">http</bdi>(s)://<bdi dir="ltr" class="odt-ltr-term">show/date-time-server/chemin</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>علينا أيضًا إضافة سطر إلى الملف <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">windows</bdi>&gt;/<bdi dir="ltr" class="odt-ltr-term">system32/drivers/etc/hosts</bdi>]</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gh"># حقوق النشر (c) 1993-2009 Microsoft Corp.</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="gh">#</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="gh"># هذا ملف نموذجي من نوع HOSTS يستخدمه برنامج Microsoft TCP/IP لنظام التشغيل Windows.</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="gh">#</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="gh"># يحتوي هذا الملف على تعيينات عناوين IP إلى أسماء المضيفين. كل</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="gh">#في سطر منفصل. ويجب أن</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="gh"># في العمود الأول متبوعًا باسم المضيف المقابل.</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="gh"># يجب فصل عنوان IP واسم المضيف بمسافة واحدة على الأقل</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="gh"># مسافة على الأقل.</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="gh">#</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="gh"># بالإضافة إلى ذلك، يمكن إدراج تعليقات (مثل هذه) في كل</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="gh"># أو بعد اسم الجهاز مع الإشارة إلى ذلك برمز «#».</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="gh">#</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="gh"># على سبيل المثال:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="gh">#</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="gh">#       102.54.9    4.97 rhino.         acme.com # خادم المصدر</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="gh">#        38.25.    63.10 x             .acme.com # مضيف عميل x</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="gh"># تتم معالجة تحليل اسم localhost داخل DNS نفسه.</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="gh">#     127.0.0.1       المضيف المحلي</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="gh">#     ::1             المضيف المحلي</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>127.0.0.1    flask-impots-withmysql        # دورة تدريبية في لغة Python - تطبيق للضرائب باستخدام MySQL
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>127.0.0.1    flask-impots-withpgres        # دورة بيثون - تطبيق الضرائب باستخدام PostgreSQL
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>127.0.0.1    date-time-server            # دورة بيثون - الوقت والتاريخ الحاليان
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>127.0.0.1           projet-test.test                <span class="ni">#سحر</span> لاراجون!
+</code></pre></div></td></tr></table></div>
+<p>نضيف السطر 25، لإعطاء العنوان <bdi dir="ltr" class="odt-ltr-term">IP</bdi> <strong>[127.0.0.1]</strong> إلى الخادم الافتراضي <strong>[<bdi dir="ltr" class="odt-ltr-term">date-time-server</bdi>]</strong>.</p>
+<p>دعونا نتحقق من كل ذلك. نقوم بتشغيل خادم <bdi dir="ltr" class="odt-ltr-term">Apache:</bdi></p>
+<p><img src="images/1000000000000615000002C02F914C45.png" width="680" height="308" style="width:18cm;height:8.139cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000615000002C02F914C45.png" /></p>
+<p>ثم نطلب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://date-time-server</bdi>]</strong> باستخدام متصفح:</p>
+<p><img src="images/1000000000000378000000FB0FCC6365.png" width="387" height="109" style="width:10.239cm;height:2.895cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000378000000FB0FCC6365.png" /></p>
+<ul>
+  <li>في [1]، الصفحة المطلوبة <bdi dir="ltr" class="odt-ltr-term">URL</bdi>؛
+  </li>
+  <li>في [3]، رد الخادم؛
+  </li>
+  <li>في <b>[2]</b>، يشير المتصفح إلى أن الاتصال <bdi dir="ltr" class="odt-ltr-term">HTTPS</bdi> غير آمن لأنه اكتشف أن الشهادة المرسلة من خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> كانت موقعة ذاتيًا؛
+  </li>
+</ul>
+
+<p>الآن في الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">date-time-server.conf</bdi>]</strong>، لنضع اسمًا مستعارًا في السطرين 14 و27:</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    WSGIScriptAlias <span style="background-color:#fff2cc">/show-date-time</span> <span style="color:#a31515">&quot;${ROOT}/date_time_server.py&quot;</span></span></span>
+</code></pre></div>
+
+<p>لا يتم تطبيق التعديل على الفور من قِبل خادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> لذا يجب إعادة تحميله:</p>
+<p><img src="images/1000000000000476000000FF7F089CCB.png" width="498" height="111" style="width:13.169cm;height:2.94cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000476000000FF7F089CCB.png" /></p>
+<p>ثم نطلب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://date-time-server/show-date-time</bdi>]</strong>. وتكون استجابة الخادم كما يلي:</p>
+<p><img src="images/10000000000003E3000000E4A993A263.png" width="434" height="100" style="width:11.492cm;height:2.633cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E3000000E4A993A263.png" /></p>
+<p><span id="toc48549350" name="toc48549350" class="odt-bookmark-anchor"></span></p>
+<h2 id="375-apache-windows">37.5. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">نقل تطبيق حساب الضريبة إلى <bdi dir="ltr" class="odt-ltr-term">Apache / Windows</bdi></span></strong></span></h2>
+<p>تم إنشاء المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">apache</bdi>] [2]</strong> في البداية عن طريق نسخ المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong>. من المهم أن يكونا في نفس المستوى حتى تظل مسارات البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">syspath.py</bdi>]،</strong> الذي تم نسخه من <strong>[1]</strong> إلى <strong>[2]،</strong> صالحة. ولتجنب إرباك تطبيق <strong>[<bdi dir="ltr" class="odt-ltr-term">impots / http-servers/</bdi> 12]</strong> الذي يعمل حاليًا، نقوم بوضع التكوين الذي سيتم تنفيذه بواسطة خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> في <strong>ملف [<bdi dir="ltr" class="odt-ltr-term">apache</bdi>]</strong>؛</p>
+<p><img src="images/100000000000015B0000027383EFF121.png" width="152" height="274" style="width:4.009cm;height:7.244cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B0000027383EFF121.png" /></p>
+<ul>
+  <li>الملف <b>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>] </b>من <b>[2] </b>هو نفسه الملف <b>[<bdi dir="ltr" class="odt-ltr-term">config</bdi>] </b>من <b>[1]</b>؛
+  </li>
+  <li>الملف <b>[<bdi dir="ltr" class="odt-ltr-term">syspath</bdi>] </b>التابع لـ <b>[2] </b>هو نفسه الملف <b>[<bdi dir="ltr" class="odt-ltr-term">syspath</bdi>] </b>التابع لـ <b>[1]</b>؛
+  </li>
+  <li>الملف <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql</bdi>] </b>من <b>[2] </b>هو الملف <b>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>] </b>من <b>[1] </b>مع التعديلات التالية:
+  </li>
+</ul>
+
+<p>كان البرنامج النصي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>]</strong> يتلقى معلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">mysql / pgres</bdi>]</strong> تحدد له ملف <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> الذي يجب استخدامه. يستخدم البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_withmysql]</strong> البرنامج النصي <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> و <bdi dir="ltr" class="odt-ltr-term">MySQL:</bdi></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># ننتظر معلمة mysql أو pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> os</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم تكوين التطبيق باستخدام MySQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">config = config.configure({</span><span style="background-color:#fff2cc;color:#a31515">&#x27;sgbd&#x27;</span><span style="background-color:#fff2cc;color:#000000">: </span><span style="background-color:#fff2cc;color:#a31515">&quot;mysql&quot;</span><span style="background-color:#fff2cc;color:#000000">})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># التبعيات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> SendAdminMail </span><span style="color:#0000ff">import</span><span style="color:#000000"> SendAdminMail</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> Logger </span><span style="color:#0000ff">import</span><span style="color:#000000"> Logger</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>في السطر 7، يتم تعيين <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> إلى <bdi dir="ltr" class="odt-ltr-term">MySQL.</bdi></p>
+<ul>
+  <li>الملف <b>[<bdi dir="ltr" class="odt-ltr-term">main_withpgres</bdi>] </b>من <b>[2] </b>هو الملف <b>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>] </b>من <b>[1] </b>مع التعديلات التالية: يستخدم ملف <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> ملف <bdi dir="ltr" class="odt-ltr-term">PostgreSQL:</bdi>
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># يُتوقع معلمة mysql أو pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> os</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># يتم تكوين التطبيق باستخدام MySQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">config = config.configure({</span><span style="background-color:#fff2cc;color:#a31515">&#x27;sgbd&#x27;</span><span style="background-color:#fff2cc;color:#000000">: </span><span style="background-color:#fff2cc;color:#a31515">&quot;pgres&quot;</span><span style="background-color:#fff2cc;color:#000000">})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># التبعيات</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> SendAdminMail </span><span style="color:#0000ff">import</span><span style="color:#000000"> SendAdminMail</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> Logger </span><span style="color:#0000ff">import</span><span style="color:#000000"> Logger</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>في السطر 7، يتم تعيين <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> إلى <bdi dir="ltr" class="odt-ltr-term">PostgreSQL.</bdi></p>
+<p>بعد ذلك، نقوم بإنشاء البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_withmysql.<bdi dir="ltr" class="odt-ltr-term">wsgi</bdi>]</strong> (لا يهم اللاحقة المستخدمة) على النحو التالي:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># مجلد هذا الملف</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># يتم إضافته إلى syspath حتى يكون الاستيراد التالي ممكنًا</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">script_dir</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># يتم استيراد تطبيق Flask [app] مع تسميته بـ [application]</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">main_withmysql</span><span class="w"> </span><span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
+</code></pre></div></td></tr></table></div>
+<p>سيكون البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_withmysql.<bdi dir="ltr" class="odt-ltr-term">wsgi</bdi>]</strong> هو الهدف الذي سيقوم خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> بتنفيذه في وضع <bdi dir="ltr" class="odt-ltr-term">WSGI:</bdi></p>
+<ul>
+  <li>كان من الممكن أن يكون الهدف لخادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> هو البرنامج النصي <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>كما تم سابقًا مع البرنامج النصي <b>[<bdi dir="ltr" class="odt-ltr-term">date_time_server.py</bdi>]</b>. لكن كان سيتعين تعديله قليلاً:
+    <ul>
+      <li>على عكس وضع التنفيذ باستخدام برنامج نصي يعمل على وحدة التحكم، مع <bdi dir="ltr" class="odt-ltr-term">Apache</bdi>، لا يُعد المجلد الذي يحتوي على الهدف <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>جزءًا من مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> ولذلك، فإن السطر 6 من البرنامج النصي <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>يتسبب في حدوث خطأ؛
+      </li>
+      <li>التعديل الثاني الذي كان يجب إجراؤه هو أن تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> في <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql</bdi>] </b>يُشار إليه بالمعرف <b>[app]</b>. ومن المعروف أنه بالنسبة لـ <bdi dir="ltr" class="odt-ltr-term">Apache / WSGI</bdi>، يجب الإشارة إليها أيضًا بواسطة المعرف <b>[<bdi dir="ltr" class="odt-ltr-term">application</bdi>]</b>؛
+      </li>
+    </ul>
+  </li>
+  <li>بدلاً من تعديل <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>]</b>، نقوم بتغيير هدف <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> وسيكون الآن البرنامج النصي <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.wsgi</bdi>] </b>المذكور أعلاه:
+    <ul>
+      <li>الأسطر 1-7: نضيف مجلد البرنامج النصي إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> وبالتالي، لم تعد السطر 6 من <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>تسبب أي خطأ؛
+      </li>
+      <li>الأسطر 9-10: يؤدي استيراد <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>إلى تنفيذه. بالإضافة إلى ذلك، يتم الإشارة إلى تطبيق <bdi dir="ltr" class="odt-ltr-term">Flask</bdi> <b>[app] </b>الموجود في <b>[<bdi dir="ltr" class="odt-ltr-term">main_withmysql.py</bdi>] </b>باستخدام المعرف <b>[<bdi dir="ltr" class="odt-ltr-term">application</bdi>] </b>الذي يحتاجه <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> في الوضع <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi>؛
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>ونفعل الشيء نفسه مع البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main</bdi>_withpgres.<bdi dir="ltr" class="odt-ltr-term">wsgi</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># مجلد هذا الملف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import os</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># نضيفه إلى syspath حتى يصبح الاستيراد التالي ممكنًا</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import sys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">sys.path.insert(0, script_dir)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># نقوم باستيراد تطبيق Flask [app] مع تسميته بـ [application]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">from <span style="background-color:#fff2cc">main_withpgres</span> import app as application</span></span>
+</code></pre></div>
+
+<p>لدينا الآن الأهداف القابلة للتنفيذ لخادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> وعلينا الآن إنشاء خادمين افتراضيين، واحد لكل هدف.</p>
+<p>في <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">laragon</bdi>&gt;\etc\<bdi dir="ltr" class="odt-ltr-term">apache2</bdi>\<bdi dir="ltr" class="odt-ltr-term">sites-enabled</bdi>]</strong>، نقوم بإنشاء الملف <strong>[<bdi dir="ltr" class="odt-ltr-term">flask-impots-withmysql.conf</bdi>]</strong> (لا يهم الاسم الذي نطلقه عليه):</p>
+<p><img src="images/10000000000002D50000013F509BBA03.png" width="316" height="139" style="width:8.37cm;height:3.683cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D50000013F509BBA03.png" /></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"># مجلد البرنامج النصي .wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">define ROOT</span><span style="color:#000000"> </span><span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># اسم الموقع الإلكتروني الذي تم تكوينه بواسطة هذا الملف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># هنا سيُسمى flask-impots-withmysql</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ستكون URL من النوع http(s)://flask-impots-withmysql/المسار</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define SITE </span><span style="color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#a31515">flask-impots-withmysql</span><span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># أدخل العنوان IP 127.0.0.1 للموقع SITE في الملف c:/windows/system32/drivers/etc/hosts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># أدخل هنا مسارات مكتبات Python المراد استخدامها - وافصل بينها بفواصل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># هنا مكتبات بيئة Python الافتراضية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc;color:#000000">WSGIPythonPath</span><span style="color:#000000">  </span><span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># موقع Python الرئيسي - ضروري فقط في حالة تثبيت عدة إصدارات من Python</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># WSGIPythonHome &quot;C:/Program Files/Python38&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL HTTP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:80&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / فإن URL ستكون على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، سيكون شكل URL كالتالي: /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="background-color:#fff2cc;color:#000000">WSGIScriptAlias / </span><span style="background-color:#fff2cc;color:#a31515">&quot;${ROOT}/main_withmysql.wsgi&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL المؤمنة باستخدام HTTPS</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:443&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، ستكون عناوين URL على الشكل /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="background-color:#fff2cc;color:#000000">WSGIScriptAlias / </span><span style="background-color:#fff2cc;color:#a31515">&quot;${ROOT}/main_withmysql.wsgi&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLEngine on</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطر 2: جذر التطبيق، المجلد <b>[<bdi dir="ltr" class="odt-ltr-term">apache</bdi>] </b>الذي أنشأناه؛
+  </li>
+  <li>السطران 23 و38: الهدف <b>[<bdi dir="ltr" class="odt-ltr-term">main_witmysql.wsgi</bdi>] </b>الذي أنشأناه:
+  </li>
+  <li>السطر 7: سيُسمى الخادم الافتراضي <b>[<bdi dir="ltr" class="odt-ltr-term">flask-impots-withmysql</bdi>]</b>؛
+  </li>
+  <li>السطر 13: تسمح التوجيهية <b>[<bdi dir="ltr" class="odt-ltr-term">WSGIPythonPath</bdi>] </b>بإضافة مجلدات إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python.</bdi> هنا، لا يعلم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> أننا استخدمنا بيئة افتراضية لتطوير التطبيق وأن جميع الوحدات النمطية التي يستخدمها التطبيق موجودة في هذه البيئة الافتراضية. لذلك، في السطر 13، نضيف المجلد الذي يحتوي على جميع الوحدات النمطية للبيئة الافتراضية المستخدمة. إحدى الطرق الممكنة هي نسخ هذا المجلد إلى مكان آخر في نظام الملفات والإشارة إلى هذا المكان. وهناك طريقة أخرى تتمثل في إضافة هذا المجلد إلى مسار <bdi dir="ltr" class="odt-ltr-term">Python</bdi> مباشرةً في الهدف <b>[<bdi dir="ltr" class="odt-ltr-term">main_witmysql.wsgi</bdi>] </b>(وهذا على الأرجح الحل الأفضل)؛
+  </li>
+  <li>السطر 16: يمكننا توجيه <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> إلى مجلد تثبيت <bdi dir="ltr" class="odt-ltr-term">Python</bdi> في نظام الملفات. عادةً ما يكون هذا المجلد موجودًا في <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> الخاص بالجهاز، وغالبًا ما يكون هذا السطر غير ضروري (كما كان الحال هنا). ومع ذلك، قد يكون هناك عدة تثبيتات لـ <bdi dir="ltr" class="odt-ltr-term">Python</bdi> على الجهاز، وقد لا يكون التثبيت المطلوب موجودًا في <bdi dir="ltr" class="odt-ltr-term">PATH</bdi> الخاص بالجهاز. لذا، فإن هذا السطر يحل المشكلة؛
+  </li>
+</ul>
+
+<p>نقوم بنفس الطريقة بإنشاء ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">flask-impots-withpgres.conf</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"># مجلد البرنامج النصي .wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define ROOT </span><span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># اسم موقع الويب الذي تم تكوينه بواسطة هذا الملف</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># هنا سيُسمى flask-impots-withmysql</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ستكون عناوين URL من النوع http(s)://flask-impots-withmysql/المسار</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define SITE </span><span style="color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#a31515">flask-impots-withpgres</span><span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># أدخل العنوان IP 127.0.0.1 للموقع SITE في الملف c:/windows/system32/drivers/etc/hosts</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># أدخل هنا مسارات مكتبات Python المراد استخدامها - وافصل بينها بفواصل</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># هنا مكتبات بيئة Python الافتراضية</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">WSGIPythonPath  </span><span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># موقع Python الرئيسي - ضروري فقط في حالة تثبيت عدة إصدارات من Python</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># WSGIPythonHome &quot;C:/Program Files/Python38&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL HTTP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:80&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، سيكون شكل URL كالتالي: /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    WSGIScriptAlias / </span><span style="color:#a31515">&quot;${ROOT}/</span><span style="background-color:#fff2cc;color:#a31515">main_withpgres.wsgi</span><span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL المؤمنة باستخدام HTTPS</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:443&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، ستكون عناوين URL على الشكل /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    WSGIScriptAlias / </span><span style="color:#a31515">&quot;${ROOT}/</span><span style="background-color:#fff2cc;color:#a31515">main_withpgres.wsgi</span><span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    DocumentRoot </span><span style="color:#a31515">&quot;${ROOT}&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerName ${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ServerAlias *.${SITE}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    &lt;Directory </span><span style="color:#a31515">&quot;${ROOT}&quot;</span><span style="color:#000000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        AllowOverride All</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Require all granted</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    &lt;/Directory&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLEngine on</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+</code></pre></div>
+
+<p>نقوم بحفظ جميع هذه الملفات، ثم نُشغّل خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> وملفات <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> و<bdi dir="ltr" class="odt-ltr-term">MySQL</bdi> و<bdi dir="ltr" class="odt-ltr-term">PostgreSQL.</bdi> يتم تكوين التطبيق باستخدام البادئة <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>و[/do] و[<bdi dir="ltr" class="odt-ltr-term">with</bdi>_csrftoken=<bdi dir="ltr" class="odt-ltr-term">False</bdi>]</strong> (لا يوجد رمز <bdi dir="ltr" class="odt-ltr-term">CSRF</bdi>) في <strong>[<bdi dir="ltr" class="odt-ltr-term">configs/parameters.py</bdi>]</strong>. نطلب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/do</bdi>]</strong>. رد الخادم هو كما يلي:</p>
+<p><img src="images/100000000000057D00000361B0EE302C.png" width="613" height="378" style="width:16.23cm;height:9.992cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000057D00000361B0EE302C.png" /></p>
+<p>نطلب الآن <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-pgres/do</bdi>]</strong>. والاستجابة هي كما يلي:</p>
+<p><img src="images/10000000000005590000033B0EA43231.png" width="597" height="361" style="width:15.79cm;height:9.539cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005590000033B0EA43231.png" /></p>
+<p>يعمل كلا التطبيقين بشكل طبيعي.</p>
+<p>الآن لنقوم بتعديل المعلمة <strong>[<bdi dir="ltr" class="odt-ltr-term">WSGIScriptAlias</bdi>]</strong> إلى <strong>[<bdi dir="ltr" class="odt-ltr-term">flask-impots-withmysql.conf</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># مجلد البرنامج النصي .wsgi</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">define ROOT </span><span style="color:#a31515">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL HTTP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:80&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / ستكون URL على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، سيكون شكل URL كالتالي: /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    WSGIScriptAlias </span><span style="background-color:#fff2cc;color:#000000">/impots</span><span style="color:#000000"> </span><span style="color:#a31515">&quot;${ROOT}/main_withmysql.wsgi&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># URL مؤمنة بواسطة HTTPS</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;VirtualHost *:443&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار / أما URL فستكون على الشكل /{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مع الاسم المستعار /impots، سيكون شكل URL كما يلي: /impots/{prefixe_url}/action/...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># حيث يتم تعريف [prefixe_url] في parameters.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    WSGIScriptAlias </span><span style="background-color:#fff2cc;color:#000000">/impots</span><span style="color:#000000"> </span><span style="color:#a31515">&quot;${ROOT}/main_withmysql.wsgi&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/VirtualHost&gt;</span></span>
+</code></pre></div>
+
+<ul>
+  <li>في السطرين 11 و20، أصبح الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSI</bdi> هو <b>[/<bdi dir="ltr" class="odt-ltr-term">impots</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>نقوم بإيقاف / إعادة تشغيل خادم <bdi dir="ltr" class="odt-ltr-term">Apache</bdi> ثم نطلب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots/do</bdi>]</strong>. رد الخادم هو كما يلي:</p>
+<p><img src="images/10000000000004710000011268577D28.png" width="497" height="120" style="width:13.152cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000011268577D28.png" /></p>
+<p>حدث عطل. يوضح لنا <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و <strong>[1]</strong> سبب ذلك. كان من المفترض أن يكون <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots/do/afficher-vue-authentification</bdi>]</strong>. الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> مفقود. هذا خطأ في تطبيقنا. فهو قادر على التعامل مع البادئة <bdi dir="ltr" class="odt-ltr-term">URL</bdi> (حيث يوجد /do بالفعل). قد يظن المرء أن إضافة البادئة <strong>[/<bdi dir="ltr" class="odt-ltr-term">impots/do</bdi>]</strong> إلى تطبيقنا ستحل المشكلة السابقة. لكن لا. فنواجه عندئذ أنواعًا أخرى من المشاكل. فالاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> لا يتصرف كبادئة لـ <bdi dir="ltr" class="odt-ltr-term">URL.</bdi></p>
+<p>دعونا نحاول فهم ما حدث. لقد طلبنا <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots/do</bdi>]</strong>. كنا نتوقع ظهور شاشة المصادقة. في <strong>[1]</strong>، أعلاه نرى أن التطبيق طلب عرضها ولكن ليس باستخدام <bdi dir="ltr" class="odt-ltr-term">URL</bdi> الصحيح. دعونا نفحص مسار الطلب <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots/do</bdi>]</strong>.</p>
+<p>أولاً، تم تنفيذ المسار التالي (<bdi dir="ltr" class="odt-ltr-term">configs/routes.py</bdi>):</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># مسارات تطبيق Flask</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># جذر التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    app.add_url_rule(</span><span style="background-color:#fff2cc;color:#0000ff">f</span><span style="background-color:#fff2cc;color:#a31515">&#x27;</span><span style="background-color:#fff2cc;color:#000000">{prefix_url}</span><span style="background-color:#fff2cc;color:#a31515">/</span><span style="color:#a31515">&#x27;</span><span style="color:#000000">, methods=</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.index)</span></span>
+</code></pre></div>
+
+<p>مسار السطر 3 في مثالنا هو <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots/do</bdi>]</strong>. نلاحظ أن المسار قد تم حذف الجزء <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql/impots</bdi>]</strong> منه ليصبح ببساطة <strong>[/do]</strong>. أما بالنسبة للجزء <strong>[<bdi dir="ltr" class="odt-ltr-term">https://flask-impots-withmysql</bdi>]،</strong> فهذا أمر طبيعي، حيث لا يتم تضمين اسم الخادم في المسار. لكننا نلاحظ أنه لا يتضمن أيضًا الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> <strong>[/<bdi dir="ltr" class="odt-ltr-term">impots</bdi>]</strong>. وهذه نقطة مهمة. فحتى مع وجود الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi>، تظل مساراتنا الأولية صالحة.</p>
+<p>الآن لنرى ما تفعله الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">index</bdi>]</strong> في السطر 4 (<bdi dir="ltr" class="odt-ltr-term">configs/routes</bdi>_without_csrftoken):</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># جذر التطبيق</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> index() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># إعادة التوجيه إلى /init-session/html</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> redirect(url_for(</span><span style="color:#a31515">&quot;init_session&quot;</span><span style="color:#000000">, type_response=</span><span style="color:#a31515">&quot;html&quot;</span><span style="color:#000000">), status.HTTP_302_FOUND)</span></span></span>
+</code></pre></div>
+
+<p>في السطر 4، يتم إعادة توجيهنا إلى <bdi dir="ltr" class="odt-ltr-term">URL</bdi> من الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">init</bdi>_session]</strong>. في <strong>[<bdi dir="ltr" class="odt-ltr-term">configs/routes.py</bdi>]</strong>، تم ربط هذه الدالة بالمسار <strong>[/<bdi dir="ltr" class="odt-ltr-term">do/init-session/html</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># init-session</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    app.add_url_rule(</span><span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span><span style="background-color:#fff2cc;color:#000000">{prefix_url}</span><span style="background-color:#fff2cc;color:#a31515">/init-session/&lt;string:type_response&gt;</span><span style="background-color:#fff2cc;color:#000000">{csrftoken_param}</span><span style="color:#a31515">&#x27;</span><span style="color:#000000">, methods=</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.init_session)</span></span>
+</code></pre></div>
+
+<p>السطر 2، في اختبارنا <strong>[<bdi dir="ltr" class="odt-ltr-term">csrftoken</bdi>_param]،</strong> هو سلسلة فارغة. لا يدعم التطبيق هنا الرمز <bdi dir="ltr" class="odt-ltr-term">CSRF.</bdi></p>
+<p>تم تعريف الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">init</bdi>_session]</strong> على النحو التالي (<bdi dir="ltr" class="odt-ltr-term">configs/routes</bdi>_without_csrftoken):</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># init-session</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> init_session(type_response: str) -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># يتم تنفيذ وحدة التحكم المرتبطة بالإجراء</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+</code></pre></div>
+
+<p>في السطر 4، تبدأ سلسلة معالجة الإجراء <strong>[<bdi dir="ltr" class="odt-ltr-term">init-session</bdi>]</strong>. تنتهي هذه السلسلة على النحو التالي في <strong>[<bdi dir="ltr" class="odt-ltr-term">responses/HtmlResponse</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># الآن يجب إنشاء رمز إعادة التوجيه URL دون نسيان الرمز المميز CSRF إذا طُلب</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">if</span><span style="color:#000000"> config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&#x27;with_csrftoken&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            csrf_token = </span><span style="color:#0000ff">f</span><span style="color:#a31515">&quot;/</span><span style="color:#000000">{generate_csrf()}</span><span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">else</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            csrf_token = </span><span style="color:#a31515">&quot;&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># استجابة إعادة التوجيه</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> redirect(</span><span style="background-color:#fff2cc;color:#0000ff">f</span><span style="background-color:#fff2cc;color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#000000">{config</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">[</span><span style="font-weight:bold;background-color:#fff2cc;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">][</span><span style="font-weight:bold;background-color:#fff2cc;color:#a31515">&#x27;prefix_url&#x27;</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">]</span><span style="background-color:#fff2cc;color:#000000">}{ads</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">[</span><span style="font-weight:bold;background-color:#fff2cc;color:#a31515">&#x27;to&#x27;</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">]</span><span style="background-color:#fff2cc;color:#000000">}{csrf_token}</span><span style="background-color:#fff2cc;color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#000000">)</span><span style="color:#000000">, status.HTTP_302_FOUND</span></span></span>
+</code></pre></div>
+
+<p>الإجراء <strong>[<bdi dir="ltr" class="odt-ltr-term">init-session</bdi>]</strong> هو إجراء <bdi dir="ltr" class="odt-ltr-term">ADS</bdi> (إجراء <bdi dir="ltr" class="odt-ltr-term">Do Something</bdi>) ينتهي بإعادة توجيه إلى عرض، السطر 9. وهنا تكمن المشكلة. لا تضيف الدالة <strong>[<bdi dir="ltr" class="odt-ltr-term">redirect</bdi>]</strong> في السطر 9 تلقائيًا الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI</bdi> إلى عملية إعادة التوجيه <bdi dir="ltr" class="odt-ltr-term">URL.</bdi> وهذا ما توضحه لقطة الشاشة أعلاه. حيث ينقص الاسم المستعار /<bdi dir="ltr" class="odt-ltr-term">impots</bdi> في كائن إعادة التوجيه <bdi dir="ltr" class="odt-ltr-term">URL.</bdi></p>
+<p>تقدم النسخة التالية حلاً لمشكلة الاسم المستعار <bdi dir="ltr" class="odt-ltr-term">WSGI.</bdi></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
